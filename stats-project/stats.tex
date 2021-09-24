@@ -14,7 +14,10 @@
 \usepackage{array}
 \usepackage{multirow}
 \usepackage{tabularx}
+\usepackage{tablefootnote}
  
+% Ensure images stay in their section
+\usepackage{placeins}
 
 % Easier text formatting
 \usepackage{indentfirst}
@@ -50,20 +53,15 @@
 % Mono font for function names
 \newcommand{\code}{\texttt}
 
-%\newcommand\abs[1]{\left \lvert #1  \right \rvert}
 \newcommand\numberthis{\addtocounter{equation}{1}\tag{\theequation}}
-\newcommand\func[3]{#1:#2 \to #3}
-\newcommand\stfunc[1]{\func{#1}{\mathbb{R}^n}{\mathbb{R}}}
-\newcommand\nstfunc[1]{\func{#1}{V}{F}}
-\newcommand\myxi[0]{\boldsymbol{\xi}}
-\newcommand\myeta[0]{\boldsymbol{\eta}}
 
-\DeclarePairedDelimiterX{\dotpr}[2]{\langle}{\rangle}{#1, #2}
+\newcolumntype{L}[1]{>{\raggedright\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
 
-
-
-%\newcommand{\choose}[3]{\genfrac{\left(}{\right)}{0pt}{#1}{#2}{#3}}
-
+\renewcommand{\footnoterule}{% Kerns avoid vertical space
+  \kern -3pt                         % This -3 is negative
+  \hrule width \textwidth height 1pt % of the sum of this 1
+  \kern 2pt}                         % and this 2
+  
 \title{Статистически анализ на данни от кръвта на атлети}
 \author{Калоян Стоилов}
 
@@ -151,18 +149,29 @@
 	aism=ais[ais$sex == 'm',]
 \end{minted}
 Така достигнахме до следната таблица с дескриптивни статистики:
+\clearpage
 
-\begin{tabular}{ |p{2.4cm}|p{2.4cm}|p{2.4cm}|p{2cm}|p{2.4cm}|p{2.4cm}|  }
+\begin{table}
+\centering
+\begin{tabular}{ |L{3cm}|L{2.4cm}|L{2.4cm}|L{2.4cm}|L{2.4cm}|L{2.4cm}|  }
  \hline 
- Извадка & Средна & Медиана & Мода & Дисперсия & Стандартно отклонение\\
+ Извадка & Средна & Медиана & Мода \tablefootnote{Зачитаме, че при повече от една най-често срещана стойност, и тя е мода.} & Дисперсия & Стандартно отклонение\\
  \hline \hline
  LBM-всички & 64.87371 & 63.035 & 78 & 170.8301 & 13.0702 \\
  \hline
+ Конц. бели кръвни телца-всички & 7.108911 & 6.85 & 6.4 & 3.241214 & 1.800337 \\
+ \hline
+ LBM-мъже & 74.656863 & 74.5 & 78 & 97.752378 & 9.886980 \\
+ \hline
+ Конц. бели кръвни телца-мъже & 7.221569 & 7.1 & 7.5 и 8.9 & 3.606857 & 1.899173 \\
+ \hline
+ LBM-жени & 54.8949 & 54.92 & 53.11, 53.2 и 56.05 & 47.916748 & 6.922192 \\
+ \hline
+ Конц. бели кръвни телца-жени & 6.994000 & 6.7 & 6.4 & 2.874509 & 1.695438 \\
+ \hline
 \end{tabular}
-
-
-
-\textit{заб.}: Зачитаме, че при повече от една най-често срещана стойност, и тя е мода.
+\caption{Таблица с дескриптивни статистики}
+\end{table}
 
 \section{Хистограми}
 Хистограмите са изпечатани с написана функция hister(картината долу), използваща вградените \texttt{hist} и axis. Причината е, че базово интервалите на x координатата зависят от предоставената информация. Така е и с краищата ѝ. Това обаче може да даде грешна представа за разположението на подмножествата от данните за двата пола(едно спрямо друго, както и спрямо данните от всички атлети). Поради желанието за еднакви краища и интервали навсякъде, за всяка от числовите променливи се решава какви да са те, в зависимост от минималните и максималните стойности при всички. 
@@ -180,28 +189,70 @@ hister<-function(info, mname, xname, yname, hcol, xl, yl, xm, ym, xint, yint, br
 }
 \end{minted}
 
+\clearpage
+
 \subsection{Хистограми на LBM}
 
+\begin{figure}[h!]
 \includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{pics/lbmall}
+\caption{Хистограма на маса без масната тъкан за всички атлети}
+\end{figure}
 
+\begin{figure}[h!]
 \includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{pics/lbmmen}
+\caption{Хистограма на маса без масната тъкан за мъжете атлети}
+\end{figure}
 
+\begin{figure}[h!]
 \includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{pics/lbmwomen}
+\caption{Хистограма на маса без масната тъкан за жените атлети}
+\end{figure}
 
+\FloatBarrier
+\subsection[Хистограми на концентрации на бели кръвни телца]{Хистограми на концентрации на бели кръвни телца\footnote{Поради възникнали проблеми с визуализацията на хоризонталната ос при разделители реални числа, тя е разграфирана през 1, а интервалите за хистограмата са с дължина 0.5.}}
+\FloatBarrier
 
-\subsection{Хистограми на концентрации на бели кръвни телца}
-
+\begin{figure}[h!]
 \includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{pics/wccall}
+\caption{Хистограма на концентрацията на бели кръвни телца за всички атлети}
+\end{figure}
 
+\begin{figure}[h!]
 \includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{pics/wccmen}
+\caption{Хистограма на концентрацията на бели кръвни телца за мъжете атлети}
+\end{figure}
 
+\begin{figure}[h!]
 \includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{pics/wccwomen}
+\caption{Хистограма на концентрацията на бели кръвни телца за жените атлети}
+\end{figure}
 
 \section{Изследване на разпределенията}
 
 \subsection{Нормална разпределеност}
 Тук изследваме дали извадките са нормално разпределени, чрез тестът на Shapiro-Wilcoxon(с $\alpha=0.05$). Използвана е вградената функция shapiro.test. Резултатите са представени в следната таблица:
 
+\begin{table}[h!]
+\centering
+\begin{tabular}{|l|l|l|}
+ \hline 
+ Извадка & p & Нормално разпределена\\
+ \hline \hline
+ LBM-всички & 0.1286 & Не \\
+ \hline
+ Конц. бели кръвни телца-всички & 0.00002591 & Не \\
+ \hline
+ LBM-мъже & 0.2175 & Да \\
+ \hline
+ Конц. бели кръвни телца-мъже & 0.01237 & Не \\
+ \hline
+ LBM-жени & 0.468 & Да \\
+ \hline
+ Конц. бели кръвни телца-жени & 0.001129 & Не \\
+ \hline
+\end{tabular}
+\caption{Таблица с корелационни коефициенти}
+\end{table}
 
 \subsection{Сравнение на LBM при двата пола атлети}
 
@@ -233,6 +284,22 @@ hister<-function(info, mname, xname, yname, hcol, xl, yl, xm, ym, xint, yint, br
 Използваме вградената функция cor, за да получим корелацията 
 между LBM и концентрацията на белите кръвни телца при всички атлекти, както и само при мъжете и само при жените. Резултатите са представени в следната таблица:
 
+\begin{table}[h!]
+\centering
+\begin{tabular}{|l|l|l|}
+ \hline 
+ Извадка & Корелационен коефициент & Интерпретация\\
+ \hline \hline
+ Всички & 0.1026625 & Много слаба положителна корелация \\
+ \hline
+ Мъже & 0.1067 & Много слаба положителна корелация \\
+ \hline
+ Жени & 0.04830104 & Няма корелация \\
+ \hline
+\end{tabular}
+\caption{Таблица с корелационни коефициенти}
+\end{table}
+
 \subsection{Диаграми на разсейване и регресия}
 За да представим зависимостта, ще използваме написана от нас функция scatterer, показана по-долу, като функциите, използвани в дефиницията ѝ са само вградени. Тя рисува диаграма на разсейването с plot. След това намира линейна регресия чрез lm. Ако регресията е статистически значима, чертае графиката ѝ, а иначе изпечатва противното в конзолата.
 
@@ -257,13 +324,28 @@ scatterer<-function(info1, info2, mname, xname, yname, scol,
 }
 \end{minted}
 
+\begin{figure}[!h!]
+\includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{pics/scatterall}
+\caption{Диаграма на разсейването за всички атлети}
+\end{figure}
+
+\begin{figure}[!h!]
+\includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{pics/scattermen}
+\caption{Диаграма на разсейването за мъжете атлети}
+\end{figure}
+
+\clearpage
+\begin{figure}[!h!]
+\includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{pics/scatterwomen2}
+\caption{Диаграма на разсейването за жените атлети}
+\end{figure}
 
 Диаграмите показват, че \uline{между LBM и концентрацията на бели кръвни телца няма статистически значима линейна зависимост} (при ниво на значимост $\alpha=0.05$). \par
 Съдейки по формата на диаграмите на разсейване, по-скоро няма функционална зависимост от какъвто и да било тип.
 
 \section{Заключение}
 Следните заключения правим при  разумното предположение, че няма някаква голяма разлика във физическото устройство между австралийските атлети и атлетите от другите страни. \par
-На база на представените данни може да твърдим, че:
+На база на представените данни може да твърдим \footnote{Хистограми на концентрации на бели кръвни телца}, че:
 \begin{enumerate}
 \item LBM при мъжете и жените атлети отделно е норманло разпределен, но не е, ако ги разглеждаме заедно, като средностатистически атлет от мъжки пол има по-голям LBM.
 \item Концентрацията на белите кръвни телца не е нормално разпределена при атлетите, дори и разглеждайки половете поотделно. Няма разлика в концентрацията на белите кръвни телца между двата пола.

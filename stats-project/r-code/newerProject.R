@@ -1,9 +1,4 @@
-Wong <- read_csv("C:/Users/kaloa/Downloads/Wong.csv", col_types = cols(X1 = col_skip()))
-View(Wong)
-Wong
-for (pp in Wong) {
-  pp
-}
+library("xtable")
 
 as_matrix <- function(x){
   if(!tibble::is_tibble(x) ) stop("x must be a tibble")
@@ -11,11 +6,6 @@ as_matrix <- function(x){
   rownames(y) <- x[[1]]
   y
 }
-
-z=as_matrix(Wong)
-z
-
-Wong[Wong$id %in% Wong$id[duplicated(Wong$id)],]
 
 modeFunction <- function(x) {
   tt <- table(x)
@@ -36,21 +26,20 @@ for(k in ais[3])
   if(k=='f') temp=temp+1;
 }
 
-elements <- read.csv("C:/Users/kaloa/Downloads/ais.csv")
+ais <- read.csv("C:/Users/kaloa/Downloads/ais.csv")
 
-getInfo<-function(x){
+printInfo<-function(x){
   print(mean(x))
   print(median(x))
-  print(modeFunction(x))
+  #print(modeFunction(x))
   print(var(x))
   print(sd(x))
 }
 
-mean(ais$wcc)
-modeFunction(ais$wcc)
-median(ais$wcc)
-sd(ais$wcc)
-var(ais$wcc)
+getInfo<-function(x){
+  c(mean(x), median(x), modeFunction(x), var(x), sd(x))
+  #c(mean(x), median(x), var(x), sd(x))
+}
 
 
 csex2 <- function(x,y) {
@@ -64,6 +53,25 @@ csex2 <- function(x,y) {
 
 aisf=ais[ais$sex=='f',]
 aism=ais[ais$sex=='m',]
+
+
+fullInfo<-function()
+{
+  lbmAInfo <- getInfo(ais$lbm)
+  wccAInfo <- getInfo(ais$wcc)
+  lbmMInfo <- getInfo(aism$lbm)
+  wccMInfo <- getInfo(aism$wcc)
+  lbmFInfo <- getInfo(aisf$lbm)
+  wccFInfo <- getInfo(aisf$wcc)
+  info <- matrix(nrow=6, ncol=4)
+  info[1,] <- lbmAInfo
+  info[2,] <- wccAInfo
+  info[3,] <- lbmMInfo
+  info[4,] <- wccMInfo
+  info[5,] <- lbmFInfo
+  info[6,] <- wccFInfo
+  print(xtable(info),file = "introInfo.tex")
+}
 
 
 seq(min(values), max(values))
