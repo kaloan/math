@@ -26,7 +26,7 @@ for(k in ais[3])
   if(k=='f') temp=temp+1;
 }
 
-ais <- read.csv("C:/Users/kaloa/Downloads/ais.csv")
+ais <- read.csv("./ais.csv")
 
 printInfo<-function(x){
   print(mean(x))
