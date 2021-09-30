@@ -1,10 +1,10 @@
 % Document meta
-\documentclass[12pt]{article}
+\documentclass[12pt]{article} %extarticle for more font sizes
 \usepackage[a4paper, includeheadfoot, margin = 1.5cm]{geometry}
 \usepackage[unicode=true, colorlinks=true, linkcolor=black, urlcolor=black]{hyperref}
 
 % Bulgarian
-\usepackage[T1, T2A]{fontenc}
+\usepackage[T1, OT2, T2A]{fontenc}
 \usepackage[utf8]{inputenc}
 \usepackage[bulgarian]{babel}
 
@@ -15,7 +15,9 @@
 \usepackage{multirow}
 \usepackage{tabularx}
 \usepackage{tablefootnote}
- 
+\usepackage{booktabs}
+\usepackage[table]{xcolor}
+
 % Ensure images stay in their section
 \usepackage{placeins}
 
@@ -104,6 +106,7 @@
 \end{titlepage}
 
 \begin{large}
+
 \tableofcontents{}
 
 
@@ -153,20 +156,26 @@
 
 \begin{table}
 \centering
-\begin{tabular}{ |L{3cm}|L{2.4cm}|L{2.4cm}|L{2.4cm}|L{2.4cm}|L{2.4cm}|  }
+\begin{tabular}{|L{3cm}|L{2.4cm}|L{2.4cm}|L{2.4cm}|L{2.4cm}|L{2.4cm}|}
  \hline 
  Извадка & Средна & Медиана & Мода \tablefootnote{Зачитаме, че при повече от една най-често срещана стойност, и тя е мода.} & Дисперсия & Стандартно отклонение\\
- \hline \hline
+ \noalign{\hrule height 1.5pt}
+ \rowcolor{green}
  LBM-всички & 64.87371 & 63.035 & 78 & 170.8301 & 13.0702 \\
  \hline
+ \rowcolor{green}
  Конц. бели кръвни телца-всички & 7.108911 & 6.85 & 6.4 & 3.241214 & 1.800337 \\
  \hline
+ \rowcolor{blue}
  LBM-мъже & 74.656863 & 74.5 & 78 & 97.752378 & 9.886980 \\
  \hline
+ \rowcolor{blue}
  Конц. бели кръвни телца-мъже & 7.221569 & 7.1 & 7.5 и 8.9 & 3.606857 & 1.899173 \\
  \hline
+ \rowcolor{pink}
  LBM-жени & 54.8949 & 54.92 & 53.11, 53.2 и 56.05 & 47.916748 & 6.922192 \\
  \hline
+ \rowcolor{pink}
  Конц. бели кръвни телца-жени & 6.994000 & 6.7 & 6.4 & 2.874509 & 1.695438 \\
  \hline
 \end{tabular}
@@ -237,17 +246,23 @@ hister<-function(info, mname, xname, yname, hcol, xl, yl, xm, ym, xint, yint, br
 \begin{tabular}{|l|l|l|}
  \hline 
  Извадка & p & Нормално разпределена\\
- \hline \hline
+ \noalign{\hrule height 1.5pt}
+ \rowcolor{green}
  LBM-всички & 0.1286 & Не \\
  \hline
+ \rowcolor{green}
  Конц. бели кръвни телца-всички & 0.00002591 & Не \\
  \hline
+ \rowcolor{blue}
  LBM-мъже & 0.2175 & Да \\
  \hline
+ \rowcolor{blue}
  Конц. бели кръвни телца-мъже & 0.01237 & Не \\
  \hline
+ \rowcolor{pink}
  LBM-жени & 0.468 & Да \\
  \hline
+ \rowcolor{pink}
  Конц. бели кръвни телца-жени & 0.001129 & Не \\
  \hline
 \end{tabular}
@@ -289,11 +304,14 @@ hister<-function(info, mname, xname, yname, hcol, xl, yl, xm, ym, xint, yint, br
 \begin{tabular}{|l|l|l|}
  \hline 
  Извадка & Корелационен коефициент & Интерпретация\\
- \hline \hline
+ \noalign{\hrule height 1.5pt}
+ \rowcolor{green}
  Всички & 0.1026625 & Много слаба положителна корелация \\
  \hline
+ \rowcolor{blue}
  Мъже & 0.1067 & Много слаба положителна корелация \\
  \hline
+ \rowcolor{pink}
  Жени & 0.04830104 & Няма корелация \\
  \hline
 \end{tabular}
@@ -357,6 +375,5 @@ scatterer<-function(info1, info2, mname, xname, yname, scol,
 
 \addcontentsline{toc}{section}{\listtablename}
 \listoftables
-
 \end{large}
 \end{document}
