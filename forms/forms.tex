@@ -1,0 +1,772 @@
+\documentclass[12pt]{article}
+\usepackage[a4paper, includeheadfoot, margin = 1.5cm]{geometry}
+\usepackage[unicode=true, colorlinks=true, linkcolor=black, urlcolor=black]{hyperref}
+\usepackage[T2A]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[bulgarian]{babel}
+\usepackage{csquotes}
+\usepackage{indentfirst}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{mathtools}
+\usepackage{comment}
+\usepackage{mathptmx}
+\usepackage{tikz}
+\usepackage{bm}
+\usepackage{enumitem}
+\usepackage{amsthm}
+\usepackage{physics}
+\usepackage{derivative}
+\usepackage{amsmath,amssymb}
+
+%\fontsize{16pt}{20pt}\selectfont
+\renewcommand{\sfdefault}{cmss}
+\renewcommand{\rmdefault}{cmr}
+\renewcommand{\ttdefault}{cmt}
+
+\renewcommand{\thesection}{\Roman{section}} 
+%\renewcommand{\thesubsection}{\thesection.\Roman{subsection}}
+
+\newtheorem{definition}{Дефиниция}[section]
+\newtheorem{problem}{Задача}
+\newtheorem{theorem}{Теорема}
+\newtheorem*{theorem*}{Теорема}
+\newtheorem{lemma}{Лема}
+\newtheorem*{solution*}{Решение}
+
+%\newcommand\abs[1]{\left \lvert #1  \right \rvert}
+\newcommand\numberthis{\addtocounter{equation}{1}\tag{\theequation}}
+\newcommand\func[3]{#1:#2 \to #3}
+\newcommand\stfunc[1]{\func{#1}{\mathbb{R}^n}{\mathbb{R}}}
+\newcommand\nstfunc[1]{\func{#1}{V}{F}}
+\newcommand\myxi[0]{\boldsymbol{\xi}}
+\newcommand\myeta[0]{\boldsymbol{\eta}}
+
+\DeclarePairedDelimiterX{\dotpr}[2]{\langle}{\rangle}{#1, #2}
+
+
+
+%\newcommand{\choose}[3]{\genfrac{\left(}{\right)}{0pt}{#1}{#2}{#3}}
+
+\title{Външни и диференциални форми в $\mathbb{R}^n$}
+
+\author{Калоян Стоилов}
+
+\begin{document}
+
+\maketitle
+\begin{large}
+\tableofcontents{}
+
+
+\section{Външни форми}
+\begin{definition}[$k$-форма] Нека $F$ е поле, с $char F \neq 2$, а $V$ е векторно пространство с размерност $n$(не задължително над $F$). Външна $k$-форма (или просто $k$-форма) $\omega^k$ е изображение $\func{\omega^k}{V}{F}$, със следните свойства:
+\begin{enumerate}
+\item Полилинейност: \\ 
+$\omega^k(\myxi_1,\cdots,\lambda\myxi_i+\mu\myeta_i,\cdots,\myxi_k)=\lambda\omega^k(\myxi_1,\cdots,\myxi_i,\cdots,\myxi_k)+\mu\omega^k(\myxi_1,\cdots,\myeta_i,\cdots,\myxi_k)$ \\
+$\lambda,\mu \in F, i=\overline{1,k}$
+\item Антикомутативност: \\
+$\omega^k(\myxi_{\pi(1)},\cdots,\myxi_{\pi(k)})=sgn(\pi)\omega^k(\myxi_1,\cdots,\myxi_k)$,където $\pi$ е някаква пермутация.
+\end{enumerate}
+\end{definition}
+
+$k$-формите също са наричани (външни) форми от степен $k$.
+
+%Ще разглеждаме само форми с $F=\mathbb{R}, \enspace V=\mathbb{R}^n$. 
+
+\subsection{1-форми}
+
+Това са линейните функции от вида $\nstfunc{\omega}$.
+Тези фунцкии образуват векторно пространство, ако въведем следните операции между тях:
+
+\begin{align*}
+&(\omega_1+\omega_2)(\myxi)=\omega_1(\myxi)+\omega_2(\myxi) \\
+&(\lambda\omega_1)(\myxi)=\lambda\omega_1(\myxi) \\
+\end{align*}
+
+Очевидно $\omega_1+\omega_2$ и $\lambda\omega_1$ също са линейни и са със същите дефиниционна област и кодомейн. В общият случай за $k$-форми ще докажем, че се получават форми по по-горната дефиниция. Останалите свойства за векторни пространства директно следват от тези на кодомейна, който е поле.\\
+
+Това векторно пространство се нарича спрегнато (дуално) пространство на $V$ и се бележи с $V^{*}$. $1$-формите понякога се наричат ковектори. 
+
+Нека с $x_i(\myxi)$ отбележим проекцията на $\myxi$ върху $i$-тия базисен вектор. Така виждаме, че  самите $x_i$ са линейно независими 1-форми (а ако имаме евклидова структура даже $x_i (\mathbf{x}_j) = \delta_{ij}$). Те образуват базис за $V^{*}$, тъй като всяка линейна фунцкия $\nstfunc{\omega}$ се представя в следния вид: 
+\begin{equation*}
+\omega(\myxi) = \sum_{i=1}^{n} a_{i} \xi_{i} = \sum_{i=1}^{n} a_{i} x_{i} (\myxi), \quad \myxi=(\xi_1,\cdots,\xi_n)^{T}
+\end{equation*}
+Този базис се нарича спрегнат (дуален) и често се бележи с $\mathbf{x}^i$. Оказва се, че ако $A=(\mathbf{x}_1,\cdots,\mathbf{x}_n)$, а $B=(\mathbf{x}^1,\cdots,\mathbf{x}^n)$, то $А^T B = E_n$.
+
+Така виждаме, че 1-формите над $\mathbb{R}^n$ могат да се представят чрез скаларно произведение: $\omega_{\mathbf{a}}(\myxi)=\dotpr{\mathbf{a}}{\myxi}, \quad \mathbf{a} \in \mathbb{R}^n$ 
+
+
+\subsection{2-форми}
+Аналогично може да дефинираме операции върху 2-формите:
+\begin{align*}
+&(\omega_1+\omega_2)(\myxi_1,\myxi_2)=\omega_1(\myxi_1,\myxi_2)+\omega_2(\myxi_1,\myxi_2) \\
+&(\lambda\omega_1)(\myxi_1,\myxi_2)=\lambda\omega_1(\myxi_1,\myxi_2) \\
+\end{align*}
+
+След аналогични разсъждения, отново получаваме, че те образуват векторно пространство.
+
+\subsection{k-форми}
+ Ще покажем, че наистина щом $\omega_1, \omega_2$ са $k$-форми, то $(\omega_1+\omega_2)$ и $(\lambda\omega_1)$ също са $k$-форми:
+\begin{align*}
+&(\omega_1+\omega_2)(\myxi_1,\cdots,\lambda\myxi_i+\mu\myeta_i,\cdots,\myxi_k) \\
+=&\omega_1(\myxi_1,\cdots,\lambda\myxi_i+\mu\myeta_i,\cdots,\myxi_k)+\omega_2(\myxi_1,\cdots,\lambda\myxi_i+\mu\myeta_i,\cdots,\myxi_k) \\
+=&\lambda\omega_1(\myxi_1,\cdots,\myxi_i,\cdots,\myxi_k)+\mu\omega_1(\myxi_1,\cdots,\myeta_i,\cdots,\myxi_k)\\
+&+\lambda\omega_2(\myxi_1,\cdots,\myxi_i,\cdots,\myxi_k)+\mu\omega_2(\myxi_1,\cdots,\myeta_i,\cdots,\myxi_k) \\
+=&\lambda(\omega_1(\myxi_1,\cdots,\myxi_i,\cdots,\myxi_k)\omega_2(\myxi_1,\cdots,\myxi_i,\cdots,\myxi_k))\\
+&+\mu(\omega_1(\myxi_1,\cdots,\myeta_i,\cdots,\myxi_k)+\omega_2(\myxi_1,\cdots,\myeta_i,\cdots,\myxi_k)) \\
+=&\lambda (\omega_1+\omega_2)(\myxi_1,\cdots,\myxi_i,\cdots,\myxi_k) + \mu (\omega_1+\omega_2)(\myxi_1,\cdots,\myeta_i,\cdots,\myxi_k) \\
+&(\omega_1+\omega_2)(\myxi_{\pi(1)},\cdots,\myxi_{\pi(k)})=\omega_1(\myxi_{\pi(1)},\cdots,\myxi_{\pi(k)})+\omega_2(\myxi_{\pi(1)},\cdots,\myxi_{\pi(k)}) \\
+=&sgn(\pi)\omega_1(\myxi_1,\cdots,\myxi_i,\cdots,\myxi_k)+sgn(\pi)\omega_2(\myxi_1,\cdots,\myxi_i,\cdots,\myxi_k) \\
+=&sgn(\pi)(\omega_1(\myxi_1,\cdots,\myxi_i,\cdots,\myxi_k)+\omega_2(\myxi_1,\cdots,\myxi_i,\cdots,\myxi_k))\\
+=&sgn(\pi)(\omega_1+\omega_2)(\myxi_1,\cdots,\myxi_i,\cdots,\myxi_k) \\
+&(\lambda\omega_1)(\myxi_1,\cdots,\theta\myxi_i+\mu\myeta_i,\cdots,\myxi_k)=\lambda\omega_1(\myxi_1,\cdots,\theta\myxi_i+\mu\myeta_i,\cdots,\myxi_k) \\
+=&\lambda(\theta\omega_1(\myxi_1,\cdots,\myxi_i,\cdots,\myxi_k)+\mu\omega_1(\myxi_1,\cdots,\myeta_i,\cdots,\myxi_k)) \\
+=&\theta(\lambda\omega_1(\myxi_1,\cdots,\myxi_i,\cdots,\myxi_k))+\mu(\lambda\omega_1(\myxi_1,\cdots,\myeta_i,\cdots,\myxi_k)) \\
+=&\theta(\lambda\omega_1)(\myxi_1,\cdots,\myxi_i,\cdots,\myxi_k)+\mu(\lambda\omega_1)(\myxi_1,\cdots,\myeta_i,\cdots,\myxi_k) \\
+&(\lambda\omega_1)(\myxi_{\pi(1)},\cdots,\myxi_{\pi(k)})=\lambda\omega_1(\myxi_{\pi(1)},\cdots,\myxi_{\pi(k)}) \\
+=&sgn(\pi)(\lambda\omega_1 (\myxi_1,\cdots,\myxi_i,\cdots,\myxi_k))=sgn(\pi)(\lambda\omega_1)(\myxi_1,\cdots,\myxi_i,\cdots,\myxi_k) \\
+\end{align*}
+
+Сега вече сме сигурни, че $k$-формите образуват векторно пространство. Тъй като
+\begin{align*}
+&\omega^k(\myxi_1,\cdots,\myxi_i,\cdots,\myxi_i,\cdots\myxi_k)=-\omega^k(\myxi_1,\cdots,\myxi_i,\cdots,\myxi_i,\cdots\myxi_k), \quad i \neq j \\
+&2\omega^k(\myxi_1,\cdots,\myxi_i,\cdots,\myxi_i,\cdots\myxi_k)=0 \\
+\end{align*}
+
+\begin{comment}
+тo в зависимост от $F$ има два случая:
+\begin{enumerate}
+\item $F$ е крайно, то  $\omega^k(\myxi_1,\cdots,\myxi_i,\cdots,\myxi_i,\cdots\myxi_k) \in \left\{a\in F \lvert a+a=0 \right\}$
+\item $F$ е безкрайно, то  $\omega^k(\myxi_1,\cdots,\myxi_i,\cdots,\myxi_i,\cdots\myxi_k) \in \left\{a\in F \lvert a+a=0 \right\}$
+\end{enumerate}
+\end{comment}
+Тъй като  при полета няма делители на нулата в мултипликативната група, то:
+\begin{align*}
+&(1+1)\omega^k(\myxi_1,\cdots,\myxi_i,\cdots,\myxi_i,\cdots\myxi_k)=0 \\
+&\Longleftrightarrow (1+1=0) \lor (\omega^k(\myxi_1,\cdots,\myxi_i,\cdots,\myxi_i,\cdots\myxi_k)=0)
+\end{align*}
+Но по дефиниця полето $F$ е такова, че $char F \neq 2$, т.е. $1+1 \neq 0$. Но тогава:
+\[\omega^k(\myxi_1,\cdots,\myxi_i,\cdots,\myxi_i,\cdots\myxi_k)=0
+\]
+
+\subsection{Външно умножение}
+Въвеждаме операцията външно множение $\wedge$ над $1$-формите по следният начин:
+\[
+(\omega_1 \wedge \cdots \wedge \omega_k)(\myxi_1,\cdots,\myxi_k)=
+\begin{vmatrix}
+&\omega_1(\myxi_1) &\cdots &\omega_1(\myxi_k) \\
+&\vdots &\ddots &\vdots \\
+&\omega_k(\myxi_1) &\cdots &\omega_k(\myxi_k) 
+\end{vmatrix} 
+\]
+От $\det A = \det A^T$, то виждаме и друга еквивалентна дефиниция. Наистина получаваме $k$-форма:
+\begin{align*}
+&(\omega_1 \wedge \cdots \wedge \omega_k)(\myxi_1,\cdots,\lambda\myxi_i+\mu\myeta_i,\cdots,\myxi_k)=
+\begin{vmatrix}
+&\omega_1(\myxi_1) &\cdots &\omega_1(\lambda\myxi_i+\mu\myeta_i) &\cdots &\omega_1(\myxi_k) \\
+&\vdots &\ &\vdots &\ &\vdots \\
+&\omega_k(\myxi_1) &\cdots &\omega_k(\lambda\myxi_i+\mu\myeta_i) &\cdots &\omega_k(\myxi_k) 
+\end{vmatrix} \\
+&=\begin{vmatrix}
+&\omega_1(\myxi_1) &\cdots &\lambda\omega_1(\myxi_i)+\mu\omega_1(\myeta_i) &\cdots &\omega_1(\myxi_k) \\
+&\vdots &\ &\vdots &\ &\vdots \\
+&\omega_k(\myxi_1) &\cdots &\lambda\omega_k(\myxi_i)+\mu\omega_k(\myeta_i) &\cdots &\omega_k(\myxi_k) 
+\end{vmatrix} \text{(линейност на $1$-форми)} \\
+&=\lambda\begin{vmatrix}
+&\omega_1(\myxi_1) &\cdots &\omega_1(\myxi_i) &\cdots &\omega_1(\myxi_k) \\
+&\vdots &\ &\vdots &\ &\vdots \\
+&\omega_k(\myxi_1) &\cdots &\omega_k(\myxi_i) &\cdots &\omega_k(\myxi_k) 
+\end{vmatrix}+\mu
+\begin{vmatrix}
+&\omega_1(\myxi_1) &\cdots &\omega_1(\myeta_i) &\cdots &\omega_1(\myxi_k) \\
+&\vdots &\ &\vdots &\ &\vdots \\
+&\omega_k(\myxi_1) &\cdots &\omega_k(\myeta_i) &\cdots &\omega_k(\myxi_k) 
+\end{vmatrix} \underset{\text{на дет.)}}{\text{(свойства}} \\
+&=\lambda(\omega_1 \wedge \cdots \wedge \omega_k)(\myxi_1,\cdots,\myxi_i,\cdots,\myxi_k)+\mu(\omega_1 \wedge \cdots \wedge \omega_k)(\myxi_1,\cdots,\myeta\myeta_i,\cdots,\myxi_k) \\
+&(\omega_1 \wedge \cdots \wedge \omega_k)(\myxi_{\pi(1)},\cdots,\myxi_{\pi(k)})=sgn(\pi)(\omega_1 \wedge \cdots \wedge \omega_k)(\myxi_1,\cdots,\myxi_k) \text{(директно от св. на дет.)}
+\end{align*}
+
+$k$-формите, които се представят по този начин, т.е. $\omega^k=\omega^1_1 \wedge \cdots \wedge \omega^1_k$ се наричат разложими.
+
+Очевидно $(\omega_1 \wedge \cdots \wedge \omega_i \wedge \cdots \wedge \omega_i \wedge \cdots \wedge \omega_k)(\myxi_1,\cdots,\myxi_k)=0, \quad i \neq j$. 
+Нека $\mathbf{x}_1,\cdots ,\mathbf{x}_n$ е базис в $\mathbb{R}^n$. Той определя $n$ на брой $1$-форми. От тях може да изберем $n \choose k$ различни и линейно независими разложими $k$-форми, като приемем, че избираме от базисните $1$-форми с растящ индекс (иначе или бихме получили тъждествена на $0$ форма, или че формата е $-1.$някоя от тези).
+От друга страна, поради линейността на формите те се определят от действието си над всяка последователност от базисните вектори. Но тъй като са антикомутативни, то еднозначно се определят от действието над $(\mathbf{x}_{i_1}, \cdots, \mathbf{x}_{i_k})$, където $i_1<\cdots<i_k$. Но за всяка такава последователност има форма $x_{i_1} \wedge \cdots \wedge x_{i_k}$. Веднага от дефиницята следва, че:
+\begin{comment} b_{i_1,\cdots,i_k} \quad (\textbf{при евклидова структура $b_{i_1,\cdots,i_k}=1$}) 
+\end{comment}
+\begin{align*}
+&x_{i_1} \wedge \cdots \wedge x_{i_k}(\mathbf{x}_{i_1}, \cdots, \mathbf{x}_{i_k}) = 1  \\
+&x_{i_1} \wedge \cdots \wedge x_{i_k}(\mathbf{x}_{j_1}, \cdots, \mathbf{x}_{j_k}) = 0, \quad (i_1,\cdots,i_k)\neq(j_1,\cdots,j_k)
+\end{align*}
+Но така всяка $k$-форма е представима по начина:
+\[
+\omega^k = \sum_{i_1,\cdots,i_k} a_{i_1,\cdots,i_k} x_{i_1} \wedge \cdots \wedge x_{i_k}
+\]
+
+В $R^n$ има единствена $n$-форма в базиса - $\mu_n = x_1 \wedge \cdots \wedge x_n$, която се нарича форма на обема, която отговаря на ориентираният обем, заключен между векторите, върху които е приложена. \\ 
+
+Сега дефинираме операцията $\wedge$ над разложимите форми. Нека $\omega^k=\omega_1 \wedge \cdots \wedge \omega_k$, a $\omega^l=\omega_{k+l} \wedge \cdots \wedge \omega_{k+l}$. Тогава $\omega^k \wedge \omega^l = \omega_1 \wedge \cdots \wedge \omega_k \wedge \omega_{k+1} \wedge \cdots \wedge \omega_{k+l}$. В сила е, че:
+\begin{align*}
+&(\omega^k \wedge \omega^l) \wedge \omega^m = (\omega_1 \wedge \cdots \wedge \omega_k \wedge \omega_{k+1} \wedge \cdots \wedge \omega_{k+l}) \wedge \omega^m \\ 
+&=\omega_1 \wedge \cdots \wedge \omega_k \wedge \omega_{k+1} \wedge \cdots \wedge \omega_{k+l} \wedge \omega_{k+l+1} \wedge \cdots \wedge \omega_{k+l+m} \\
+&= \omega^k \wedge (\omega_{k+1} \wedge \cdots \wedge \omega_{k+l} \wedge \omega_{k+l+1} \wedge \cdots \wedge \omega_{k+l+m}) \\
+&=\omega^k \wedge (\omega^l \wedge \omega^m) \\[20pt]
+&\omega^k \wedge \omega^l=\omega_1 \wedge \cdots \wedge \omega_k \wedge \omega_{k+1} \wedge \cdots \wedge \omega_{k+l} \\
+&=(-1)^{kl}\omega_{k+1} \wedge \cdots \wedge \omega_{k+l} \wedge \omega_1 \wedge \cdots \wedge \omega_k = (-1)^{kl} \omega^l \wedge \omega^k \\
+&\text{тъй като има инверсии между всяко от $1,\cdots,k$ и всяко от $k+1,\cdots,k+l$}
+\end{align*}
+
+Може да се въведе и операцията $\wedge$ върху произволни форми по следния начин: 
+\[
+(\omega^k \wedge \omega^l)(\myxi_1,\cdots,\myxi_{k+l})=\mathop{\sum_{i_1<\cdots<i_k}}_{j_1<\cdots<j_l}sgn(i_1,\cdots,i_k,j_1, \cdots,j_l) \omega^k(\myxi_{i_1},\cdots,\myxi_{i_k})\omega^l(\myxi_{j_1},\cdots,\myxi_{j_l})
+\]
+
+Резултатът е $k+l$-форма:\\
+Нека $\myxi_q=\lambda\myeta_q^1+\mu\myeta_q^2$. В зависимост от пермутацията, то $\myxi_q$ се намира или сред аргументите на $\omega^k$ или сред тези на $\omega^l$. Ще покажем, ако е сред тези на $\omega^k$(другият случай е аналогичен). Тогава събираемите са от вида:
+\begin{align*}
+&\omega^k(\myxi_{i_1},\cdots,\lambda\myeta_q^1+\mu\myeta_q^2 ,\cdots,\myxi_{i_k})\omega^l(\myxi_{j_1},\cdots,\myxi_{j_l}) \\
+&=(\lambda\omega^k(\myxi_{i_1},\cdots,\myeta_q^1,\cdots,\myxi_{i_k}) + \mu\omega^k(\myxi_{i_1},\cdots,\myeta_q^2,\cdots,\myxi_{i_k}))\omega^l(\myxi_{j_1},\cdots,\myxi_{j_l}) \\
+&=\underbrace{\lambda\omega^k(\myxi_{i_1},\cdots,\myeta_q^1,\cdots,\myxi_{i_k})\omega^l(\myxi_{j_1},\cdots,\myxi_{j_l})
+}_{\text{присъства в сумата на $\lambda(\omega^k \wedge \omega^l)$}}+
+\underbrace{\mu\omega^k(\myxi_{i_1},\cdots,\myeta_q^2,\cdots,\myxi_{i_k})\omega^l(\myxi_{j_1},\cdots,\myxi_{j_l})
+}_{\text{присъства в сумата на $\mu(\omega^k \wedge \omega^l)$}}
+\end{align*}
+За по-кратко сме пропуснали общия множител от четността на пермутацията. Тъй като аналогичното е в сила и при $\omega^l$, а във всеки от членовете на сумите $q$ присъства в една от двете форми, то след разпределение на общият множител по сумите, прегрупиране и изнасяне на $\lambda$ и $\mu$ пред крайните суми, получаваме:
+\begin{align*}
+&(\omega^k \wedge \omega^l)(\myxi_1,\cdots,\lambda\myeta_q^1+\mu\myeta_q^2,\cdots,\myxi_{k+l})=\\
+&\lambda(\omega^k \wedge \omega^l)(\myxi_1,\cdots,\myeta_q^1,\cdots,\myxi_{k+l})+ \mu(\omega^k \wedge \omega^l)(\myxi_1,\cdots,\myeta_q^2,\cdots,\myxi_{k+l})
+\end{align*}
+Остава да приверим антикомутативността:
+\begin{align*}
+&(\omega^k \wedge \omega^l)(\myxi_{\pi(1)},\cdots,\myxi_{\pi(k+l)})= sgn(\pi)(\omega^k \wedge \omega^l)(\myxi_1,\cdots,\myxi_{k+l}) \\
+\end{align*}
+Тя следва от факта, че в събираемите ще композираме тази фиксирана пермутация $\pi$ и съответната за събираемото, да кажем $\sigma$. Използваме, че $sgn(\sigma \circ \pi)=sgn(\sigma)sgn(\pi)$.
+\begin{enumerate}[label=\alph*)]
+\item $sgn(\pi)=1$: Тогава $sgn(\sigma \circ \pi)=sgn(\sigma)$ и получаваме същите събираеми.
+\item $sgn(\pi)=-1$: Тогава $sgn(\sigma \circ \pi)=-sgn(\sigma)$ и получаваме събираемите, но с обратен знак.
+\end{enumerate}
+И в двата случая може да изкараме общия знак пред сумата, но той съвпада с $sgn(\pi)$.
+
+Свойства на $\wedge$:
+\begin{enumerate}
+\item Дистрибутивност: $(\lambda\omega^k_1+\mu\omega^k_2) \wedge \omega^l = \lambda\omega^k_1\wedge\omega^l + \mu \omega^k_2\wedge\omega^l$ \\
+Събираемите в сумата(без знака за пермутация) са от вида:
+\begin{align*}
+&(\lambda\omega^k_1+\mu\omega^k_2)(\myxi_{i_1},\cdots,\myxi_{i_k})\omega^l(\myxi_{j_1},\cdots,\myxi_{j_l}) \\
+&=(\lambda\omega^k_1(\myxi_{i_1},\cdots,\myxi_{i_k})+\mu\omega^k_2(\myxi_{i_1},\cdots,\myxi_{i_k}))\omega^l(\myxi_{j_1},\cdots,\myxi_{j_l}) \\
+&=\underbrace{\lambda\omega^k_1(\myxi_{i_1},\cdots,\myxi_{i_k})\omega^l(\myxi_{j_1},\cdots,\myxi_{j_l})}_{\text{присъства в сумата на $\lambda\omega^k_1\wedge\omega^l$}}+
+\underbrace{\mu\omega^k_2(\myxi_{i_1},\cdots,\myxi_{i_k})\omega^l(\myxi_{j_1},\cdots,\myxi_{j_l})}_{\text{присъства в сумата на $\mu\omega^k_2\wedge\omega^l$}}
+\end{align*}
+След повтаряне на предишните разсъждения получаваме търсеното.
+\item Асоциативност $(\omega^k \wedge \omega^l) \wedge \omega^m=\omega^k \wedge (\omega^l \wedge \omega^m)$
+\begin{align*}
+&(\omega^k \wedge \omega^l) \wedge \omega^m  \\ 
+&=\mathop{\sum_{r_1<\cdots<r_{k+l}}}_{p_1<\cdots<p_m} sgn(r_1,\cdots,r_{k+l},p_1, \cdots,p_m)(\omega^k \wedge \omega^l)(\myxi_{r_1},\cdots,\myxi_{r_{k+l}})\omega^m(\myxi_{p_1},\cdots,\myxi_{p_m}) \\
+&=\mathop{\sum_{r_1<\cdots<r_{k+l}}}_{p_1<\cdots<p_m} sgn(r_1,\cdots,r_{k+l},p_1, \cdots,p_m) \\ &\left(\mathop{\sum_{i_1<\cdots<i_k}}_{j_1<\cdots<j_l} sgn(i_1,\cdots,i_k,j_1, \cdots,j_l)\omega^k(\myxi_{i_1},\cdots,\myxi_{i_k})\omega^l(\myxi_{j_1},\cdots,\myxi_{j_l}) \right)\omega^m(\myxi_{p_1},\cdots,\myxi_{p_m}) \\
+&=\mathop{\mathop{\sum_{i_1<\cdots<i_k}}_{j_1<\cdots<j_l}}_{p_1<\cdots<p_m} sgn(I,J,P) \omega^k(\myxi_{i_1},\cdots,\myxi_{i_k})\omega^l(\myxi_{j_1},\cdots,\myxi_{j_l})\omega^m(\myxi_{p_1},\cdots,\myxi_{p_m}) \\
+&= \omega^k \wedge (\omega^l \wedge \omega^m), \quad (I,J,P)=(i_1,\cdots,i_k,j_1,\cdots,j_l,p_1,\cdots,p_m)
+\end{align*}
+\item Антикомутативност $\omega^k \wedge \omega^l=(-1)^{kl}\omega^l \wedge \omega^k$
+\begin{align*}
+&\omega^k \wedge \omega^l=\mathop{\sum_{i_1<\cdots<i_k}}_{j_1<\cdots<j_l} sgn(i_1,\cdots,i_k,j_1, \cdots,j_l)\omega^k(\myxi_{i_1},\cdots,\myxi_{i_k})\omega^l(\myxi_{j_1},\cdots,\myxi_{j_l})\\
+&=\mathop{\sum_{j_1<\cdots<j_l}}_{i_1<\cdots<i_k} (-1)^{kl}sgn(j_1, \cdots,j_l,i_1,\cdots,i_k)\omega^l(\myxi_{j_1},\cdots,\myxi_{j_l})\omega^k(\myxi_{i_1},\cdots,\myxi_{i_k}) \\
+&=(-1)^{kl}\omega^l \wedge \omega^k
+\end{align*}
+\end{enumerate}
+
+Нека $\omega$ е $k$-форма, а с $\omega^m$ отбележим $\underbrace{\omega \wedge \cdots \wedge \omega}_{\text{m пъти}}$. Тогава е в сила, че:
+\begin{itemize}
+\item Ако $k$ е нечетно, то $\omega^m=0, \enspace m>1$:
+\begin{align*}
+&m=2: \omega \wedge \omega=(-1)^{k^2}\omega \wedge \omega=-\omega \wedge \omega \implies \omega \wedge \omega=0 \\ 
+&m>2: \omega^m=\omega \wedge \omega \wedge \omega^{m-2}=(\omega \wedge \omega)\wedge \omega^{m-2}=0 \wedge \omega^{m-2}=0
+\end{align*}
+\item Ако $\omega$ е разложима, то $\omega^m=0, \enspace m>1$:
+\begin{align*}
+&\omega=\omega_1 \wedge \cdots \omega_k, \quad  \text{$\omega_j$ са $1$-форми} \\
+m=2: &\omega^2=\omega_1 \wedge \cdots \omega_k \wedge \omega_1 \wedge \cdots \omega_k = (-1)^{(k-1)k^2} (\omega_1 \wedge \omega_1) \wedge \omega_2 \wedge \cdots \omega_k \wedge \omega_2 \wedge \cdots \omega_k \\
+&=0 \wedge \omega_2 \wedge \cdots \omega_k \wedge \omega_2 \wedge \cdots \omega_k = 0 \\
+m>2: &\omega^m=\omega^2 \wedge \omega^{m-2}=0 \wedge \omega^{m-2}=0
+\end{align*}
+\end{itemize}
+
+С ${\bigwedge}^k V$ бележим множеството от всички $k$-форми над $V$.
+
+\begin{problem}
+Нека над $\mathbb{R}^{2n}=(\mathbf{q},\mathbf{f})$ е дефинирана $2$-формата $\omega=\sum_{i=1}^n p_i \wedge q_i$ Да се намери формата $\omega^m$.
+\end{problem}
+
+\begin{solution*}
+\begin{align*}
+&\omega^1 =  (-1)^0 1! \sum_{i=1}^n p_i \wedge q_i \\
+&\omega^{m+1} = \omega \wedge \omega^m = (-1)^{\frac{m(m-1)}{2}} m! (\sum_{i=1}^n p_i \wedge q_i) \wedge (\sum_{i_1<\cdots<i_m}^n p_{i_1} \wedge \cdots  \wedge p_{i_m} \wedge q_{i_1} \wedge \cdots \wedge q_{i_m}) \\
+&=(-1)^{\frac{m(m-1)}{2}}m! \sum_{i_1<\cdots<i_m} \sum_{j=1}^n p_j \wedge q_j \wedge p_{i_1} \wedge \cdots  \wedge p_{i_m} \wedge q_{i_1} \wedge \cdots \wedge q_{i_m} \\
+&=(-1)^{\frac{m(m-1)}{2}}m! \sum_{i_1<\cdots<i_m} \sum_{j=1}^n (-1)^{m}  p_j  \wedge p_{i_1} \wedge \cdots \wedge p_{i_m} \wedge q_j \wedge q_{i_1} \wedge \cdots \wedge q_{i_m} \\
+&=(-1)^{\frac{m(m-1)}{2}}m! \sum_{i_1<\cdots<i_m} \sum_{j \not \in \{i_1,\cdots, i_m\}} (-1)^{m}  p_j  \wedge p_{i_1} \wedge \cdots \wedge p_{i_m} \wedge q_j \wedge q_{i_1} \wedge \cdots \wedge q_{i_m} \\
+&=(-1)^{\frac{m(m-1)}{2}+m}m! \mathop{\sum_{i_1<\cdots<i_m}}_{j \not \in \{i_1,\cdots, i_m\}} (sgn(j,i_1,\cdots,i_m))^2  \underbrace{p_{i_1} \wedge \cdots \wedge p_j  \wedge \cdots \wedge p_{i_m} \wedge q_{i_1} \wedge \cdots \wedge q_j  \wedge  \cdots \wedge q_{i_m}}_{i_1<\cdots j < \cdots < i_m} \\
+&=(-1)^{\frac{(m+1)m}{2}}m!(m+1)\sum_{i_1<\cdots<i_{m+1}} p_{i_1} \wedge \cdots  \wedge p_{i_{m+1}} \wedge q_{i_1} \wedge \cdots \wedge q_{i_{m+1}} \\
+&=(-1)^{\frac{(m+1)m}{2}}(m+1)!\sum_{i_1<\cdots<i_{m+1}} p_{i_1} \wedge \cdots  \wedge p_{i_{m+1}} \wedge q_{i_1} \wedge \cdots \wedge q_{i_{m+1}}
+\end{align*}
+\end{solution*}
+
+\subsection{Вътрешно произведение}
+
+Нека $\myxi \in V$, a $\omega^k$ e $k$-форма. Тогава $i_{\myxi}\omega^k$ е $k-1$-форма, дефинирана като $i_{\myxi}\omega^k(\myxi_1,\cdots,\myxi_{k-1})=\omega^k(\myxi,\myxi_1,\cdots,\myxi_{k-1})$. \\
+Вътрешното произведение има следните свойства:
+\begin{enumerate}
+\item $i_{\lambda\myxi+\mu\myeta}\omega^k=\lambda i_{\myxi}\omega^k + \mu i_{\myeta}\omega^k$ \\
+\begin{align*}
+&i_{\lambda\myxi+\mu\myeta}\omega^k(\myxi_1,\cdots,\myxi_{k-1})=\omega^k(\lambda\myxi+\mu\myeta,\myxi_1,\cdots,\myxi_{k-1}) \\
+&=\lambda\omega^k(\myxi,\myxi_1,\cdots,\myxi_{k-1})+\mu\omega^k(\myeta,\myxi_1,\cdots,\myxi_{k-1})
+\end{align*}
+\item $i_{\myxi}i_{\myeta}\omega^k=-i_{\myeta}i_{\myxi}\omega^k+i_{\myeta}\omega^k$
+\begin{align*}
+&i_{\myxi}i_{\myeta}\omega^k=i_{\myxi}\omega^k(\myeta,\myxi_1,\cdots,\myxi_{k-2}) 
+=\omega^k(\myxi,\myeta,\myxi_1,\cdots,\myxi_{k-2})=-\omega^k(\myeta,\myxi,\myxi_1,\cdots,\myxi_{k-2})=\\
+&-i_{\myeta}\omega^k(\myxi,\myxi_1,\cdots,\myxi_{k-2})=-i_{\myeta}i_{\myxi}\omega^k(\myxi_1,\cdots,\myxi_{k-2})
+\end{align*}
+Следствие: $i_{\myxi}i_{\myxi}\omega^k=0$
+
+\item $i_{\myxi}(\omega^k \wedge \omega^l)=i_{\myxi}\omega^k \wedge \omega^l + (-1)^k \omega^k \wedge i_{\myxi}\omega^l$
+\begin{align*}
+&i_{\myxi}(\omega^k \wedge \omega^l)(\myxi_1,\cdots,\myxi_{k+l-1}) 
+=(\omega^k \wedge \omega^l)(\myxi,\myxi_1,\cdots,\myxi_{k+l-1}) \\
+&=\mathop{\sum_{i_1<\cdots<i_k}}_{j_1<\cdots<j_l} sgn(i_1,\cdots,i_k,j_1, \cdots,j_l)\omega^k(\myeta_{i_1},\cdots,\myeta_{i_k})\omega^l(\myeta_{j_1},\cdots,\myeta_{j_l}) \\
+&\myeta_1=\myxi, \quad \myeta_j=\myxi_{j-1}, \enspace j=\overline{2,k+l}
+\end{align*}
+Ако $\myxi$ е сред аргументите на $\omega^k$ в някое събираемо, то трябва да е най-левият, тъй като $\myxi=\myeta_1, i_1<i_j, \enspace j=\overline{2,k}$. Но тогава събираемото ще е от вида
+\begin{align*}
+&sgn(1,\cdots,i_k,j_1, \cdots,j_l)\omega^k(\myeta_1,\cdots,\myeta_{i_k})\omega^l(\myeta_{j_1},\cdots,\myeta_{j_l}) \\
+&=sgn(i_2,\cdots,i_k,j_1, \cdots,j_l) (i_{\myeta_1}\omega^k)(\myeta_{i_2},\cdots,\myeta_{i_k})\omega^l(\myeta_{j_1},\cdots,\myeta_{j_l}) \\
+&=sgn(i_2,\cdots,i_k,j_1, \cdots,j_l) (i_{\myxi}\omega^k)(\myeta_{i_2},\cdots,\myeta_{i_k})\omega^l(\myeta_{j_1},\cdots,\myeta_{j_l}) 
+\end{align*}
+А това е точно събираемо от $i_{\myxi}\omega^k \wedge \omega^l$. От друга страна, когато $\myxi$ е аргумент на $\omega^l$, аналогично трябва да бъде първият аргумент. Това значи, че
+\begin{align*}
+&sgn(i_1,\cdots,i_k,1, \cdots,j_l)\omega^k(\myeta_{i_1},\cdots,\myeta_{i_k})\omega^l(\myeta_1,\cdots,\myeta_{j_l}) \\
+&=(-1)^k sgn(1,i_1,\cdots,i_k, \cdots,j_l) \omega^k(\myeta_{i_1},\cdots,\myeta_{i_k})(i_{\myeta_1}\omega^l)(\myeta_{j_2},\cdots,\myeta_{j_l}) \\
+&=(-1)^k sgn(1,i_1,\cdots,i_k, \cdots,j_l) \omega^k(\myxi,\cdots,\myeta_{i_k})(i_{\myeta_1}\omega^l)(\myeta_{j_2},\cdots,\myeta_{j_l}) \\
+\end{align*}
+Това е събираемо от $(-1)^k \omega^k \wedge i_{\myxi}\omega^l$. И тъй доказахме равенството.
+\end{enumerate}
+
+\subsection{Изображения}
+Нека $\func{f}{\mathbb{R}^m}{\mathbb{R}^n}$ и $f$ е линейно изображение. Тогава
+$(f^*\omega^k)(\myxi_1,\cdots,\myxi_k)=\omega^k(f(\myxi_1),\cdots,f(\myxi_k))$ е $k$-форма над $\mathbb{R}^m$, тъй като:
+\begin{align*}
+&(f^* \omega^k)(\myxi_1,\cdots,\lambda\myxi_i+\mu\myeta_i,\cdots,\myxi_k)=\omega^k(f(\myxi_1),\cdots,f(\lambda\myxi_i+\mu\myeta_i),\cdots, f(\myxi_k)) \\
+&=\omega^k(f(\myxi_1),\cdots,\lambda f(\myxi_i)+\mu f(\myeta_i),\cdots, f(\myxi_k)) \\
+&=\lambda\omega^k(f(\myxi_1),\cdots, f(\myxi_i),\cdots, f(\myxi_k))+\mu\omega^k(f(\myxi_1),\cdots, f(\myeta_i),\cdots, f(\myxi_k))\\
+&(f^* \omega^k)(\myxi_{\pi_1},\cdots,\myxi_{\pi_k})=
+\omega^k(f(\myxi_{\pi_1}),\cdots,f(\myxi_{\pi_k}))  =sgn(\pi)\omega^k(f(\myxi_1),\cdots,f(\myxi_k))\\
+&=sgn(\pi)(f^* \omega^k)(\myxi_1,\cdots,\myxi_k) \\
+\end{align*}
+
+Може да разглеждаме $f^*$ като линеен оператор, изобразяващ векторното пространство от $k$-форми над $\mathbb{R}^m$ във векторното пространство от $k$-форми над $\mathbb{R}^n$.
+
+\begin{align*}
+&(f^*(\lambda \omega^k_1+\mu\omega^k_2))(\myxi_1,\cdots,\myxi_k)=(\lambda \omega^k_1+\mu\omega^k_2)(f(\myxi_1),\cdots, f(\myxi_k)) \\
+&=(\lambda \omega^k_1)(f(\myxi_1),\cdots, f(\myxi_k)) + (\mu\omega^k_2)(f(\myxi_1),\cdots, f(\myxi_k)) \\
+&=\lambda \omega^k_1(f(\myxi_1),\cdots, f(\myxi_k)) +\mu\omega^k_2(f(\myxi_1),\cdots, f(\myxi_k)) \\
+&=\lambda (f^* \omega^k_1)(\myxi_1,\cdots,\myxi_k)+\mu(f^* \omega^k_2)(\myxi_1,\cdots,\myxi_k)\\
+\end{align*}
+
+Ще покажем, че $(g \circ f)^*=f^* \circ g^*$:
+\begin{align*}
+&((g \circ f)^*\omega^k)(\myxi_1,\cdots,\myxi_k)=\omega^k((g \circ f)(\myxi_1),\cdots, (g \circ f)(\myxi_k)) \\
+&=\omega^k(g(f(\myxi_1)),\cdots, g(f(\myxi_k)))=(g^*\omega^k)(f(\myxi_1),\cdots, f(\myxi_k)) \\
+&=(f^*(g^*\omega^k))(\myxi_1,\cdots, \myxi_k)= ((f^*\circ g^*)\omega^k)(\myxi_1,\cdots, \myxi_k)\\
+\end{align*}
+
+ $f*$ комутира с прилагането на външно произведение:
+\begin{align*}
+&(f^*(\omega^k \wedge \omega^l))(\myxi_1,\cdots,\myxi_{k+l})=(\omega^k \wedge \omega^l)(f(\myxi_1),\cdots,f(\myxi_{k+l})) \\
+&=\mathop{\sum_{i_1<\cdots<i_k}}_{j_1<\cdots<j_l}sgn(i_1,\cdots,i_k,j_1, \cdots,j_l) \omega^k(f(\myxi_{i_1}),\cdots,f(\myxi_{i_k})) \omega^l(f(\myxi_{j_1}),\cdots,f(\myxi_{j_l})) \\
+&=\mathop{\sum_{i_1<\cdots<i_k}}_{j_1<\cdots<j_l}sgn(i_1,\cdots,i_k,j_1, \cdots,j_l) (f^* \omega^k)(\myxi_{i_1},\cdots,\myxi_{i_k}) (f^*\omega^l)(\myxi_{j_1},\cdots,\myxi_{j_l}) \\
+&=(f^* \omega^k \wedge f^*\omega^l)(\myxi_1,\cdots, \myxi_{k+l})\\
+\end{align*}
+
+\begin{comment}
+&(\lambda (f^* \omega^k))(\myxi_1,\cdots,\myxi_k)=(\lambda \omega^k)(f(\myxi_1),\cdots, f(\myxi_k))=
+\lambda (f^* \omega^k)(\myxi_1,\cdots,\myxi_k)
+\end{comment}
+
+Функцията $f^*$ понякога се нарича транспонирано (дуално) изображение на $f$.
+
+\subsection{Звезда на Ходж}
+Звездата на Ходж е изображение между две форми, което може да дефинираме така:
+\begin{align*}
+&\func{\ast}{{\bigwedge}^k}{{\bigwedge}^{n-k}} \\
+&(\ast \omega) (\mathbf{e}_{j_1},\cdots, \mathbf{e}_{j_{n-k}})=sgn(i_1,\cdots,i_k,j_1,\cdots,j_{n-k})\omega(\mathbf{e}_{i_1},\cdots,\mathbf{e}_{i_k})
+\end{align*}
+
+$\ast (\omega_1+\omega_2) = \ast\omega_1+ \ast \omega_2$:
+\begin{align*}
+&(\ast (\omega_1+\omega_2))(\mathbf{e}_{j_1},\cdots, \mathbf{e}_{j_{n-k}})=sgn(i_1,\cdots,i_k,j_1,\cdots,j_{n-k})(\omega_1+\omega_2)(\mathbf{e}_{i_1},\cdots,\mathbf{e}_{i_k}) \\
+&=sgn(i_1,\cdots,i_k,j_1,\cdots,j_{n-k})(\omega_1(\mathbf{e}_{i_1},\cdots,\mathbf{e}_{i_k})+\omega_2(\mathbf{e}_{i_1},\cdots,\mathbf{e}_{i_k})) \\
+&=sgnsgn(i_1,\cdots,i_k,j_1,\cdots,j_{n-k})\omega_1(\mathbf{e}_{i_1},\cdots,\mathbf{e}_{i_k}) + sgn(i_1,\cdots,i_k,j_1,\cdots,j_{n-k})\omega_2(\mathbf{e}_{i_1},\cdots,\mathbf{e}_{i_k}) \\
+&=(\ast\omega_1)(\mathbf{e}_{i_1},\cdots,\mathbf{e}_{i_k})+(\ast\omega_2)(\mathbf{e}_{i_1},\cdots,\mathbf{e}_{i_k})
+\end{align*}
+
+$\ast (\lambda\omega) = \lambda(\ast\omega)$:
+\begin{align*}
+&(\ast (\lambda\omega))(\mathbf{e}_{j_1},\cdots, \mathbf{e}_{j_{n-k}}) = sgn(i_1,\cdots,i_k,j_1,\cdots,j_{n-k}) (\lambda\omega)(\mathbf{e}_{i_1},\cdots,\mathbf{e}_{i_k}) \\
+&=sgn(i_1,\cdots,i_k,j_1,\cdots,j_{n-k})\lambda\omega(\mathbf{e}_{i_1},\cdots,\mathbf{e}_{i_k}) \\
+&=\lambda(sgn(j_1,\cdots,j_{n-k},i_1,\cdots,i_k)\omega(\mathbf{e}_{i_1},\cdots,\mathbf{e}_{i_k})) \\
+&=\lambda(\ast \omega)(\mathbf{e}_{j_1},\cdots, \mathbf{e}_{j_{n-k}})
+\end{align*}
+
+$\ast \ast \omega = (-1)^{k(n-k)} \omega$:
+\begin{align*}
+&(\ast (\ast \omega))(e_{i_1},\cdots,e_{i_k})=sgn(j_1,\cdots,j_{n-k},i_1,\cdots,i_k)(\ast \omega)(e_{j_1},\cdots, e_{j_{n-k}}) \\
+&=sgn(j_1,\cdots,j_{n-k},i_1,\cdots,i_k) sgn(i_1,\cdots,i_k,j_1,\cdots,j_{n-k})\omega(e_{i_1},\cdots,e_{i_k}) \\
+&=(-1)^{k(n-k)}(sgn(i_1,\cdots,i_k,j_1,\cdots,j_{n-k}))^2\omega(e_{i_1},\cdots,e_{i_k}) \\
+&=(-1)^{k(n-k)}\omega(e_{i_1},\cdots,e_{i_k})
+\end{align*} 
+
+Така звездата на Ходж в някакъв смисъл задава дуалност на $k$- форма и $n-k$-форма. Това не е толкова учудващо, тъй като пространството от $k$-форми ${\bigwedge}^k$ е с размерност $\binom{n}{k}=\binom{n}{n-k}$, размерността на  ${\bigwedge}^{n-k}$.
+
+Има и по-обща дефиниция на $\ast$, която е свързана с изобразяване $g$ на базис на $R^n$ в положително ориентриран ортонормиран базис на $V$(разглеждат се формите над $V, dim(V)=n$), относно някакво скаларно произведение. Тогава може да се дефинира и като:
+\[
+\ast \omega = (g^{-1})^*(\ast g^* \omega)
+\]
+В този случай $\ast$  за форми над $\mathbb{R}^n$ се дефинира малко по-различно чрез билинейно изображение.
+
+
+\section{Диференциални форми}
+Нека $M$ е многообразие, а с $T_{\mathbf{x}}M$ бележим допирателното пространство към $M$ в точката ${\mathbf{x}}$, а $TM=\bigcup_{{\mathbf{x}} \in M}T_\mathbb{x} M$. Тъй като за произволно ${\mathbf{x}} \in \mathbb{R}^n$ е в сила $T_{\mathbf{x}} \mathbb{R}^n=\mathbb{R}^n$, то и $T\mathbb{R}^n=\mathbb{R}^n$.
+Надолу под гладкост ще разбираме безкрайна гладкост.
+
+\subsection{Диференциални 1-форми}
+Диференциална $1$-форма $\omega^1$ над $M$ е гладко изображение $\func{\omega^1}{TM}{\mathbb{R}}$, линейно над всяко $T_xM$ т.е. диференциалната $1$-форма над $M$ е алгебрична $1$-форма над $T_{\mathbf{x}}M$, за всяко ${\mathbf{x}} \in M$.
+Виждаме, че когато диференциалната $1$-форма $\omega$ е над $\mathbb{R}^n$, то тя е гладко линейно изображение $\stfunc{\omega}$.
+
+Тъй като диференциалните $1$-форми са над $T_x M$, то те са в дуалното пространство, $T_x^* M$. Това пространство също се нарича котангенциално, а диференциалните $1$-формите - тангенциални (допирателни) ковектори, котангенциални вектори.
+
+Ако $dim(T_{\mathbf{x}}M)=p$, то ако приемем, че $\dd y_i$ е проекцията на допирателен вектор в ${\mathbf{x}}$ по базисните вектори на $T_xM$, то $1$-формите се представят по следният начин:
+\begin{align*}
+&\omega = \sum_{i=1}^{p}g_i(\mathbf{x}) \dd y_i \\
+&\omega = \sum_{i=1}^{n}g_i(\mathbf{x}) \dd y_i, TM=R^n
+\end{align*}
+Ако фиксираме $x$ получаваме общ запис на алгебрична $1$-форма, т.е. $\sum_{i=1}^{p}a_i \dd y_i$, т.е. самите коефициенти може да зачитаме за функция на ${\mathbf{x}}$. Тъй като в случая на форми над $R^n$ имаме, че $x \in R^n$, просто може да вземем вече наличният базис на $R^n$ и го използваме и за допирателното пространство. Така може да запишем $\omega = \sum_{i=1}^{n}g_i(\mathbf{x}) \dd x_i$.
+
+
+Когато $\omega$ е над $\mathbb{R}$, то понеже е гладко изображение, то в частност е и непрекъснато. Нека $\omega=f(x)dx$. Но тогава тя е точна, понеже: 
+\[
+F(x)=\int_{a}^{x}f(s)ds,\quad F^\prime(x)=f(x)
+\]
+
+Това обаче не е задължително при $n>1$. За да може $\dd f=\omega$, то от $\dd f= \sum_{i=1}^{n}\pdv{f}{x_i}\dd x_i$ по теоремата на Шварц трябва да е в сила $\pdv{f}{x_i,x_j}=\pdv{f}{x_j,x_i}$. Така веднага може да видим, че $5\dd x_1 + 3x \dd x_2$ и $x_2^2 \dd x_1 + \dd x_2 - 13x_3 \dd x_3$ не са диференциал на никоя фунцкия.
+
+\begin{problem}
+Нека $\omega = - \frac{y}{x^2+y^2} \dd x + \frac{x}{x^2+y^2} \dd y$, над $\mathbb{R}^2 \setminus \{\mathbf{0}\}$, a $f(\rho,\theta)=(\rho \cos \theta,\rho \sin \theta)^T$. Да се намери $f^* \omega$.
+\end{problem}
+
+\begin{solution*}
+\begin{align*}
+&(f^* \omega)(\rho, \theta) = \omega(f_1(\rho,\theta),f_2(\rho,\theta)) \\
+&= - \frac{\rho \sin \theta}{(\rho \cos \theta)^2+(\rho \sin \theta)^2} \dd (\rho \cos \theta) + \frac{\rho \cos \theta}{(\rho \cos \theta)^2+(\rho \sin \theta)^2} \dd (\rho \sin \theta) \\
+&=- \frac{\rho \sin \theta}{\rho^2} (\cos \theta \dd \rho - \rho \sin \theta \dd \theta)+\frac{\rho \cos \theta}{\rho^2}(\sin \theta \dd \rho + \rho \cos \theta \dd \theta) \\
+&=-\frac{\sin \theta \cos \theta}{\rho} \dd \rho + \sin^2 \theta \dd \theta + \frac{\cos \theta \sin \theta}{\rho} \dd \rho + \cos^2 \theta \dd \theta  = (\sin^2 \theta + \cos^2 \theta) \dd \theta = \dd \theta
+\end{align*}
+\end{solution*}
+
+\subsection{Диференциални k-форми}
+
+Уточнението, което направихме по-рано сега влиза в общата дефиниция.
+Диференциална $k$-форма $\omega \vert_x$ в точка $x \in M$ е (външна) $k$-форма над $T_x M$. Ако тя съществува за кое да е $x \in M$ и е диференцируема в него, то казваме, че формата е над $M$ и бележим само $\omega$.
+
+Тъй като дефинираме диференциалните $k$-форми като вид $k$-форми, то и за тях са дефинирани операциите външно и вътрешно произведение.
+
+
+
+\begin{problem}
+Да се пресметне $\omega \vert_x= \dd x_1 \wedge \dd (x_1^2+x_2^2+x_3^2)$ в точката $x=(1,2,3)^T$ с аргументи допирателните вектори $\myxi_1=(0,5,2)^T,\myxi_2=(3,2,1)^T$
+\end{problem}
+
+\begin{solution*}
+\begin{align*}
+&\dd (x_1^2+x_2^2+x_3^2) = 2x_1 \dd x_1 + 2x_2 \dd x_2 + 2x_3 \dd x_3 \\
+&\dd x_1 \wedge \dd (x_1^2+x_2^2+x_3^2) = 2x_2 \dd x_1 \wedge \dd x_2 + 2x_3 \dd x_1 \wedge \dd x_3 \\
+&\omega \vert_x = 4\dd x_1 \wedge \dd x_2 + 6\dd x_1 \wedge \dd x_3 \\
+&\omega(\myxi_1,\myxi_2) = 4\dd x_1 \wedge \dd x_2(\myxi_1,\myxi_2) + 6\dd x_1 \wedge \dd x_3(\myxi_1,\myxi_2) \\
+&=4 \begin{vmatrix}
+0 &3 \\
+5 &2
+\end{vmatrix}  + 6 \begin{vmatrix}
+0 &3 \\
+2 &1
+\end{vmatrix} = 4(-15)+6(-6)=-60-36=-96 \\
+\end{align*}
+\end{solution*}
+
+
+
+\subsection{Външно диференциране}
+Външното диференциране е допълнителна операция над диференциалните форми, даваща ни диференциална форма от степен с едно повече.
+
+В зависимост от дефинцията следните свойства или са аксиоматични или се извеждат:
+\begin{enumerate}
+\item $\dd$ е линейно изображение.
+\item $\dd f$ е диференциал на $f$, ако $f$ е гладка фунцкия($0$-форма)
+\item $\dd (\dd f)=0$, ако $f$ е $0$-форма
+\item $\dd (\omega^k \wedge \omega^l)=\dd \omega^k \wedge \omega^l + (-1)^k \omega^k \wedge \dd \omega^l$
+\end{enumerate}
+
+Няколко основни свойства:
+\begin{enumerate}
+\begin{comment}
+\item $\dd (\omega_1+\omega_2)=\dd \omega_1 + \dd \omega_2$
+По индукция:
+\begin{align*}
+&\omega_1,\omega_2 \in {\bigwedge}^0: \quad  \omega_1=f, \enspace \omega_2=g,  
+\dd (\omega_1+\omega_2)=\dd (f+g)=\dd f + \dd g = \dd \omega_1 + \dd \omega_2 \\
+&\omega_1, \omega_2 \in {\bigwedge}^k: \quad d(\omega_1+\omega_2)=\dd(\sum_{i_1<\cdots<i_k}a_{i_1 \cdots i_k}(\mathbf{x}) \dd x_{i_1} \wedge \cdots \dd x_{i_k}+\sum_{i_1<\cdots<i_k}b_{i_1 \cdots i_k}(\mathbf{x}) \dd x_{i_1} \wedge \cdots \dd x_{i_k}) \\
+&=\dd (\sum_{i_1<\cdots<i_k}(a_{i_1 \cdots i_k}(\mathbf{x})+b_{i_1 \cdots i_k}(\mathbf{x})) \dd x_{i_1} \wedge \cdots \dd x_{i_k}) \\
+&=
+\end{align*}
+\end{comment}
+\item $\dd \dd = 0$
+\begin{align*}
+&\omega \in {\bigwedge}^k \implies \omega = \sum_{i_1<\cdots<i_k}a_{i_1 \cdots i_k}(\mathbf{x}) \dd x_{i_1} \wedge \cdots \dd x_{i_k} \\
+&\dd (\dd \omega) = \dd(\sum_{i_1<\cdots<i_k}\dd(a_{i_1 \cdots i_k}(\mathbf{x}) \dd x_{i_1} \wedge \cdots \dd x_{i_k})) \\
+&= \dd (\sum_{i_1<\cdots<i_k} \dd a_{i_1 \cdots i_k}(\mathbf{x}) \wedge \dd x_{i_1} \wedge \cdots \dd x_{i_k} + \sum_{i_1<\cdots<i_k} a_{i_1 \cdots i_k}(\mathbf{x}) \dd(\dd x_{i_1} \wedge \cdots \dd x_{i_k})) \\
+&=\sum_{i_1<\cdots<i_k}\dd(\dd a_{i_1 \cdots i_k}(\mathbf{x}) \wedge \dd x_{i_1} \wedge \cdots \dd x_{i_k}) \\ 
+&+\dd (\sum_{i_1<\cdots<i_k} a_{i_1 \cdots i_k}(\mathbf{x}) \dd \dd x_{i_1} \wedge \dd x_{i_2} \cdots \dd x_{i_k}-\dd x_{i_1} \wedge \dd( \dd x_{i_2} \wedge \cdots \wedge \dd x_{i_k})) \quad ddx_j=0 \implies \\
+&=\sum_{i_1<\cdots<i_k} \dd \dd a_{i_1 \cdots i_k}(\mathbf{x}) \wedge \dd x_{i_1} \wedge \cdots \dd x_{i_k} - \dd a_{i_1 \cdots i_k}(\mathbf{x}) \wedge \dd(\dd x_{i_1} \wedge \cdots \dd x_{i_k}) + \dd(0) \\
+&=0 + 0 = 0 \quad (\dd \dd a_{i_1 \cdots i_k}(\mathbf{x})=0)
+\end{align*}
+Така видяхме и че:
+\begin{align*}
+\dd (a_{i_1 \cdots i_k}(\mathbf{x}) \dd x_{i_1} \wedge \cdots \dd x_{i_k})=\dd a_{i_1 \cdots i_k}(\mathbf{x}) \wedge \dd x_{i_1} \wedge \cdots \dd x_{i_k}=\sum_{j=1}^{n} \pdv{a_{i_1 \cdots i_k}}{x_j}(\mathbf{x}) \dd x_j \wedge \dd x_{i_1} \wedge \cdots \dd x_{i_k}
+\end{align*} 
+\item $f^*(\dd \omega)=\dd(f^* \omega)$
+\begin{align*}
+%&f^*(\dd \omega)(\myxi_1,\cdots,\myxi_{k+1})= (\dd \omega)(f(\myxi_1),\cdots,f(\myxi_{k+1}))= \sum_{i_1<\cdots<i_k} \dd a_{i_1 \cdots i_k}() \\
+%&\dd(f^* \omega) = \dd ( \sum_{i_1<\cdots<i_k} (a_{i_1 \cdots i_k} \circ f) \dd f_{i_1}  \wedge \dd f_{i_1} ) \\
+%&=\dd (\sum_{i_1<\cdots<i_k} \sum_{j=1}^{n} \pdv{(a_{i_1 \cdots i_k} \circ f)}{x_j} \dd x_j \wedge \dd f_{i_1}  \wedge \dd f_{i_1} ) \\
+%&=\dd (\sum_{i_1<\cdots<i_k} \sum_{j=1}^{n} \sum_{s=1}^{n} (\pdv{a_{i_1 \cdots i_k}}{x_s} \circ f) \pdv{f_s}{x_j} \dd x_j \wedge \dd f_{i_1}  \wedge \dd f_{i_1} ) \\
+&f^*(\dd \omega) = \sum_{i_1<\cdots<i_k} ((\dd a_{i_1 \cdots i_k}) \circ f) \wedge \dd f_{i_1} \wedge \cdots  \wedge \dd f_{i_k} = \sum_{i_1<\cdots<i_k} (\dd( a_{i_1 \cdots i_k} \circ f)) \wedge \dd f_{i_1} \wedge \cdots  \wedge \dd f_{i_k} \\
+&= \dd (\sum_{i_1<\cdots<i_k} ( a_{i_1 \cdots i_k} \circ f) \dd f_{i_1} \wedge \cdots  \wedge \dd f_{i_k}) = d(f^* \omega)
+\end{align*}
+\end{enumerate}
+
+\begin{problem}
+Да се намерят $\dd \omega, \dd^2 \omega$, ако $\omega = z^3 \dd x \wedge \dd y + (z^2+2y) \dd x \wedge \dd z$
+\end{problem}
+
+\begin{solution*}
+\begin{align*}
+&\dd \omega = \dd (z^3 \dd x \wedge \dd y + (z^2+2y) \dd x \wedge \dd z) = \dd z^3 \wedge \dd x \wedge \dd y + \dd(z^2+2y) \wedge \dd x \wedge \dd z \\
+&=3z^2 \dd z \wedge \dd x \wedge \dd y + 2z \dd z \wedge \dd x \wedge \dd z + 2 \dd y \wedge \dd x \wedge \dd z =3z^2 \dd x \wedge \dd y \wedge \dd z - 2 \dd x \wedge \dd y \wedge \dd z \\
+&=(3z^2-2)\dd x \wedge \dd y \wedge \dd z \\
+&\dd \dd \omega = 6 z \dd z \wedge \dd x \wedge \dd y \wedge \dd z = 0
+\end{align*}
+\end{solution*}
+
+\begin{comment}
+\begin{problem}
+Докажете, че $\dd \dd f = 0$
+\end{problem}
+
+\begin{solution*}
+\begin{align*}
+&\dd (\dd f) = \dd (\sum_{i=1}^{n} \pdv{f}{x_i} \dd x_i ) = \sum_{i=1}^{n} (\sum_{j=1}^{n} \pdv{f}{x_j, x_i} \dd x_j) \wedge \dd x_i = \sum_{i=1}^{n} \sum_{j\neq i} \pdv{f}{x_j, x_i} \dd x_j \wedge \dd x_i \\
+&= \sum_{i=1}^{n} \sum_{j<i} \pdv{f}{x_j, x_i} \dd x_j \wedge \dd x_i + \sum_{i=1}^{n} \sum_{j>i} \pdv{f}{x_j, x_i} \dd x_j \wedge \dd x_i  \\
+&= \sum_{i=1}^{n} \sum_{j<i} \pdv{f}{x_j, x_i} \dd x_j \wedge \dd x_i + \sum_{j=1}^{n} \sum_{i<j} \pdv{f}{x_j, x_i} \dd x_j \wedge \dd x_i \\
+&= \sum_{i=1}^{n} \sum_{j<i} -\pdv{f}{x_j, x_i} \dd x_i \wedge \dd x_j + \sum_{i=1}^{n} \sum_{j<i} \pdv{f}{x_i, x_j} \dd x_i \wedge \dd x_j \\
+&= \sum_{i=1}^{n} \sum_{j<i}(\pdv{f}{x_i, x_j}-\pdv{f}{x_j, x_i}) \dd x_i \wedge \dd x_j = 0 \text{(от теоремата на Шварц)}
+\end{align*}
+\end{solution*}
+\end{comment}
+
+
+Казваме, че диференциална форма $\alpha$ е точна, когато $\alpha=\dd \beta$.
+Казваме, че диференциална форма $\omega$ е затворена, ако $\dd \omega=0$.
+
+Точните форми са затворени:
+\begin{align*}
+&\omega = \dd \beta \implies \dd \omega = \dd \dd \beta = 0 
+\end{align*}
+
+\begin{problem}
+Разгледайте $\omega = \sum_{i=1}^n \dd p_i \wedge \dd q_i$, над $\mathbb{R}^{2n}=(\mathbf{q},\mathbf(p))$ и докажете, че е точна и затворена.
+\end{problem}
+
+\begin{solution*}
+\begin{align*}
+&\alpha = \sum_{i=1}^n p_i \dd q_i , \quad \dd \alpha =\dd(\sum_{i=1}^n p_i \dd q_i) = \sum_{i=1}^n \dd(p_i \dd q_i)
+= \sum_{i=1}^n \dd p_i \wedge \dd q_i = \omega \\
+&\dd \omega = \dd(\sum_{i=1}^n \dd p_i \wedge \dd q_i) =\sum_{i=1}^n \dd(\dd p_i \wedge \dd q_i) = 
+\sum_{i=1}^n  \dd 1 \wedge \dd p_i \wedge \dd q_i = \sum_{i=1}^n 0 = 0
+\end{align*}
+\end{solution*}
+
+\begin{lemma}[Лема на Поанкаре]
+Всяка затворена диференциална форма над $R^n$ е точна.
+\end{lemma}
+
+\subsection{Кодиференциал}
+Кодиференциалът е изображение от диференциални форми в такива от един ред по-нисък.
+\[
+\delta \omega=(-1)^{n(k+1)+1}\ast \dd \ast \omega, \quad \omega \in {\bigwedge}^k
+\]
+
+Виждаме, че $\delta^2=0$, тъй като:
+\begin{align*}
+&\delta \delta \omega^k = \delta (-1)^{n(k+1)+1}\ast \dd \ast \omega^k = (-1)^{n(k+1)+1} (-1)^{nk+1} \ast \dd \ast \ast \dd \ast \omega^k \\
+&= (-1)^{n(2k+1)} (-1)^{n(n-k+1)} \ast \dd \dd \ast \omega^k = (-1)^{n(n+k+2)} \ast \dd \dd \alpha^{n-k} = (-1)^{n(n+k+2)} \ast 0 = 0\\
+\end{align*}
+Ако $f$ е гладка фунцкия, то: 
+\begin{align*}
+&\delta f = (-1)^{n+1} \ast \dd \ast f = (-1)^{n+1} \ast \dd(f \dd x_1 \wedge \cdots \wedge \dd x_n) = (-1)^{n+1} \ast (\dd f \wedge \dd x_1 \wedge \cdots \wedge \dd x_n) \\
+&=(-1)^{n+1} \ast (\sum_{i=1}^{n} \pdv{f}{x_i} \dd x_i \wedge \dd x_1 \wedge \cdots \wedge \dd x_n) = (-1)^{n+1} \ast 0 = 0
+\end{align*}
+
+\subsection{Диференциал на Ли}
+Нека $\mathbf{V}$ е векторно поле, а $f$-гладка фунцкия. Тогава под диференциал на Ли разбираме:
+\begin{align*}
+&L_\mathbf{V} = \sum_{i=1}^{n}\mathbf{V}_i(\mathbf{x})\pdv{}{x_i} \\
+&L_\mathbf{V}(f)=\sum_{i=1}^{n}\mathbf{V}_i(\mathbf{x})\pdv{f}{x_i}
+\end{align*}
+
+Лесно се вижда, че за $0$-форма, т.е. гладка фунцкия $f$ е в сила:
+\begin{align*}
+&L_\mathbf{V}(f)=\sum_{i=1}^{n}\mathbf{V}_i(\mathbf{x})\pdv{f}{x_i}= \dotpr{\mathbf{V}}{\mathbf{grad} f}
+\end{align*}
+
+Веднага се вижда, че:
+\begin{align*}
+&L_{\mathbf{V}+\mathbf{W}}= \sum_{i=1}^{n}(\mathbf{V}+\mathbf{W})_i(\mathbf{x})\pdv{}{x_i} = \sum_{i=1}^{n}(\mathbf{V}_i(\mathbf{x})+\mathbf{W}_i(\mathbf{x}))\pdv{}{x_i} \\
+&=\sum_{i=1}^{n}\mathbf{V}_i(\mathbf{x})\pdv{}{x_i}+\sum_{i=1}^{n}\mathbf{W}_i(\mathbf{x})\pdv{}{x_i} = L_{\mathbf{V}} + L_{\mathbf{W}} \\
+&L_{g\mathbf{V}}= \sum_{i=1}^{n}(g\mathbf{V})_i(\mathbf{x})\pdv{}{x_i} = \sum_{i=1}^{n}g(\mathbf{x})\mathbf{V}_i(\mathbf{x})\pdv{}{x_i} = g(\mathbf{x})\sum_{i=1}^{n}\mathbf{V}_i(\mathbf{x})\pdv{}{x_i} = g L_{\mathbf{V}} \\
+\end{align*}
+
+В зависимост от дефиницията на $L_\mathbf{V}$ следната формула на Картан(известна още като формула на хомотопията) или се извежда, или може да се приеме за дефиниция на действието на диференциала на Ли над форми:
+\begin{align*}
+&L_\mathbf{V}\omega=i_V \dd \omega + \dd i_V \omega
+\end{align*}
+Тоест с диференциала на Ли получаваме диференциална форма от същия ред.
+
+
+\begin{problem}
+Нека $\omega = \sum_{i=1}^n \dd p_i \wedge \dd q_i$, над $\mathbb{R}^{2n}=(\mathbf{q},\mathbf{p})$ и дефинираме следното векторно поле: $\mathbf{X}_H=(\pdv{H}{p_1},\cdots,\pdv{H}{p_i},\cdots,\pdv{H}{p_n},-\pdv{H}{q_1},\cdots,-\pdv{H}{q_i},\cdots,-\pdv{H}{q_n})^T$. Да се намерят $L_{\mathbf{X}_H}H$ и $L_{\mathbf{X}_H}\omega$.
+\end{problem}
+
+\begin{solution*}
+\begin{align*}
+&L_{\mathbf{X}_H}=\sum_{i=1}^n \pdv{H}{p_i}\pdv{}{q_i}-\pdv{H}{q_i}\pdv{}{p_i} \\
+&L_{\mathbf{X}_H} H = i_{\mathbf{X}_H} \dd H + \dd i_{\mathbf{X}_H} H = i_{\mathbf{X}_H} \dd H = \dd H(\mathbf{X}_H) = \sum_{i=1}^n \pdv{H}{q_i} \dd q_i(\mathbf{X}_H) + \pdv{H}{p_i} \dd p_i(\mathbf{X}_H) \\
+&=\sum_{i=1}^n \pdv{H}{q_i} (\mathbf{X}_H)_{q_i} + \pdv{H}{p_i}  (\mathbf{X}_H)_{p_i} = \sum_{i=1}^n \pdv{H}{q_i} \pdv{H}{p_i} + \pdv{H}{p_i} (-\pdv{H}{q_i}) = 0 \\
+&L_{\mathbf{X}_H} \omega = i_{\mathbf{X}_H} \dd \omega + \dd i_{\mathbf{X}_H} \omega = \dd i_{\mathbf{X}_H} \omega = \dd (\sum_{i=1}^n \dd p_i \wedge \dd q_i (\mathbf{X}_H,\myxi)) \\
+&= \dd (\sum_{i=1}^n (\mathbf{X}_H)_{p_i} \dd q_i(\myxi) - \dd p_i(\myxi) (\mathbf{X}_H)_{q_i} )  \\
+&=\dd(\sum_{i=1}^n -\pdv{H}{q_i} \dd q_i(\myxi) - \pdv{H}{p_i} \dd p_i(\myxi)) = - \dd(\sum_{i=1}^n \pdv{H}{q_i} \dd q_i + \pdv{H}{p_i} \dd p_i)(\myxi) = - \dd \dd H (\myxi) = 0
+\end{align*}
+\end{solution*}
+$L_{\mathbf{X}_H} H = 0$ може да се покаже и направо със заместване.
+
+\subsection{Аналози на векторни операции}
+Външната производна и оператора на Ходж могат да се използват в съвкупност и така да се получат повечето известни от математическия анализ "важни" функции на векторните полета.
+За следващите определения предполагаме $V$ поле в $\mathbb{R}^n$, а $f$ гладка фунцкия.
+
+\subsubsection*{Градиент}
+Градиентът на $f$ ни дава векторното поле $\mathbf{grad} f=(\pdv{f}{x_1},\cdots,\pdv{f}{x_n})^T$. Той е обвързан с диференцирането по посока (направление) $\mathbf{w} \in \mathbb{R}^n$.
+\[
+\dd f(n)=\sum_{i=1}^{n} \pdv{f}{x_i}dx_i(w)=\sum_{i=1}^{n} \pdv{f}{x_i}w_i=\dotpr{\mathbf{grad}f}{\mathbf{w}}
+\] 
+Максималната стойност на горното скаларно произведение се достига при $\mathbf{w}=\mathbf{grad}f$, откъдето и $\mathbf{grad}f$ е посоката на най-голямо нарастване на фунцкията. И обратно, най-малката стойност се достига при $\mathbf{w}=-\mathbf{grad}f$ - посоката на най-голямо намаляване. Тези свойства се използват при някои оптимизационни алгоритми, базиране на предвижване по тези посоки, за да се достигне съответно локален максимум или минимум.
+Градиентът също се бележи и с $\grad f$, а понякога и директно с $f^\prime$ за показване на аналог на формули при по-писока размерност.
+
+\subsubsection*{Дивергенция}
+Дивергенцията на векторното поле $\mathbf{V}$ му съпоставя функция :
+\[
+div \mathbf{V} = \sum_{i=1}^{n} \pdv{\mathbf{V_i}}{x_i}
+\] 
+Интуитивно, дивергенцията ни дава идея дали дали векторното поле "сочи към" или "сочи далеч" от дадена точка. Тя е свързана с $n$-формата $\dd (\ast \omega)$, където $\omega$ е съпоставената по полето $1$-форма:
+\begin{align*}
+&\dd (\ast \omega) = \dd ( \ast \sum_{i=1}^{n} \mathbf{V_i} \dd x_i ) = \dd( \sum_{i=1}^{n} \mathbf{V_i} \ast \dd x_i ) \\
+&= \dd(\sum_{i=1}^{n} \mathbf{V_i} sgn(i,1,\cdots,i-1,i+1,\cdots,n) \dd x_1 \wedge \cdots \dd x_{i-1} \wedge \dd x_{i+1} \wedge \cdots \wedge x_n) \\
+&=\sum_{i=1}^{n} \dd(\mathbf{V_i}) (-1)^{i-1} \wedge \dd x_1 \wedge \cdots \dd x_{i-1} \wedge \dd x_{i+1} \wedge \cdots \wedge x_n \\
+&=\sum_{i=1}^{n} (-1)^{i-1}  (\sum_{j=1}^{n} \pdv{\mathbf{V_j}}{x_j} \dd x_j ) \wedge \dd x_1 \wedge \cdots \dd x_{i-1} \wedge \dd x_{i+1} \wedge \cdots \wedge x_n \\
+&=\sum_{i=1}^{n} (-1)^{i-1} \pdv{\mathbf{V_i}}{x_i} \dd x_i  \wedge \dd x_1 \wedge \cdots \dd x_{i-1} \wedge \dd x_{i+1} \wedge \cdots \wedge x_n) \\
+&=\sum_{i=1}^{n} (-1)^{i-1}(-1)^{i-1} \pdv{\mathbf{V_i}}{x_i}  \dd x_1 \wedge \cdots \wedge x_n \\
+&=(\sum_{i=1}^{n} \pdv{\mathbf{V_j}}{x_i})  \dd x_1 \wedge \cdots \wedge x_n = (div \mathbf{V}) \dd \mu_n \\
+&\ast \dd (\ast \omega) = \ast (div \mathbf{V}) \dd \mu_n = div \mathbf{V} sgn(1,\cdots,n) = div \mathbf{V}
+\end{align*}
+
+
+Дивергенцията също се бележи и с $\div \mathbf{V}$(чисто мнемоническо означение, тъй като $\nabla=(\pdv{}{x_1},\cdots,\pdv{}{x_n})$ не е истински вектор).
+
+\subsubsection*{Ротор}
+Роторът на векторното поле $\mathbf{V}$ му съпоставя $n-2$-форма:
+\[
+\mathbf{rot} \mathbf{V} = \ast \dd \omega, \quad 
+\omega=\sum_{i=1}^n \mathbf{V}_i \dd x_i
+\] 
+
+Роторът също се бележи и с $\mathbf{curl} \mathbf{V}$ или $\curl \mathbf{V}$ (отново за лесно запомняне, но това важи само за $\mathbb{R}^3$). Роторът може да се срещне и като "завихряне".
+
+Използвайки, че $d^2=0$, получаваме формулатите $\mathbf{rot} \, \mathbf{grad}f=\ast \dd \dd f = \ast 0 = 0$ и $div \, \mathbf{rot} \mathbf{V}=\ast \dd \ast \ast \dd \omega = (-1)^{0n}\ast \dd \dd \omega = 0$
+
+Нека фиксираме векторни полета $\mathbf{A}$ и $\mathbf{B}$ над $\mathbb{R}^3$ и бележим $\omega_{\mathbf{A}}^1=A_1 \dd x_1 + A_2 \dd x_2 + A_3 \dd x_3, \omega_{\mathbf{A}}^2=A_1 \dd x_2 \wedge \dd x_3 + A_2 \dd x_3 \wedge \dd x_1 + A_3 \dd x_1 \wedge \dd x_2$(аналогично дефинираме и за $\mathbf{B}$). Тогава:
+
+\begin{align*}
+&\omega_{\mathbf{A}}^1 \wedge \omega_{\mathbf{B}}^1 = (A_1 \dd x_1 + A_2 \dd x_2 + A_3 \dd x_3) \wedge (B_1 \dd x_1 + B_2 \dd x_2 + B_3 \dd x_3) \\
+&= A_1 B_2 \dd x_1 \wedge \dd x_2 + A_1 B_3 \dd x_1 \wedge \dd x_3 + A_2 B_1 \dd x_2 \wedge \dd x_1 + A_2 B_3 \dd x_2 \wedge \dd x_3 \\
+&+ A_3 B_1 \dd x_3 \wedge \dd x_1 + A_3 B_2 \dd x_3 \wedge \dd x_2 \\
+&=(A_2 B_3 - A_3 B_2)\dd x_2 \wedge \dd x_3 + (A_3 B_1 - A_1 B_3)\dd x_3 \wedge \dd x_1 + (A_1 B_2 - A_2 B_1)\dd x_3 \wedge \dd x_2 \\
+&= \omega_{\mathbf{A} \times \mathbf{B}}^2 \\
+&\omega_{\mathbf{A}}^1 \wedge \omega_{\mathbf{B}}^2 = (A_1 \dd x_1 + A_2 \dd x_2 + A_3 \dd x_3) \wedge (B_1 \dd x_2 \wedge \dd x_3 + B_2 \dd x_3 \wedge \dd x_1 + B_3 \dd x_1 \wedge \dd x_2) \\
+&= A_1 B_1 \dd x_1 \wedge \dd x_2 \wedge \dd x_3  +  A_2 B_2 \dd x_2 \wedge \dd x_3 \wedge \dd x_1  + A_3 B_3 \dd x_3 \wedge \dd x_1 \wedge \dd x_2 \\
+&=A_1 B_1 \dd x_1 \wedge \dd x_2 \wedge \dd x_3 + A_2 B_3 \dd x_1 \wedge \dd x_2 \wedge \dd x_3 + A_3 B_3 \dd x_1 \wedge \dd x_2 \wedge \dd x_3 \\
+&=\dotpr{\mathbf{A}}{\mathbf{B}} \dd x_1 \wedge \dd x_2 \wedge \dd x_3 = \dotpr{\mathbf{A}}{\mathbf{B}} \dd \mu_3
+\end{align*}
+
+\begin{problem}
+Да се намерят векторни операции, съответствия на $\dd f$, $\dd \omega_{\mathbf{A}}^1$ и $\dd \omega_{\mathbf{A}}^2$ 
+\end{problem}
+
+\begin{solution*}
+\begin{align*}
+&\dd f = \pdv{f}{x_1} \dd x_1 + \pdv{f}{x_2} \dd x_2 + \pdv{f}{x_3} \dd x_3 = \omega_{\mathbf{grad}f}^1 \\
+&\dd \omega_{\mathbf{A}}^1 = \dd (A_1 \dd x_1 + A_2 \dd x_2 + A_3 \dd x_3) = \dd A_1 \dd x_1 + \dd A_2 \dd x_2 + \dd A_3 \dd x_3 \\
+&=\pdv{A_1}{x_2} \dd x_2 \wedge \dd x_1 + \pdv{A_1}{x_3} \dd x_3 \wedge \dd x_1 + \pdv{A_2}{x_1} \dd x_1 \wedge \dd x_2 \\ 
+&+\pdv{A_2}{x_3} \dd x_3 \wedge \dd x_1 + \pdv{A_3}{x_1} \dd x_1 \wedge \dd x_3 + \pdv{A_3}{x_2} \dd x_2 \wedge \dd x_3 \\
+&= \left(\pdv{A_3}{x_2} - \pdv{A_2}{x_3}\right) \dd x_2 \wedge \dd x_3 + \left(\pdv{A_1}{x_3} - \pdv{A_3}{x_1}\right) \dd x_3 \wedge \dd x_1 + \left(\pdv{A_2}{x_1} - \pdv{A_1}{x_2}\right) \dd x_1 \wedge \dd x_2 \\
+&=\omega_{\mathbf{rot}\mathbf{A}}^2 \\
+&\dd \omega_{\mathbf{A}}^2 = \dd (A_1 \dd x_2 \wedge \dd x_3 + A_2 \dd x_3 \wedge \dd x_1 + A_3 \dd x_1 \wedge \dd x_2) \\
+&= \dd A_1 \dd x_2 \wedge \dd x_3 + \dd A_2 \dd x_3 \wedge \dd x_1 + \dd A_3 \dd x_1 \wedge \dd x_2 \\
+&=\pdv{A_1}{x_1} \dd x_1 \wedge \dd x_2 \wedge \dd x_3 + \pdv{A_2}{x_2} \dd x_2 \wedge \dd x_3 \wedge \dd x_1 + \pdv{A_3}{x_3} \dd x_3 \wedge \dd x_1 \wedge \dd x_2 \\
+&=\left(\pdv{A_1}{x_1}+\pdv{A_2}{x_2}+\pdv{A_3}{x_3}\right)\dd x_1 \wedge \dd x_2 \wedge \dd x_3 = (div \mathbf{A})d\mu_3 
+\end{align*}
+\end{solution*}
+
+\subsection{Оператор на Лаплас-Белтрами-де Рам}
+Този операторът на Лаплас-де Рам се дефинира така:
+\[
+\Delta = (\dd + \delta)^2 = \dd \delta + \delta \dd
+\]
+До формулата отдясно стигаме след използване на $d^2=\delta^2=0$. Формите $\omega$, за които $\Delta \omega = 0$ се наричат хармонични. 
+Известният ни Лапласиан е операторът на Лаплас-Белтрами:
+\[
+\Delta f = div \, \mathbf{grad} f
+\]
+Обобщението на Лаплас-Белтрами е Лаплас-де Рам. Ако то е приложено на фунцкия, дава $\Delta f = \dd \delta + \delta \dd f = \delta \dd f$. Може да се покаже, че $\delta \dd f=-\Delta f$(в смисълът на Лаплас-Белтрами). Това не е проблем, тъй като хармонични $0$-форми, т.е. фунцкии са едни и същи в двата случая (от $-\Delta f = 0$ $\Longleftrightarrow$ $\Delta f = 0$).
+
+\begin{problem}
+Покажете,че наистина $\delta \dd f = - div \, \mathbf{grad} f$
+\end{problem}
+
+\begin{proof}
+Тъй като $f$ е гладка фунцкия, то може да намерим неиният градиент, $\mathbf{grad} f$. Тъй като той е векторно поле, то $\ast \dd \ast \omega = div \, \mathbf{grad} f$(тук $\omega$ е съответстващата на градиента $1$-форма). Но $\dd f = \omega$. Тогава $\delta \dd f = (-1)^{n(1+1)+1} \ast \dd \ast \dd f = (-1) \ast \dd \ast \omega = - div \, \mathbf{grad} f$ 
+\end{proof}
+
+\subsection{Интегриране на диференциални форми}
+
+\begin{theorem*}[Формула на Стокс]
+ Нека $M$ е компактно гладко ориентируемо многообразие с непразна граница $\partial M \subset \mathbb{R}^n$. Нека $\omega$ е диференциална $n-1$-форма. Тогава $\int_{\partial M} \omega = \int_M \dd \omega$.
+\end{theorem*}
+
+Теоремата на Стокс е обобщение на теоремите на Нютон-Лайбниц, Грийн и Гаус-Остроградски.
+
+\end{large}
+\end{document}
