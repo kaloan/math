@@ -117,8 +117,38 @@
 	\mathbf{F}_S = \iint\limits_{S} \dd \mathbf{F}_S^n = \iint\limits_{S} \mathbf{t}^n \dd S
 \end{equation}
 \subsection{Интегрална форма на закона за изменение на количеството на движение}
+В малък обем $\Delta \tau$ с маса $\rho \Delta \tau$ ще имаме импулс $\Delta \mathbf{K} = \rho \mathbf{v} \Delta \tau$.
+Така количеството движение на флуида ще бъде
+\begin{equation}
+	\mathbf{K} = \iiint\limits_{\tau} \dd \mathbf{K} = \iiint\limits_{\tau} \rho \mathbf{v} \dd \tau
+\end{equation}
+Тъй като силите, действащи на $\tau$ или са масови, или повърхностни, то вторият закон на Нютон придобива вида:
+\begin{equation}
+	\dv{t}\iiint\limits_{\tau} \rho \mathbf{v} \dd \tau = \iiint\limits_{\tau} \rho \mathbf{F} \dd \tau + \iint\limits_{S} \mathbf{t}^n \dd S
+\end{equation}
+Не бива да забравяме, че и самият обем $\tau$ се мени с времето. Тогава ще имаме 
+\begin{equation}
+	\dv{t}\iiint\limits_{\tau} \rho \mathbf{v} \dd \tau = \iiint\limits_{\tau} \dv{\rho \mathbf{v}}{t} + \rho \mathbf{v} \div \mathbf{v} \dd \tau 
+\end{equation}
+Така получаваме интегралната форма на закона за изменение на количеството движение
+\begin{equation}
+	\iiint\limits_{\tau} \dv{\rho \mathbf{v}}{t} + \rho \mathbf{v} \div \mathbf{v} - \rho \mathbf{F} \dd \tau = \iint\limits_{S} \mathbf{t}^n \dd S
+\end{equation}
 \subsection{Формула на Коши}
-
+Нека $\tau$ бъде триъгълна пирамида с прав тристенен ъгъл при върха си - началото на координатната система.
+Тогава може да се опише като съвкупност от 4 повъхнини:
+\begin{enumerate}
+	\item $S_x$ е стената перпендикулярна на оста $x$.
+	\item $S_y$ е стената перпендикулярна на оста $y$.
+	\item $S_z$ е стената перпендикулярна на оста $z$.
+	\item $S_n$ е стената срещу тристенният ъгъл на координатната система.
+\end{enumerate}
+Тогава $\mathbf{t}^{-x}$, $\mathbf{t}^{-y}$, $\mathbf{t}^{-z}$ ще са напреженията по съответните първи три стени.
+Нека $\mathbf{t}^{n}$ бъде по четвъртата. Така се достига до формулата на Коши
+\begin{equation}
+	\iiint\limits_{\tau} \dv{\rho \mathbf{v}}{t} + \rho \mathbf{v} \div \mathbf{v} - \rho \mathbf{F} \dd \tau =
+	\iint\limits_{S_x} \mathbf{t}^{-x} \dd S + \iint\limits_{S_y} \mathbf{t}^{-y} \dd S + \iint\limits_{S_z} \mathbf{t}^{-z} \dd S + \iint\limits_{S_n} \mathbf{t}^{n} \dd S
+\end{equation}
 \section{Подобие при вискозни течения}
 \section{Безразмерни характерни числа}
 \end{document}
