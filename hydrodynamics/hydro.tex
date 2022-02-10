@@ -1,0 +1,124 @@
+% Meta
+\documentclass[bulgarian, 12pt]{article}
+\usepackage[
+	a4paper, 
+	includeheadfoot, 
+	margin = 1.5 cm]
+{geometry}
+
+% Hyperlinks
+\usepackage[
+	unicode=true, 
+	colorlinks=true, 
+	linkcolor=black, 
+	urlcolor=black]
+{hyperref}
+
+% Fonts
+\usepackage[T2A]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[bulgarian]{babel}
+\usepackage{bm}
+% ISO-Math (only for XeLaTeX and LuaLaTex)
+%\usepackage[math-style=ISO]{unicode-math}
+
+% Citing
+% IMPORTANT! USE 'babel=true' to be able to use csquotes with a multitude of languages
+% By default you can use only ~10 languages
+\usepackage[babel=true]{csquotes}
+
+% Indent first line in paragraph
+\usepackage{indentfirst}
+
+% Place tags on the left
+\usepackage[leqno]{amsmath}
+
+% Better math
+\usepackage{amssymb}
+\usepackage{mathtools}
+\usepackage{comment}
+\usepackage{mathptmx}
+\usepackage[makeroom]{cancel}
+
+% Create math pictures
+\usepackage{tikz}
+\usepackage{enumitem}
+
+% Better theorems
+\usepackage{amsthm}
+
+% Derivative notations
+\usepackage{physics}
+\usepackage{derivative}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Lapacian delta
+%\newcommand{\laplace}{\increment}
+\newcommand{\laplace}{∆}
+%\fontsize{16pt}{20pt}\selectfont
+% Bolded cyrilic text
+\renewcommand{\sfdefault}{cmss}
+\renewcommand{\rmdefault}{cmr}
+\renewcommand{\ttdefault}{cmt}
+
+% Roman numerals for sections
+\renewcommand{\thesection}{\Roman{section}} 
+%\renewcommand{\thesubsection}{\thesection.\Roman{subsection}}
+% Sectioning titles
+\newtheorem{definition}{Дефиниция}[section]
+\newtheorem{problem}{Задача}
+\newtheorem{theorem}{Теорема}
+\newtheorem*{theorem*}{Теорема}
+\newtheorem{lemma}{Лема}
+\newtheorem*{solution*}{Решение}
+
+% Numbering of equations
+\newcommand\numberthis{\addtocounter{equation}{1}\tag{\theequation}}
+
+% Space between lines in array for fractions
+\renewcommand{\arraystretch}{1.5}
+
+\title{Избрани въпроси от хидродинамиката}
+
+\author{Калоян Стоилов}
+
+\begin{document}
+\maketitle
+
+\section{Изменение на количеството на движение}
+Количеството движение или още - импулс в механиката на твърди тела се нарича $\mathbf{K} = m\mathbf{v}$ (често се бележи с $p$, но при нас това е налягането).
+Вторият закон на Нютон гласи, че скоростта на изменение на импулса е равно на равнодействащата сила $\mathbf{F} = \dv{\mathbf{K}}{t} = \dv{m\mathbf{v}}{t}= m \dot{\mathbf{v}}$. 
+Законът е в сила за тела, непроменящи масата си.
+\subsection{Масови и повърхностни сили}
+Нека $\tau$ е обем от флуид с маса $M$. 
+Масовата сила е действащата на флуида в обема сила, която не зависи от взаимодействието с други части на флуида. 
+Нека $\mathbf{F}_M$ е главния вектор на силите (т.е. равнодействащата сила), действащи на флуида във $\tau$.
+Средна масова сила, действаща върху маса $M$ се нарича $F_{avg} = \frac{\mathbf{F}_M}{M}$.
+Масова сила $\mathbf{F}$ в точка $B$, наричаме
+\begin{equation}
+	\mathbf{F} = \lim_{\tau \to \{B\}} F_{avg} = \lim_{\tau \to \{B\}} \frac{\mathbf{F}_M}{M}
+\end{equation}
+Ако знаем $\mathbf{F}$ в коя да е точка от $\tau$, то може да получим $\mathbf{F}_M$.
+Наистина, нека $\Delta \tau$ е обем с маса $\Delta m = \rho \Delta \tau$, на който действа $\mathbf{F}_avg \Delta m$.
+Разбивайки $\tau$ на такива обеми, може да съберем всички такива сили и след граничен преход получаваме:
+\begin{equation}
+	\mathbf{F}_M = \iiint\limits_{\tau} \mathbf{F} \dd m = \iiint\limits_{\tau} \rho \mathbf{F} \dd \tau
+\end{equation}
+Нека обемът е ограничен от повърхнина $S$. Флуидът извън $\tau$, действа на този във $\tau$ през $S$ чрез повърхностни сили.
+Нека приближим част от повърхнината с равнинна част $\Delta S$ с нормала $\mathbf{n}$, a главния вектор на силите, действащи ѝ e $\Delta F_S^n$.
+Средното напрежение, действащо на площта е $\mathbf{t}_{avg}^n = \frac{\Delta \mathbf{F}_S^n}{\Delta S}$. 
+Напрежение $\mathbf{t}^n$ на повърхностни сили, действащи в точка $B$, наричаме
+\begin{equation}
+	\mathbf{t} = \lim_{\Delta S \to \{B\}} \mathbf{t}_{avg}^n = \lim_{\Delta S \to \{B\}} \frac{\Delta F_S^n}{\Delta S}
+\end{equation}
+Отново сумираме всички такива сили за $S$ и след граничен преход главният вектор на повърхностните сили е:
+\begin{equation}
+	\mathbf{F}_S = \iint\limits_{S} \dd \mathbf{F}_S^n = \iint\limits_{S} \mathbf{t}^n \dd S
+\end{equation}
+\subsection{Интегрална форма на закона за изменение на количеството на движение}
+\subsection{Формула на Коши}
+
+\section{Подобие при вискозни течения}
+\section{Безразмерни характерни числа}
+\end{document}
