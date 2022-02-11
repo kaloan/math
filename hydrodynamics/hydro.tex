@@ -90,6 +90,7 @@
 Количеството движение или още - импулс в механиката на твърди тела се нарича $\mathbf{K} = m\mathbf{v}$ (често се бележи с $p$, но при нас това е налягането).
 Вторият закон на Нютон гласи, че скоростта на изменение на импулса е равно на равнодействащата сила $\mathbf{F} = \dv{\mathbf{K}}{t} = \dv{m\mathbf{v}}{t}= m \dot{\mathbf{v}}$. 
 Законът е в сила за тела, непроменящи масата си.
+
 \subsection{Масови и повърхностни сили}
 Нека $\tau$ е обем от флуид с маса $M$. 
 Масовата сила е действащата на флуида в обема сила, която не зависи от взаимодействието с други части на флуида. 
@@ -116,6 +117,7 @@
 \begin{equation}
 	\mathbf{F}_S = \iint\limits_{S} \dd \mathbf{F}_S^n = \iint\limits_{S} \mathbf{t}^n \dd S
 \end{equation}
+
 \subsection{Интегрална форма на закона за изменение на количеството на движение}
 В малък обем $\Delta \tau$ с маса $\rho \Delta \tau$ ще имаме импулс $\Delta \mathbf{K} = \rho \mathbf{v} \Delta \tau$.
 Така количеството движение на флуида ще бъде
@@ -134,6 +136,46 @@
 \begin{equation}
 	\iiint\limits_{\tau} \dv{\rho \mathbf{v}}{t} + \rho \mathbf{v} \div \mathbf{v} - \rho \mathbf{F} \dd \tau = \iint\limits_{S} \mathbf{t}^n \dd S
 \end{equation}
+
+\subsection{Изменение на интегрално количество}
+Нека $Q$ бъде някаква величина - скаларна или векторна, която е дефинирана поточково в обем $\tau$. 
+Тогава изменението по времето на общата величина за обема ще бъде 
+\begin{equation}
+	\dv{t}\iiint\limits_{\tau} Q \dd \tau
+\end{equation}
+Тъй като говорим за флуиди и самият обем се мени с времето. Да разгледаме $\tau(t + \Delta t) - \tau (t)$.
+За достатъчно малко време и малка площ $\Delta S$ по границата $S(t)$, може да разглеждаме че се движи със скорост $\mathbf{v} \cdot \mathbf{n}$ към нова повърхнина $S(t + \Delta t)$.
+Така изменението на обема над тази площ ще може да се пресметне като обем на прав криволинеен цилиндър 
+\begin{equation}
+	\Delta \tau = h \Delta S = (\mathbf{v} \cdot \mathbf{n}) \Delta t \Delta S 
+\end{equation}
+След граничен преход и изразявайки обема чрез интеграл по елементарни обеми получаваме:
+\begin{equation}
+	\frac{\iiint\limits_{\tau(t + \Delta t) - \tau (t)} \dd \tau}{\Delta t} = \iint\limits_{S} \mathbf{v} \cdot \mathbf{n} \dd S 
+\end{equation}
+Сега може да получим аналог на формулата за диференциране на Лайбниц
+\begin{equation}
+	\dv{t}\iiint\limits_{\tau} Q \dd \tau = \iiint\limits_{\tau} \pdv{Q}{t} \dd \tau + \iint\limits_{S} Q (\mathbf{v} \cdot \mathbf{n}) \dd S
+\end{equation}
+Може да забележим, че ако $Q$ е скаларна величина, то $Q(\mathbf{v} \cdot \mathbf{n}) = (Q \mathbf{v}) \cdot \mathbf{n}$. 
+Използвайки теоремата на Гаус-Остроградски, то
+\begin{equation}
+	\dv{t}\iiint\limits_{\tau} Q \dd \tau = \iiint\limits_{\tau} \pdv{Q}{t} \dd \tau + \iiint\limits_{\tau} \div (Q \mathbf{v}) \dd \tau
+\end{equation}
+Лесно може да се провери, че
+\begin{equation}
+	\div (Q \mathbf{v}) = \grad Q \cdot \mathbf{v} + Q \div \mathbf{v} = \grad Q \cdot \dot{\mathbf{x}} + Q \div \mathbf{v}
+\end{equation}
+Остава да забележим, че
+\begin{equation}
+	\pdv{Q}{t} + \grad Q \cdot \dot{\mathbf{x}} = \dv{Q}{t}
+\end{equation}
+След използване на линейността на интеграла получаваме
+\begin{equation}
+	\dv{t}\iiint\limits_{\tau} Q \dd \tau = \iiint\limits_{\tau} \dv{Q}{t} + Q \div \mathbf{v} \dd \tau
+\end{equation}
+Ако $Q$ е векторна величина, то може да го разгледаме покомпонентно и пак получаваме същата формула.
+
 \subsection{Формула на Коши}
 Нека $\tau$ бъде триъгълна пирамида с прав тристенен ъгъл при върха си - началото на координатната система.
 Тогава може да се опише като съвкупност от 4 повъхнини:
@@ -149,6 +191,14 @@
 	\iiint\limits_{\tau} \dv{\rho \mathbf{v}}{t} + \rho \mathbf{v} \div \mathbf{v} - \rho \mathbf{F} \dd \tau =
 	\iint\limits_{S_x} \mathbf{t}^{-x} \dd S + \iint\limits_{S_y} \mathbf{t}^{-y} \dd S + \iint\limits_{S_z} \mathbf{t}^{-z} \dd S + \iint\limits_{S_n} \mathbf{t}^{n} \dd S
 \end{equation}
+
 \section{Подобие при вискозни течения}
+Иска ни се с едно течение да оприличим друго - както например имаме геометрично подобие на фигури и сме извели някакво свойство/количество за една от тях, лесно може да го получим за другата.
+И тъй нека имаме две течения със съответни величини 
+\begin{equation}
+	a_i, \mathbf{v}_i, \mathbf{g}_i, \nu_i, \frac{p_i}{\rho_i}, \quad i=1,2
+\end{equation}
+
+
 \section{Безразмерни характерни числа}
 \end{document}
