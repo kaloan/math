@@ -7,12 +7,12 @@
 {geometry}
 
 % Hyperlinks
-\usepackage[
-	unicode=true, 
-	colorlinks=true, 
-	linkcolor=black, 
-	urlcolor=black]
-{hyperref}
+% \usepackage[
+% 	unicode=true, 
+% 	colorlinks=true, 
+% 	linkcolor=black, 
+% 	urlcolor=black]
+% {hyperref}
 
 % Fonts
 \usepackage[T2A]{fontenc}
@@ -34,6 +34,7 @@
 \usepackage[leqno]{amsmath}
 
 % Better math
+\usepackage{amsbsy}
 \usepackage{amssymb}
 \usepackage{mathtools}
 \usepackage{comment}
@@ -49,7 +50,7 @@
 
 % Derivative notations
 \usepackage{physics}
-\usepackage{derivative}
+%\usepackage{derivative}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -192,13 +193,68 @@
 	\iint\limits_{S_x} \mathbf{t}^{-x} \dd S + \iint\limits_{S_y} \mathbf{t}^{-y} \dd S + \iint\limits_{S_z} \mathbf{t}^{-z} \dd S + \iint\limits_{S_n} \mathbf{t}^{n} \dd S
 \end{equation}
 
-\section{Подобие при вискозни течения}
+
+\section{Безразмерни течения}
+Ще разгледаме вискозни течения с непроменлива динамична вискозност $\mu$.
+Същото предполагаме и за масовите сили $\mathbf{g}$.
+Експериментални изследвания върху течения с модели/макети могат да служат за качествено/количествено характеризиране на по-големи обекти, които на практика могат да се ползват (напр. кораби, самолети).
+За тази цел се използва обезразмеряване.
+
+\subsection{Безразмерен запис на уравнения на течения}
+Нека разгледаме системата от уравнения на Навие-Стокс и уравнението на непрекъснатостта
+\begin{gather}
+	\pdv{\mathbf{v}}{t} + \mathbf{v} \cdot \grad \mathbf{v} = \mathbf{g} - \frac{1}{\rho}\grad p + \nu \laplacian \mathbf{v} \\\nonumber
+	\div \mathbf{v} = 0
+\end{gather}
+Разглеждаме тяло с характерна дължина $l$. Правим смяна на координатите, като искаме да разпишем уравненията в следната система
+\begin{equation}
+	\xi = \frac{x}{l},\, \eta = \frac{y}{l},\, \zeta = \frac{z}{l},\, \tau = \frac{t}{\frac{l}{\nu}}
+\end{equation}
+Въвеждаме безразмерни функции
+\begin{equation}
+	\mathbf{u} = \frac{l}{\nu} \mathbf{v},\, \Pi = \frac{l^2}{\nu^2} \frac{p}{\rho},\, \bm{\gamma} = \frac{l^3}{\nu^2} \mathbf{g}
+\end{equation}
+Трябва да ги запишем като функции на новите координати. За да сведем уравненията използваме, че
+\begin{align}
+	&\pdv{\mathbf{v}}{t} = \pdv{(\frac{\nu}{l}\mathbf{u})}{\tau}\dv{\tau}{t} = \frac{\nu^2}{l^3} \pdv{\mathbf{u}}{\tau} \\
+	&\mathbf{v} \cdot \grad \mathbf{v} = 
+		\frac{\nu}{l} \mathbf{u} \cdot \grad \frac{\nu}{l} \mathbf{u} = 
+		\frac{\nu^2}{l^2} \mathbf{u} \cdot (\pdv{\mathbf{u}}{\xi}\dv{\xi}{x} + \pdv{\mathbf{u}}{\eta}\dv{\eta}{y} + \pdv{\mathbf{u}}{\zeta}\dv{\zeta}{z}) =
+		\frac{\nu^2}{l^3} \mathbf{u} \cdot (\pdv{\mathbf{u}}{\xi} + \pdv{\mathbf{u}}{\eta} + \pdv{\mathbf{u}}{\zeta}) \\
+	& \div \mathbf{v} = 0 \iff \pdv{u_x}{\xi} + \pdv{u_y}{\eta} + \pdv{u_z}{\zeta} = 0 \\
+	& \nu \laplacian \mathbf{v} = 
+		\nu \div \frac{\nu}{l} (\pdv{\mathbf{u}}{\xi}\dv{\xi}{x} + \pdv{\mathbf{u}}{\eta}\dv{\eta}{y} + \pdv{\mathbf{u}}{\zeta}\dv{\zeta}{z}) = 
+		\frac{\nu^2}{l^2} (\pdv[2]{\mathbf{u}}{\xi}\dv{\xi}{x} + \pdv[2]{\mathbf{u}}{\eta}\dv{\eta}{y} + \pdv[2]{\mathbf{u}}{\zeta}\dv{\zeta}{z}) =
+		\frac{\nu^2}{l^3} (\pdv[2]{\mathbf{u}}{\xi} + \pdv[2]{\mathbf{u}}{\eta} + \pdv[2]{\mathbf{u}}{\zeta}) \\
+	&\frac{1}{\rho}\grad p = 
+		\grad \frac{p}{\rho} =
+	 	\frac{\nu^2}{l^2} (\pdv{\Pi}{\xi}\dv{\xi}{x} + \pdv{\Pi}{\eta}\dv{\eta}{y} + \pdv{\Pi}{\zeta}\dv{\zeta}{z}) =
+		\frac{\nu^2}{l^3} (\pdv{\Pi}{\xi} + \pdv{\Pi}{\eta} + \pdv{\Pi}{\zeta})
+\end{align}
+Съкращаваме и получаваме системата
+\begin{gather}
+	\dv{\mathbf{u}}{\tau} = \bm{\gamma} - \grad \Pi + \laplacian \mathbf{u} \\\nonumber
+	\div \mathbf{u} = 0
+\end{gather}
+Тук операторите са спрямо новите ни променливи $\xi, \eta, \zeta$, като вече единицата за дължина е характерната дължина на тялото, т.е. $l$.
+
+\subsection{Подобни координати}
+Нека имаме две подобни тела със съответни характерни дължини $l_1$, $l_2$ - те ще определят линейния мащаб за двете задачи. 
+Изразяваме съответно течения с кинематични вискозности $\nu_i = \frac{\mu_i}{\rho_i}$ в координати $x_i,y_i,z_i,t_i, \quad i=1,2$.
+Да забележим, че $[\nu_i]=\frac{L^2}{T}$, а $[l_i]=L$.
+Така за мащаб по времето може да вземем $\frac{l_i^2}{\nu_i},\, i=1,2$. 
+За обезразмерени уравнения въвеждаме координати
+\begin{equation}
+	\xi_i = \frac{x_i}{l_i},\, \eta_i = \frac{y_i}{l_i},\, \zeta_i = \frac{z_i}{l_i},\, \tau_i = \frac{t_i}{\frac{l_i^2}{\nu_i}}, \quad i=1,2
+\end{equation}
+Подобни координати на двете течения наричаме тези, за които всички двойки безразмерни величини съвпадат.
+След тези преобразузавания и двете безразмерни тела имат характерни дължини $1$ и са геометрически еднакви. 
+\subsection{Подобие при вискозни течения}
 Иска ни се с едно течение да оприличим друго - както например имаме геометрично подобие на фигури и сме извели някакво свойство/количество за една от тях, лесно може да го получим за другата.
 И тъй нека имаме две течения със съответни величини 
 \begin{equation}
-	a_i, \mathbf{v}_i, \mathbf{g}_i, \nu_i, \frac{p_i}{\rho_i}, \quad i=1,2
+	l_i, \mathbf{v}_i, \mathbf{g}_i, \nu_i, \frac{p_i}{\rho_i}, \quad i=1,2
 \end{equation}
 
-
-\section{Безразмерни характерни числа}
+\subsection{Безразмерни характерни числа}
 \end{document}
