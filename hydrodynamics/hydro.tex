@@ -92,7 +92,7 @@
 \maketitle
 
 \section{Изменение на количеството на движение}
-Количеството движение или още - импулс в механиката на твърди тела се нарича $\mathbf{K} = m\mathbf{v}$ (често се бележи с $p$, но при нас това е налягането).
+Количеството движение или още - импулс в механиката на твърди тела се нарича $\mathbf{K} = m\mathbf{v}$ (често се бележи с $\mathbf{p}$, но при нас $p$ е налягането, затова ще бележим с $K$).
 Вторият закон на Нютон гласи, че скоростта на изменение на импулса е равно на равнодействащата сила $\mathbf{F} = \dv{\mathbf{K}}{t} = \dv{m\mathbf{v}}{t}= m \dot{\mathbf{v}}$. 
 Законът е в сила за тела, непроменящи масата си.
 
@@ -139,7 +139,7 @@
 \end{equation}
 Така получаваме интегралната форма на закона за изменение на количеството движение
 \begin{equation}
-	\iiint\limits_{\tau} \dv{\rho \mathbf{v}}{t} + \rho \mathbf{v} \div \mathbf{v} - \rho \mathbf{F} \dd \tau = \iint\limits_{S} \mathbf{t}^n \dd S
+	\label{MomentumConservation}  \iiint\limits_{\tau} \dv{\rho \mathbf{v}}{t} + \rho \mathbf{v} \div \mathbf{v} - \rho \mathbf{F} \dd \tau = \iint\limits_{S} \mathbf{t}^n \dd S
 \end{equation}
 
 \subsection{Изменение на интегрално количество}
@@ -191,11 +191,64 @@
 	\item $S_n$ е стената срещу тристенният ъгъл на координатната система.
 \end{enumerate}
 Тогава $\mathbf{t}^{-x}$, $\mathbf{t}^{-y}$, $\mathbf{t}^{-z}$ ще са напреженията по съответните първи три стени.
-Нека $\mathbf{t}^{n}$ бъде по четвъртата. Така се достига до формулата на Коши
+Нека $\mathbf{t}^{n}$ бъде по четвъртата. Така се достига до формулата
 \begin{equation}
 	\iiint\limits_{\tau} \dv{\rho \mathbf{v}}{t} + \rho \mathbf{v} \div \mathbf{v} - \rho \mathbf{F} \dd \tau =
 	\iint\limits_{S_x} \mathbf{t}^{-x} \dd S + \iint\limits_{S_y} \mathbf{t}^{-y} \dd S + \iint\limits_{S_z} \mathbf{t}^{-z} \dd S + \iint\limits_{S_n} \mathbf{t}^{n} \dd S
 \end{equation}
+Когато обема на тетраедъра клони към $0$, повърхностните сили са в равновесие.
+Също така $\mathbf{t}^{-x} = - \mathbf{t}^{x},\, \mathbf{t}^{-y} = - \mathbf{t}^{y},\, \mathbf{t}^{-z} = - \mathbf{t}^{z}$.
+Тогава, ако изразим равновесието като
+\begin{equation}
+	\mathbf{t}^{n} \Delta S_n + \mathbf{t}^{-x} \Delta S_x + \mathbf{t}^{-y} \Delta S_y + \mathbf{t}^{-z} \Delta S_z = 0
+\end{equation}
+След заместване се получава
+\begin{equation}
+	\label{CauchyEquilibrium} \mathbf{t}^{n} \Delta S_n = \mathbf{t}^{x} \Delta S_x + \mathbf{t}^{y} \Delta S_y + \mathbf{t}^{z} \Delta S_z
+\end{equation}
+Да изразим $\mathbf{n} = n_x \hat{\mathbf{x}} + n_y \hat{\mathbf{y}} + n_z \hat{\mathbf{z}}$.
+За площите получаваме аналогични проекции
+\begin{equation}
+	\Delta S_x = n_x \Delta S_n,\quad \Delta S_y = n_y \Delta S_n,\quad \Delta S_z = n_z \Delta S_n
+\end{equation}
+Сега може да заместим и съкратим в \eqref{CauchyEquilibrium}
+\begin{equation}
+	\mathbf{t}^{n} = n_x \mathbf{t}^{x} + n_y \mathbf{t}^{y} + n_z \mathbf{t}^{z}
+\end{equation}
+Така достигаме до равенствата на Коши:
+\begin{equation}
+	\mathbf{t}^{n} = T^T \mathbf{n} = T 
+\end{equation}
+Матрицата T е тензор от втори ранг и се нарича тензор на напреженията. 
+Често се записва в една от двете форми
+\begin{equation}
+	T = 
+		\begin{pmatrix}
+			\sigma_x & \tau_{xy} & \tau_{xz} \\
+			\tau_{yx} & \sigma_y & \tau_{yz} \\
+			\tau_{zx} & \tau_{zy} & \sigma_z \\
+		\end{pmatrix} =
+		\begin{pmatrix}
+			\sigma_1 & \tau_{12} & \tau_{13} \\
+			\tau_{21} & \sigma_2 & \tau_{23} \\
+			\tau_{31} & \tau_{32} & \sigma_3 \\
+		\end{pmatrix}
+\end{equation}
+Тогава може да заместим в \eqref{MomentumConservation}.
+Прилагаме теоремата за дивергенцията за превръщане на интеграл по границата в интервал по обема
+\begin{gather}
+	\iiint\limits_{\tau} \dv{\rho \mathbf{v}}{t} + \rho \mathbf{v} \div \mathbf{v} - \rho \mathbf{F} \dd \tau = \iiint\limits_{\tau} \div T \dd \tau \\
+	\nonumber \iiint\limits_{\tau} \dv{\rho \mathbf{v}}{t} + \rho \mathbf{v} \div \mathbf{v} - \rho \mathbf{F} - \div T \dd \tau = \mathbf{0}
+\end{gather}
+Тъй като обемът е произволен, подинтегралното векторно поле съвпада с нулевото навсякъде, тоест
+\begin{equation}
+	\dv{\rho \mathbf{v}}{t} + \rho \mathbf{v} \div \mathbf{v} - \rho \mathbf{F} - \div T = \mathbf{0}
+\end{equation}
+Остава да забележим следното
+\begin{equation}
+	\dv{\rho \mathbf{v}}{t} + \rho \mathbf{v} \div \mathbf{v} = \dv{\rho}{t} \mathbf{v} + \rho \dv{\mathbf{v}}{t} + \rho \mathbf{v} \div \mathbf{v} = \rho \dv{\mathbf{v}}{t} + \mathbf{v}(\dv{\rho}{t} + \rho \div \mathbf{v}) = \rho \dv{\mathbf{v}}{t}
+\end{equation}
+Тук изпозлвахме уравнението на непрекъснатостта в общия му вид. Достигнахме до формулата на Коши:
 
 
 \section{Безразмерни течения}
@@ -328,37 +381,24 @@
 При $500 < Re < 500 000$, числото на Струхал практически остава непроменено.
 Повечето риби и летящи животни се движат с $0.2 < St < 0.4$.
 
-
-\subsubsection{Число на Рейнолдс}
-Числото на Рейнолдс $Re = \frac{l v_\infty}{\nu}$ има значение само за вискозни флуиди, т.к. за невискозни $\nu = 0$, т.е. $Re = \infty$.
-То представлява отношението на инерчните сили към вискозните сили.
-\subsubsection{Число на Фруд}
-Числото на Фруд $Fr = \frac{v_\infty}{\sqrt{l g}}$ има смисъл и за невискозни флуиди.
-То представлява отношението на инерчните сили към гравитационните сили.
-\subsubsection{Число на Струхал}
-Числото на Струхал $St = \frac{v_\infty}{\sqrt{l g}}$ има смисъл и за невискозни флуиди.
-То представлява отношението на вихровото ускорение към адвективното ускорение.
-\subsubsection{Число на Мах}
 Числото на Мах $M = \frac{\norm{\mathbf{V}}}{c}$, където $c$ е скоростта на звука в средата.
 Квадратът му представлява отношението на итерчните сили към силите на свиваемост.
 С него може да се мери изентропното отклонение от закона за несвиваемост.
 
 \subsubsection{Безразмерни характерни числа при топлопроводни потоци}
-\subsubsection{Число на Екерт}
 Числото на Екерт $Ec = \frac{\norm{\mathbf{V}}^2}{c_p(T_w - T_f)}$, $T_f,\, T_w$ са съответно температурите на свободния поток и стените.
 То представлява отношението на кинетичната към топлинната енергия.
-\subsubsection{Число на Прантл}
+
 Числото на Прантл $Pr = \frac{c_p \mu_0}{k_0}$.
 Това е отношението на разсейването на импулса към топлинното разсейване.
 
 \subsubsection{Безразмерни характерни числа при повърхностни напрежения}
-\subsubsection{Число на Вебер}
-Числото на Вебер $We = \frac{v_\infty}{\sqrt{l g}}$ измерва отношението на инерчните сили към тези на повърностното напрежение.
+Числото на Вебер $We = \frac{\norm{\mathbf{V}}^2 \rho l}{\sigma}$ измерва отношението на инерчните сили към тези на повърностното напрежение.
 При големи числа на Вебер капки лесно се деформират при сбъсъци с твърди повърхности.
-\subsubsection{Число на Бонд}
+
 Числото на Бонд $Bo = \frac{\norm{\mathbf{g}} \rho l^2 }{\sigma}$ е отношението на гравитационните сили към тези на повърностното напрежение.
 При големи числа на Бонд гравитационните сили оказват много по-голямо влияние при течения около повърхността на флуида, отколкото повърхностното напрежение.
-\subsubsection{Капилиарно число}
+
 Капилиарното число $Ca = \frac{\norm{\mathbf{V}} \mu}{\sigma}$ представлява отношението на вискозното напрежение към повърностното напрежение.
 Бавни течения през порести среди или тясни тръби се характеризират с ниски капилярни числа и образуване на мехурчета.
 \end{document}
