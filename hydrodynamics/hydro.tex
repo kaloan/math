@@ -18,14 +18,17 @@
 \usepackage[T2A]{fontenc}
 \usepackage[utf8]{inputenc}
 \usepackage{bm}
+
+% Languages
 \usepackage[base]{babel}
-\AfterBabelLanguage{russian}{%
+\AfterBabelLanguage{bulgarian}{%
   \let\sh\relax\let\ch\relax\let\tg\relax
   \let\arctg\relax\let\arcctg\relax
   \expandafter\let\expandafter\th\csname ltx@th\endcsname
   \let\ctg\relax\let\cth\relax\let\cosec\relax
 }
-\usepackage[bulgarian, russian, english]{babel}
+\usepackage[main=bulgarian, russian, english]{babel}
+\usepackage{hyphenat}
 
 % Better bibliography
 \usepackage{babelbib}
@@ -96,6 +99,12 @@
 % Space between lines in array for fractions
 \renewcommand{\arraystretch}{1.5}
 
+% Some stupid thing due to adding more than one language in babel and having to specify main
+\ifx\bulgarianhyphenmins\undefined
+	\def\bulgarianhyphenmins{2 2}
+\fi
+% Because babelbib does not like bulgarian
+\setbtxfallbacklanguage{russian}
 
 \title{Избрани въпроси от хидродинамиката}
 
