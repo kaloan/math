@@ -1,0 +1,163 @@
+\section{Изменение на количеството на движение}
+Количеството движение или още - импулс в механиката на твърди тела се нарича $\mathbf{K} = m\mathbf{v}$ (често се бележи с $\mathbf{p}$, но при нас $p$ е налягането, затова ще бележим с $K$).
+Вторият закон на Нютон гласи, че скоростта на изменение на импулса е равно на равнодействащата сила $\mathbf{F} = \dv{\mathbf{K}}{t} = \dv{m\mathbf{v}}{t}= m \dot{\mathbf{v}}$. 
+Законът е в сила за тела, непроменящи масата си.
+
+\subsection{Масови и повърхностни сили}
+Нека $\tau$ е обем от флуид с маса $M$. 
+Масовата сила е действащата на флуида в обема сила, която не зависи от взаимодействието с други части на флуида. 
+Нека $\mathbf{F}_M$ е главния вектор на силите (т.е. равнодействащата сила), действащи на флуида във $\tau$.
+Средна масова сила, действаща върху маса $M$ се нарича $F_{avg} = \frac{\mathbf{F}_M}{M}$.
+Масова сила $\mathbf{F}$ в точка $B$, наричаме
+\begin{equation}
+	\mathbf{F} = \lim_{\tau \to \{B\}} F_{avg} = \lim_{\tau \to \{B\}} \frac{\mathbf{F}_M}{M}
+\end{equation}
+Ако знаем $\mathbf{F}$ в коя да е точка от $\tau$, то може да получим $\mathbf{F}_M$.
+Наистина, нека $\Delta \tau$ е обем с маса $\Delta m = \rho \Delta \tau$, на който действа $\mathbf{F}_avg \Delta m$.
+Разбивайки $\tau$ на такива обеми, може да съберем всички такива сили и след граничен преход получаваме:
+\begin{equation}
+	\mathbf{F}_M = \iiint\limits_{\tau} \mathbf{F} \dd m = \iiint\limits_{\tau} \rho \mathbf{F} \dd \tau
+\end{equation}
+Нека обемът е ограничен от повърхнина $S$. Флуидът извън $\tau$, действа на този във $\tau$ през $S$ чрез повърхностни сили.
+Нека приближим част от повърхнината с равнинна част $\Delta S$ с нормала $\mathbf{n}$, a главния вектор на силите, действащи ѝ e $\Delta F_S^n$.
+Средното напрежение, действащо на площта е $\mathbf{t}_{avg}^n = \frac{\Delta \mathbf{F}_S^n}{\Delta S}$. 
+Напрежение $\mathbf{t}^n$ на повърхностни сили, действащи в точка $B$, наричаме
+\begin{equation}
+	\mathbf{t} = \lim_{\Delta S \to \{B\}} \mathbf{t}_{avg}^n = \lim_{\Delta S \to \{B\}} \frac{\Delta F_S^n}{\Delta S}
+\end{equation}
+Отново сумираме всички такива сили за $S$ и след граничен преход главният вектор на повърхностните сили е:
+\begin{equation}
+	\mathbf{F}_S = \iint\limits_{S} \dd \mathbf{F}_S^n = \iint\limits_{S} \mathbf{t}^n \dd S
+\end{equation}
+
+\subsection{Интегрална форма на закона за изменение на количеството на движение}
+В малък обем $\Delta \tau$ с маса $\rho \Delta \tau$ ще имаме импулс $\Delta \mathbf{K} = \rho \mathbf{v} \Delta \tau$.
+Така количеството движение на флуида ще бъде
+\begin{equation}
+	\mathbf{K} = \iiint\limits_{\tau} \dd \mathbf{K} = \iiint\limits_{\tau} \rho \mathbf{v} \dd \tau
+\end{equation}
+Тъй като силите, действащи на $\tau$ или са масови, или повърхностни, то вторият закон на Нютон придобива вида:
+\begin{equation}
+	\dv{t}\iiint\limits_{\tau} \rho \mathbf{v} \dd \tau = \iiint\limits_{\tau} \rho \mathbf{F} \dd \tau + \iint\limits_{S} \mathbf{t}^n \dd S
+\end{equation}
+Не бива да забравяме, че и самият обем $\tau$ се мени с времето. Тогава ще имаме 
+\begin{equation}
+	\dv{t}\iiint\limits_{\tau} \rho \mathbf{v} \dd \tau = \iiint\limits_{\tau} \dv{\rho \mathbf{v}}{t} + \rho \mathbf{v} \div \mathbf{v} \dd \tau 
+\end{equation}
+Така получаваме интегралната форма на закона за изменение на количеството движение
+\begin{equation}
+	\label{MomentumConservation}  \iiint\limits_{\tau} \dv{\rho \mathbf{v}}{t} + \rho \mathbf{v} \div \mathbf{v} - \rho \mathbf{F} \dd \tau = \iint\limits_{S} \mathbf{t}^n \dd S
+\end{equation}
+
+\subsection{Изменение на интегрално количество}
+Нека $Q$ бъде някаква величина - скаларна или векторна, която е дефинирана поточково в обем $\tau$. 
+Тогава изменението по времето на общата величина за обема ще бъде 
+\begin{equation}
+	\dv{t}\iiint\limits_{\tau} Q \dd \tau
+\end{equation}
+Тъй като говорим за флуиди и самият обем се мени с времето. Да разгледаме $\tau(t + \Delta t) - \tau (t)$.
+За достатъчно малко време и малка площ $\Delta S$ по границата $S(t)$, може да разглеждаме че се движи със скорост $\mathbf{v} \cdot \mathbf{n}$ към нова повърхнина $S(t + \Delta t)$.
+Така изменението на обема над тази площ ще може да се пресметне като обем на прав криволинеен цилиндър 
+\begin{equation}
+	\Delta \tau = h \Delta S = (\mathbf{v} \cdot \mathbf{n}) \Delta t \Delta S 
+\end{equation}
+След граничен преход и изразявайки обема чрез интеграл по елементарни обеми получаваме:
+\begin{equation}
+	\frac{\iiint\limits_{\tau(t + \Delta t) - \tau (t)} \dd \tau}{\Delta t} = \iint\limits_{S} \mathbf{v} \cdot \mathbf{n} \dd S 
+\end{equation}
+Сега може да получим аналог на формулата за диференциране на Лайбниц
+\begin{equation}
+	\dv{t}\iiint\limits_{\tau} Q \dd \tau = \iiint\limits_{\tau} \pdv{Q}{t} \dd \tau + \iint\limits_{S} Q (\mathbf{v} \cdot \mathbf{n}) \dd S
+\end{equation}
+Може да забележим, че ако $Q$ е скаларна величина, то $Q(\mathbf{v} \cdot \mathbf{n}) = (Q \mathbf{v}) \cdot \mathbf{n}$. 
+Използвайки теоремата на Гаус-Остроградски, то
+\begin{equation}
+	\dv{t}\iiint\limits_{\tau} Q \dd \tau = \iiint\limits_{\tau} \pdv{Q}{t} \dd \tau + \iiint\limits_{\tau} \div (Q \mathbf{v}) \dd \tau
+\end{equation}
+Лесно може да се провери, че
+\begin{equation}
+	\div (Q \mathbf{v}) = \grad Q \cdot \mathbf{v} + Q \div \mathbf{v} = \grad Q \cdot \dot{\mathbf{x}} + Q \div \mathbf{v}
+\end{equation}
+Остава да забележим, че
+\begin{equation}
+	\pdv{Q}{t} + \grad Q \cdot \dot{\mathbf{x}} = \dv{Q}{t}
+\end{equation}
+След използване на линейността на интеграла получаваме
+\begin{equation}
+	\dv{t}\iiint\limits_{\tau} Q \dd \tau = \iiint\limits_{\tau} \dv{Q}{t} + Q \div \mathbf{v} \dd \tau
+\end{equation}
+Ако $Q$ е векторна величина, то може да го разгледаме покомпонентно и пак получаваме същата формула.
+
+\subsection{Формула на Коши}
+Нека $\tau$ бъде триъгълна пирамида с прав тристенен ъгъл при върха си - началото на координатната система.
+Тогава може да се опише като съвкупност от 4 повъхнини:
+\begin{enumerate}
+	\item $S_x$ е стената перпендикулярна на оста $x$.
+	\item $S_y$ е стената перпендикулярна на оста $y$.
+	\item $S_z$ е стената перпендикулярна на оста $z$.
+	\item $S_n$ е стената срещу тристенният ъгъл на координатната система.
+\end{enumerate}
+Тогава $\mathbf{t}^{-x}$, $\mathbf{t}^{-y}$, $\mathbf{t}^{-z}$ ще са напреженията по съответните първи три стени.
+Нека $\mathbf{t}^{n}$ бъде по четвъртата. Така се достига до формулата
+\begin{equation}
+	\iiint\limits_{\tau} \dv{\rho \mathbf{v}}{t} + \rho \mathbf{v} \div \mathbf{v} - \rho \mathbf{F} \dd \tau =
+	\iint\limits_{S_x} \mathbf{t}^{-x} \dd S + \iint\limits_{S_y} \mathbf{t}^{-y} \dd S + \iint\limits_{S_z} \mathbf{t}^{-z} \dd S + \iint\limits_{S_n} \mathbf{t}^{n} \dd S
+\end{equation}
+Когато обема на тетраедъра клони към $0$, повърхностните сили са в равновесие.
+Също така $\mathbf{t}^{-x} = - \mathbf{t}^{x},\, \mathbf{t}^{-y} = - \mathbf{t}^{y},\, \mathbf{t}^{-z} = - \mathbf{t}^{z}$.
+Тогава, ако изразим равновесието като
+\begin{equation}
+	\mathbf{t}^{n} \Delta S_n + \mathbf{t}^{-x} \Delta S_x + \mathbf{t}^{-y} \Delta S_y + \mathbf{t}^{-z} \Delta S_z = 0
+\end{equation}
+След заместване се получава
+\begin{equation}
+	\label{CauchyEquilibrium} \mathbf{t}^{n} \Delta S_n = \mathbf{t}^{x} \Delta S_x + \mathbf{t}^{y} \Delta S_y + \mathbf{t}^{z} \Delta S_z
+\end{equation}
+Да изразим $\mathbf{n} = n_x \hat{\mathbf{x}} + n_y \hat{\mathbf{y}} + n_z \hat{\mathbf{z}}$.
+За площите получаваме аналогични проекции
+\begin{equation}
+	\Delta S_x = n_x \Delta S_n,\quad \Delta S_y = n_y \Delta S_n,\quad \Delta S_z = n_z \Delta S_n
+\end{equation}
+Сега може да заместим и съкратим в \eqref{CauchyEquilibrium}
+\begin{equation}
+	\mathbf{t}^{n} = n_x \mathbf{t}^{x} + n_y \mathbf{t}^{y} + n_z \mathbf{t}^{z}
+\end{equation}
+Така достигаме до равенствата на Коши:
+\begin{gather}
+	\mathbf{t}^{n} = T^T \mathbf{n} = T \cdot \mathbf{n} \\
+	(T \cdot \mathbf{n})_i = T^i \cdot \mathbf{n} = \sum\limits_{j=1}^3 T_{ji} n_j 
+\end{gather}
+Матрицата T е тензор от втори ранг и се нарича тензор на напреженията. 
+Често се записва в една от двете форми
+\begin{equation}
+	T = 
+		\begin{pmatrix}
+			\sigma_x & \tau_{xy} & \tau_{xz} \\
+			\tau_{yx} & \sigma_y & \tau_{yz} \\
+			\tau_{zx} & \tau_{zy} & \sigma_z \\
+		\end{pmatrix} =
+		\begin{pmatrix}
+			\sigma_1 & \tau_{12} & \tau_{13} \\
+			\tau_{21} & \sigma_2 & \tau_{23} \\
+			\tau_{31} & \tau_{32} & \sigma_3 \\
+		\end{pmatrix}
+\end{equation}
+Тогава може да заместим в \eqref{MomentumConservation}.
+Прилагаме теоремата за дивергенцията за превръщане на интеграл по границата в интервал по обема
+\begin{gather}
+	\iiint\limits_{\tau} \dv{\rho \mathbf{v}}{t} + \rho \mathbf{v} \div \mathbf{v} - \rho \mathbf{F} \dd \tau = \iiint\limits_{\tau} \div T \dd \tau \\
+	\nonumber \iiint\limits_{\tau} \dv{\rho \mathbf{v}}{t} + \rho \mathbf{v} \div \mathbf{v} - \rho \mathbf{F} - \div T \dd \tau = \mathbf{0} \\
+	\nonumber (\div T)_i = \div T^i = \pdv{T_{1i}}{x} + \pdv{T_{2i}}{y} + \pdv{T_{3i}}{z}  
+\end{gather}
+Тъй като обемът е произволен, подинтегралното векторно поле съвпада с нулевото навсякъде, тоест
+\begin{equation}
+	\dv{\rho \mathbf{v}}{t} + \rho \mathbf{v} \div \mathbf{v} - \rho \mathbf{F} - \div T = \mathbf{0}
+\end{equation}
+Остава да забележим следното
+\begin{equation}
+	\dv{\rho \mathbf{v}}{t} + \rho \mathbf{v} \div \mathbf{v} = \dv{\rho}{t} \mathbf{v} + \rho \dv{\mathbf{v}}{t} + \rho \mathbf{v} \div \mathbf{v} = \rho \dv{\mathbf{v}}{t} + \mathbf{v}(\dv{\rho}{t} + \rho \div \mathbf{v}) = \rho \dv{\mathbf{v}}{t}
+\end{equation}
+Тук изпозлвахме уравнението на непрекъснатостта в общия му вид. Достигнахме до формулата на Коши:
+\begin{equation}
+	\rho \dv{\mathbf{v}}{t} = \rho \mathbf{F} + \div T
+\end{equation}
