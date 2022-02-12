@@ -17,8 +17,20 @@
 % Fonts
 \usepackage[T2A]{fontenc}
 \usepackage[utf8]{inputenc}
-\usepackage[bulgarian]{babel}
 \usepackage{bm}
+\usepackage[base]{babel}
+\AfterBabelLanguage{russian}{%
+  \let\sh\relax\let\ch\relax\let\tg\relax
+  \let\arctg\relax\let\arcctg\relax
+  \expandafter\let\expandafter\th\csname ltx@th\endcsname
+  \let\ctg\relax\let\cth\relax\let\cosec\relax
+}
+\usepackage[bulgarian, russian, english]{babel}
+
+% Better bibliography
+\usepackage{babelbib}
+%\usepackage{custom-bib}
+
 % ISO-Math (only for XeLaTeX and LuaLaTex)
 %\usepackage[math-style=ISO]{unicode-math}
 
@@ -55,7 +67,6 @@
 \usepackage{physics}
 %\usepackage{derivative}
 
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 % Lapacian delta
@@ -80,18 +91,24 @@
 
 % Numbering of equations
 \newcommand\numberthis{\addtocounter{equation}{1}\tag{\theequation}}
+\renewcommand{\theequation}{\Roman{section}.\arabic{equation}}
 
 % Space between lines in array for fractions
 \renewcommand{\arraystretch}{1.5}
 
-\renewcommand{\theequation}{\Roman{section}.\arabic{equation}}
 
 \title{Избрани въпроси от хидродинамиката}
 
 \author{Калоян Стоилов}
 
 \begin{document}
+\nocite{*}
+
 \maketitle
 \include{momentum}
 \include{dimensionless}
+
+%\bibliographystyle{elsarticle-num}
+\bibliographystyle{babplain}
+\bibliography{hydrob}
 \end{document}
