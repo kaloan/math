@@ -1,0 +1,27 @@
+\begin{frame}[t]{Уравнение на Goldman-Hodgkin-Katz}
+    Желаем да изразим трансмембранно напрежение $V_m$, с оглед на симетричност е достатъчно да разглеждаме едномерна задача по права, нормална на мембраната.
+    Допускаме, че йон $\mathrm{A}$ с валентност $n_A$ през мембрана с дебелина $L$, като нека оста $z$ е нормална на мембраната и съответно $\left[\mathrm{A}\right]=\left[\mathrm{A}\right](z)$. 
+    На това съответства поток $j_A$. Част от него се описва чрез дифузията $-D_{\mathrm{A}}\dv{\left[{\mathrm{A}}\right]}{z}$ по закона на Фик.
+    Той ни казва, че от Брауновото движение $\mathrm{A}$ се движи натам, където има по-малка концентрация.
+    Останалата част идва от $D_{\mathrm{A}}\frac{n_{\mathrm{A}}F}{RT}\frac{V_m}{L}\left[\mathrm{A}\right]$. 
+    Това следва от закон на Айнщайн за изразяване на коефициента на дифузия.
+\end{frame}   
+
+\begin{frame}[t]{Уравнение на Goldman-Hodgkin-Katz}
+    Виждаме, че се получава ОДУ от 1-ви ред за $\left[\mathrm{A}\right]$. След решаване и изразяване на потока чрез нея, имаме:
+    \begin{align*}
+        &\left[\mathrm{A}\right](0) = \left[\mathrm{A}\right]_{in} &\left[\mathrm{A}\right](L) = \left[\mathrm{A}\right]_{out} \\
+        &j_{\mathrm {A}}=\mu n_{\mathrm {A}}P_{\mathrm{A}}{\frac{\left[\mathrm{A}\right]_{\mathrm {out}}-\left[\mathrm {A}\right]_{\mathrm{in}}e^{n_{\mathrm {A}}\mu}}{1-e^{n_{\mathrm {A}}\mu}}} \\
+        &\mu=\frac{FV_m}{RT} &P_{\mathrm{A}}=\frac{D_{\mathrm {A}}}{L}\\
+    \end{align*}
+\end{frame}
+
+\begin{frame}[t]{Уравнение на Goldman-Hodgkin-Katz}
+    Нека сега $J_{\mathrm{A}}=q_{\mathrm{A}}j_{\mathrm{A}}$ - това е плътността на електричен заряд.
+    Но при $V_m$ пълната плътност на заряда трябва да е 0. Тогава ако означим 
+    \begin{align*}
+        &v=\sum_{{{\mathrm{cations\ C}}}}P_{{{\mathrm{C}}}}\left[{\mathrm{C}}^{{+}}\right]_{{{\mathrm{in}}}}+\sum_{{{\mathrm{anions\ A}}}}P_{{{\mathrm{A}}}}\left[{\mathrm{A}}^{{-}}\right]_{{{\mathrm{out}}}} \\
+        &w=\sum_{{{\mathrm{cations\ C}}}}P_{{{\mathrm{C}}}}\left[{\mathrm{C}}^{{+}}\right]_{{{\mathrm{out}}}}+\sum_{{{\mathrm{anions\ A}}}}P_{{{\mathrm{A}}}}\left[{\mathrm{A}}^{{-}}\right]_{{{\mathrm{in}}}} 
+    \end{align*}
+    То е в сила $w - v e^\mu = 0 \implies \mu = \ln \frac{w}{v} \implies V_m = \frac{RT}{F} \ln \frac{w}{v}$. 
+\end{frame}
