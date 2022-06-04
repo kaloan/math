@@ -17,7 +17,7 @@
   \expandafter\let\expandafter\th\csname ltx@th\endcsname
   \let\ctg\relax\let\cth\relax\let\cosec\relax
 }
-\usepackage[bulgarian]{babel}
+\usepackage[main=bulgarian, english]{babel}
 \usepackage{hyphenat}
 
 % Better bibliography
@@ -40,6 +40,7 @@
 % Derivative notations
 \usepackage{physics}
 
+% Better graphics
 \usepackage{subcaption}
 \usepackage{graphicx}
 
@@ -62,9 +63,31 @@
 ФАКУЛТЕТ ПО МАТЕМАТИКА И ИНФОРМАТИКА
 }
 
+% Roman numerals for sections
+\renewcommand{\thesection}{\Roman{section}} 
+
+% Numbering of equations
+\newcommand\numberthis{\addtocounter{equation}{1}\tag{\theequation}}
+\renewcommand{\theequation}{\Roman{section}.\arabic{equation}}
+
+% Space between lines in array for fractions
+\renewcommand{\arraystretch}{1.5}
+
+% Some stupid thing due to adding more than one language in babel and having to specify main
+\ifx\bulgarianhyphenmins\undefined
+	\def\bulgarianhyphenmins{2 2}
+\fi
+
+
+% Bibliography resourse
+\setbeamertemplate{bibliography entry title}{}
+\setbeamertemplate{bibliography entry location}{}
+\setbeamertemplate{bibliography entry note}{}
+
+% Bibliography resourse
+\addbibresource[bibencoding=utf8]{neurons.bib}
 
 \begin{document}
-
 {
 \setbeamertemplate{headline}[default]
 
@@ -80,12 +103,17 @@
 
 {
 \setbeamertemplate{headline}[default]
-\begin{frame}
 
+\begin{frame}[allowframebreaks]
+  \frametitle{Източници}
+  \printbibliography  
+\end{frame}
+
+\begin{frame}
 \begin{center}
 \textbf{Благодаря за вниманието}
 \end{center}
-
 \end{frame}
 }
+
 \end{document}
