@@ -1,0 +1,91 @@
+% Meta
+\documentclass[
+  xcolor={svgnames},
+  hyperref={unicode=true,colorlinks,citecolor=DeepPink4,linkcolor=DarkRed,urlcolor=DarkBlue}
+]{beamer}
+
+% Fonts
+\usepackage[T2A]{fontenc}
+\usepackage[utf8]{inputenc}
+
+% Languages
+\usepackage[base]{babel}
+% Some languages define these commands, so you have to write this to protect yourself from namespace collision errors
+\AfterBabelLanguage{bulgarian}{%
+  \let\sh\relax\let\ch\relax\let\tg\relax
+  \let\arctg\relax\let\arcctg\relax
+  \expandafter\let\expandafter\th\csname ltx@th\endcsname
+  \let\ctg\relax\let\cth\relax\let\cosec\relax
+}
+\usepackage[bulgarian]{babel}
+\usepackage{hyphenat}
+
+% Better bibliography
+\usepackage[bibencoding=auto,backend=biber,autolang=other]{biblatex}
+
+% Indent first line in paragraph
+\usepackage{indentfirst}
+
+% Better math
+\usepackage{amsbsy}
+\usepackage{amssymb}
+\usepackage{mathtools}
+\usepackage{comment}
+\usepackage{mathptmx}
+\usepackage[makeroom]{cancel}
+
+% Better theorems
+\usepackage{amsthm}
+
+% Derivative notations
+\usepackage{physics}
+
+\usepackage{subcaption}
+\usepackage{graphicx}
+
+\usetheme{Frankfurt}
+%\usetheme{Copenhagen}
+%\usetheme{Malmoe}
+\usecolortheme[named=black]{structure}
+\beamertemplatenavigationsymbolsempty
+
+\DeclareFontShape{OT1}{cmss}{b}{n}{<->ssub * cmss/bx/n}{} 
+
+\title{Моделиране на нервни импулси}
+\subtitle{Проект по "Семинар по математическо моделиране"}
+\author{изготвил: Калоян Стоилов}
+\institute{Софийски университет "Св. Климент Охридски" \\ Факултет по математика и информатика}
+\institute{\textbf{\textit{СОФИЙСКИ УНИВЕРСИТЕТ \\ "СВ. КЛИМЕНТ ОХРИДСКИ"}}
+\begin{center}
+\includegraphics[width=1.2cm,height=1.5cm]{logo_su}
+\end{center}
+ФАКУЛТЕТ ПО МАТЕМАТИКА И ИНФОРМАТИКА
+}
+
+
+\begin{document}
+
+{
+\setbeamertemplate{headline}[default]
+
+\begin{frame}
+\titlepage
+\end{frame}
+
+}
+
+\input{Histology}
+\input{Morphology}
+\input{Physiology}
+
+{
+\setbeamertemplate{headline}[default]
+\begin{frame}
+
+\begin{center}
+\textbf{Благодаря за вниманието}
+\end{center}
+
+\end{frame}
+}
+\end{document}
