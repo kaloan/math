@@ -108,6 +108,16 @@
 % \makeatother
 %\addbibresource[bibencoding=utf8]{neurons.bib}
 
+%\setbeamertemplate{headline}[default]
+% \setbeamertemplate{headline}
+% {%
+% \begin{beamercolorbox}{}
+% \insertpagenumber
+% %\vskip2pt\insertnavigation{\paperwidth}\vskip2pt
+% \end{beamercolorbox}%
+% }
+\setbeamertemplate{headline}{}
+
 \begin{document}
 \nocite{*}
 {
@@ -129,10 +139,7 @@
 \input{Hindmarsh–rose}
 
 {
-\setbeamertemplate{headline}[default]
-
-\begin{frame}[allowframebreaks]
- \frametitle{Източници}
+\begin{frame}[t]{Източници}
  \scriptsize{\bibliographystyle{plainnat}}
  \bibliography{neurons}
  %\bibliographystyle{amsalpha}
