@@ -1,7 +1,13 @@
 % Meta
 \documentclass[
   xcolor={svgnames},
-  hyperref={unicode=true,colorlinks,citecolor=DeepPink4,linkcolor=DarkRed,urlcolor=DarkBlue}
+  hyperref={
+    unicode=true
+    colorlinks,
+    citecolor=DeepPink4,
+    linkcolor=DarkRed,
+    urlcolor=DarkBlue
+  }
 ]{beamer}
 
 % Fonts
@@ -21,7 +27,12 @@
 \usepackage{hyphenat}
 
 % Better bibliography
-\usepackage[bibencoding=auto,backend=biber,autolang=other]{biblatex}
+% \usepackage[
+%   bibencoding=auto,
+%   backend=biber,
+%   autolang=other
+% ]{biblatex}
+\usepackage{natbib}
 
 % Indent first line in paragraph
 \usepackage{indentfirst}
@@ -44,7 +55,10 @@
 % Better graphics
 \usepackage{subcaption}
 \usepackage{graphicx}
-\usepackage{movie15}
+%\usepackage{media9}
+
+% Easier element/ion syntax
+\usepackage[version=3]{mhchem}
 
 \usetheme{Frankfurt}
 %\usetheme{Copenhagen}
@@ -82,14 +96,20 @@
 
 
 % Bibliography resourse
-\setbeamertemplate{bibliography entry title}{}
-\setbeamertemplate{bibliography entry location}{}
-\setbeamertemplate{bibliography entry note}{}
+% \setbeamertemplate{bibliography entry title}{}
+% \setbeamertemplate{bibliography entry location}{}
+% \setbeamertemplate{bibliography entry note}{}
 
 % Bibliography resourse
-\addbibresource[bibencoding=utf8]{neurons.bib}
+% \makeatletter
+%   \@ifpackageloaded{biblatex}
+%     {\addbibresource{neurons.bib}}
+%     {\bibliography{neurons}}
+% \makeatother
+%\addbibresource[bibencoding=utf8]{neurons.bib}
 
 \begin{document}
+\nocite{*}
 {
 \setbeamertemplate{headline}[default]
 
@@ -111,10 +131,15 @@
 {
 \setbeamertemplate{headline}[default]
 
-%\begin{frame}[allowframebreaks]
-%  \frametitle{Източници}
-%  \printbibliography  
-%\end{frame}
+\begin{frame}[allowframebreaks]
+ \frametitle{Източници}
+ \scriptsize{\bibliographystyle{plainnat}}
+ \bibliography{neurons}
+ %\bibliographystyle{amsalpha}
+ %\printbibliography
+ %\bibliography{neurons.bib}
+ %\printbibliography  
+\end{frame}
 
 \begin{frame}
 \begin{center}
