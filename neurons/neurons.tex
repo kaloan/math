@@ -60,6 +60,9 @@
 % Easier element/ion syntax
 \usepackage[version=3]{mhchem}
 
+% \usepackage{citation-style-language}
+% \cslsetup{style = apa}
+
 \usetheme{Frankfurt}
 %\usetheme{Copenhagen}
 %\usetheme{Malmoe}
@@ -117,13 +120,13 @@
 % \end{beamercolorbox}%
 % }
 \setbeamertemplate{headline}{}
+\setbeamertemplate{footline}[frame number]
 
 \begin{document}
 \nocite{*}
 {
-\setbeamertemplate{headline}[default]
 
-\begin{frame}
+\begin{frame}[noframenumbering, plain]
 \titlepage
 \end{frame}
 

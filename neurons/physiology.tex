@@ -13,7 +13,7 @@
   \begin{figure}[htbp!]
     \centering
     \includegraphics[width=\textwidth,height=0.7\textheight,keepaspectratio]{membrane-potential.png}
-    \caption{Йони в цитозола и междуклетъчното пространство. Фиг 1.7 от Wikipedia}
+    \caption{Йони в цитозола и междуклетъчното пространство от Wikipedia}
   \end{figure}
 \end{frame}
 
@@ -21,7 +21,7 @@
   \begin{figure}[htbp!]
     \centering
     \includegraphics[width=\textwidth,height=0.7\textheight,keepaspectratio]{electrical-recording.PNG}
-    \caption{Измерване на потенциала. Фиг 1.7 от From Neuron to Brain}
+    \caption{Измерване на потенциала. \cite[Фиг 1.7]{Neuron}}
   \end{figure}
 \end{frame}
 
@@ -29,7 +29,7 @@
   \begin{figure}[htbp!]
     \centering
     \includegraphics[width=\textwidth,height=0.7\textheight,keepaspectratio]{mri-recording.PNG}
-    \caption{Измерване на активността на невроните в главния мозък чрез ЯМР. Фиг 1.9 от From Neuron to Brain}
+    \caption{Измерване на активността на невроните в главния мозък чрез ЯМР. \cite[Фиг 1.9]{Neuron}}
   \end{figure}
 \end{frame}
 
@@ -45,7 +45,7 @@
   \begin{figure}[htbp!]
     \centering
     \includegraphics[width=\textwidth,height=0.7\textheight,keepaspectratio]{synapse-types.PNG}
-    \caption{Двата вида синапси. Фиг 5.1 от Neuroscience}
+    \caption{Двата вида синапси. \cite[Фиг 5.1]{Neuroscience}}
   \end{figure}
 \end{frame}
 
@@ -53,7 +53,7 @@
   \begin{figure}[htbp!]
     \centering
     \includegraphics[width=\textwidth,height=0.7\textheight,keepaspectratio]{neurotransmitters.PNG}
-    \caption{Молекулите на някои невротрансмитери. Фиг 6.1 от Neuroscience}
+    \caption{Молекулите на някои невротрансмитери. \cite[Фиг 6.1]{Neuroscience}}
   \end{figure}
 \end{frame}
 
@@ -61,7 +61,7 @@
   \begin{figure}[htbp!]
     \centering
     \includegraphics[width=\textwidth,height=0.7\textheight,keepaspectratio]{gangleon-integration.PNG}
-    \caption{Интегриране от ганглийна клетка. Фиг 1.16 от From Neuron to Brain}
+    \caption{Интегриране от ганглийна клетка. \cite[Фиг 1.16]{Neuron}}
   \end{figure}
 \end{frame}
 
@@ -69,12 +69,26 @@
   \begin{figure}[htbp!]
     \centering
     \includegraphics[width=\textwidth,height=0.7\textheight,keepaspectratio]{ac-current.PNG}
-    \caption{Резултат от подаване на прав ток чрез електрод в цитозола на ретинална ганглийна клетка. Фиг 1.12 от From Neuron to Brain}
+    \caption{Резултат от подаване на прав ток чрез електрод в цитозола на ретинална ганглийна клетка. \cite[Фиг 1.12]{Neuron}}
   \end{figure}
 \end{frame}
 
 \begin{frame}[t]{Причина за нервния импулс}
-  Нервният импулс е резултат от каскадно действие на мембранните помпи. 
-  В клетката излизат \ce{Ca2+} и влизат \ce{Na+}, което води до промяна на потенциала и активиране на \ce{Na-K-ATPase}.
-  Това води до още промяна на потенциала в околност на натриево-калиевата помпа, което активира други около нея.
+  Нервният импулс е резултат от каскадно действие на мембранните канали и помпи.
+  Първо клетката се активизира. 
+  Ако е рецептор, то тя се възбужда от околната среда.
+  В противен случай възбудата става в следствие на получени невротрансмитери от дендритите.  
+  След леко повишаване на трансмембранния потенциал се отключват \ce{Na+} канали, чиято ориентация зависи от потенциала (открити благодарение на изследванията на Hodgkin и Huxley).
+  %В клетката излизат \ce{Ca2+} и влизат \ce{Na+}, което води до промяна на потенциала и активиране на \ce{Na+} канали, зависими от него.
+    %\ce{Na-K-ATPase}.
+  %Това води до още промяна на потенциала в околност на натриево-калиевата помпа, което активира други около нея.
+\end{frame}
+
+\begin{frame}[t]{Причина за нервния импулс}
+  Така потенциала се увеличава още повече и се активизират други канали в околността. 
+  Включват се и канали, позволяващи преминаването на \ce{K+} навън.
+  След деполяризация каналите се затварят. 
+  \ce{Na-K-ATPase} се грижи концентрациите на йоните да се възвърнат първоначалните си стойности. 
+  Така потенциала се понижава до достигане (и леко прехвърляне) на стойността му в покой.
+  Накрая бавно се достига равновесното състояние.
 \end{frame}
