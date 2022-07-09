@@ -1,0 +1,130 @@
+% Meta
+\documentclass[bulgarian, 12pt]{article}
+\usepackage[
+	a4paper, 
+	includeheadfoot, 
+	margin = 1.5 cm]
+{geometry}
+
+% Hyperlinks
+% \usepackage[
+% 	unicode=true, 
+% 	colorlinks=true, 
+% 	linkcolor=black,
+% 	urlcolor=black]
+% {hyperref}
+
+% Fonts
+\usepackage[T2A]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{bm}
+
+% Languages
+\usepackage[base]{babel}
+% Some languages define these commands, so you have to write this to protect yourself from namespace collision errors
+\AfterBabelLanguage{bulgarian}{%
+  \let\sh\relax\let\ch\relax\let\tg\relax
+  \let\arctg\relax\let\arcctg\relax
+  \expandafter\let\expandafter\th\csname ltx@th\endcsname
+  \let\ctg\relax\let\cth\relax\let\cosec\relax
+}
+\usepackage[main=bulgarian, russian, english]{babel}
+\usepackage{hyphenat}
+
+% Better bibliography
+\usepackage[bibencoding=auto,backend=biber,autolang=other]{biblatex}
+%\usepackage{babelbib}
+%\usepackage{custom-bib}
+
+% ISO-Math (only for XeLaTeX and LuaLaTex)
+%\usepackage[math-style=ISO]{unicode-math}
+
+% Citing
+% IMPORTANT! USE 'babel=true' to be able to use csquotes with a multitude of languages
+% By default you can use only ~10 languages
+\usepackage[autostyle=true]{csquotes}
+%\usepackage[babel=true]{csquotes}
+
+% Indent first line in paragraph
+\usepackage{indentfirst}
+
+% Place tags on the left
+\usepackage[leqno]{amsmath}
+
+% Better math
+\usepackage{amsbsy}
+\usepackage{amssymb}
+\usepackage{mathtools}
+\usepackage{comment}
+\usepackage{mathptmx}
+\usepackage[makeroom]{cancel}
+
+% Create math pictures
+\usepackage{tikz}
+\usepackage{enumitem}
+
+% Better theorems
+\usepackage{amsthm}
+
+% SI units
+%\usepackage{siunitx}
+
+% Derivative notations
+\usepackage{physics}
+%\usepackage{derivative}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Lapacian delta
+%\newcommand{\laplace}{\increment}
+\newcommand{\laplace}{∆}
+%\fontsize{16pt}{20pt}\selectfont
+% Bolded cyrilic text
+\renewcommand{\sfdefault}{cmss}
+\renewcommand{\rmdefault}{cmr}
+\renewcommand{\ttdefault}{cmt}
+
+% Roman numerals for sections
+\renewcommand{\thesection}{\Roman{section}} 
+%\renewcommand{\thesubsection}{\thesection.\Roman{subsection}}
+% Sectioning titles
+\newtheorem{definition}{Дефиниция}[section]
+\newtheorem{problem}{Задача}
+\newtheorem{theorem}{Теорема}
+\newtheorem*{theorem*}{Теорема}
+\newtheorem{lemma}{Лема}
+\newtheorem*{solution*}{Решение}
+
+% Numbering of equations
+\newcommand\numberthis{\addtocounter{equation}{1}\tag{\theequation}}
+\renewcommand{\theequation}{\Roman{section}.\arabic{equation}}
+
+% Space between lines in array for fractions
+\renewcommand{\arraystretch}{1.5}
+
+% Some stupid thing due to adding more than one language in babel and having to specify main
+\ifx\bulgarianhyphenmins\undefined
+	\def\bulgarianhyphenmins{2 2}
+\fi
+%% Because babelbib does not like bulgarian
+%\setbtxfallbacklanguage{russian}
+
+\addbibresource[bibencoding=utf8]{hydrob.bib}
+
+\title{Избрани въпроси от хидродинамиката}
+
+\author{Калоян Стоилов}
+
+\begin{document}
+\nocite{*}
+
+\maketitle
+\include{waves}
+%\include{dimensionless}
+
+%\bibliographystyle{elsarticle-num}
+%\bibliographystyle{babplain}
+%\bibliography{hydrob}
+\setquotestyle{english}
+\printbibliography
+\end{document}
