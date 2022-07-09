@@ -14,57 +14,132 @@
 \end{equation}
 Тук $A$ е амплитудата на вълната - най-голямото отдалечаване от положението.
 Ако фиксираме времето $t$, менейки $x$, то имаме следваща амплитуда при:
-\begin{equation}
+\begin{equation*}
 	\frac{2 \pi}{\lambda}((x + \lambda) - c t) = \frac{2 \pi}{\lambda}(x - c t) + 2 \pi
-\end{equation}
+\end{equation*}
 $\lambda$ е дължината на вълната - разстоянието между две съседни амплитуди.
 $k = \frac{2 \pi}{\lambda}$ е пространствената честота.
 $c$ се нарича фазова скорост, а $2 \pi (x - c t)$ - фаза.
 Ако фиксираме $x$, то менейки $t$ получаваме прериодично движение нагоре-надолу.
-Ако в $x$ има пик, то следващият ще настъпи, когато към аргумента на $\cos$ добавим $2 \pi$.
+Ако в $x$ има гребен, то следващият ще настъпи, когато към аргумента на $\cos$ добавим $2 \pi$.
 Но 
-\begin{equation}
+\begin{equation*}
 	\frac{2 \pi}{\lambda}(x - c t) + 2 \pi = \frac{2 \pi}{\lambda}(x - c t + \lambda) = \frac{2 \pi}{\lambda}(x - c (t + \frac{\lambda}{c}))
-\end{equation}
-Това води до $T = \frac{\lambda}{c}$ - период между двата пика за фиксираната позиция.
+\end{equation*}
+Това води до $T = \frac{\lambda}{c}$ - период между двата гребена за фиксираната позиция.
 $\nu = \frac{1}{T}$ се нарича циклична честота, а $\omega = 2 \pi \nu = k c$ - радиална честота.
 Така може да сведем уравнението на вълната до:
 \begin{equation}
 	z(x,t) = A \cos (k x - \omega t)
 \end{equation}
-Пиковете се предвижват по следния начин с времето:
-\begin{equation}
+Гребените се предвижват по следния начин с времето:
+\begin{equation*}
 	k \xi - \omega t = 2 n \pi, \quad \xi = \frac{\omega}{k} t + \frac{2 n \pi}{k} 
-\end{equation}
+\end{equation*}
 Така фазовата скорост $c$ се оказва точно скоростта с която се предвижва вълната в пространството за даден период от време. 
 Ако $c$ зависи от вълновото число $k$ (или еквивалентно от дължината на вълната $\lambda$), то наричаме повърхностните вълни дисперсни.
 
 
 \subsection{Групова скорост}
 Нека съберем синусоидални вълни с еднакви амплитуди и близки възлови числа. Тогава:
-\begin{align}
+\begin{align*}
 	z(x, t) = A \cos (k_1 x - \omega_1 t) + A \cos (\delta k_2 x - \omega_2 t) = 2 A \cos (\frac{\Delta k}{2} x - \frac{\Delta \omega}{2} t) \cos (k x - \omega t)
-\end{align}
+\end{align*}
 Въвели сме $\Delta k = k_2 - k_1$, $\Delta \omega = \omega_2 - \omega_1$, $k = \frac {k_1 + k_2}{2}$, $\omega = \frac{\omega_1 + \omega_2}{2}$
 Да разгледаме вълните, които в пространствен участък имат най-голяма амплитуда, т.е.:
-\begin{align}
+\begin{align*}
 	&\cos (\frac{\Delta k}{2} \xi - \frac{\Delta \omega}{2} t) \approx 1 \\
 	&\frac{\Delta k}{2} \xi - \frac{\Delta \omega}{2} t = n \pi
-\end{align}
+\end{align*}
 Скоростта с която се движат точките $\xi$ на максимална амплитуда е точно $\frac{\Delta \omega}{\Delta k}$.
 Това води до понятието групова скорост - $c_g = \dv{\omega}{k}$.
 Обвивката на вълните с максимална амплитуда в даден момент се движи като вълна със скорост $c_g$.
-Aко вълните не са дисперсивни, то имаме, че:
-\begin{equation}
+Aко вълните не са дисперсни, то имаме, че:
+\begin{equation*}
 	c_g = \dv{\omega}{k} = \dv{c k}{k} = c
-\end{equation}
+\end{equation*}
 Тоест съвпада със фазовата скорост на отделните вълни. Пример за това са звуковите вълни.
 Ако пък разглеждаме вълни около повърхността, то може да се покаже, че $\omega^2 = g k$, тогава:
-\begin{equation}
+\begin{equation*}
 	c_g = \dv{\omega}{k} = \dv{\sqrt{g k}}{k} = \frac{\sqrt{g}}{2 \sqrt{k}} = \frac{c}{2}
-\end{equation}
+\end{equation*}
 Груповата скорост се оказва два пъти по-малка от тази на отделните вълни.
 Изразявайки $\omega, k$ по дефинициите им, то достигаме до формулата на Рейли:
 \begin{equation}
 	c_g = \dv{\omega}{k} = \dv{\frac{2 \pi c}{\lambda}}{\frac{2 \pi}{\lambda}} = \frac{\lambda \dd c - c \dd \lambda}{- \dd \lambda} = c - \lambda \dv{c}{\lambda}
 \end{equation}
+
+
+Ако хвърлим камъче във водата се образуват вълни. 
+В момент скоро след удара, движението на водата е трудно определимо.
+След време се образуват "типични" вълни с гребени и падини, но с меняща се дължина на вълната.
+Вече $A, \omega, k$ ще са функции на времето и пространството.
+Да разгледаме вълнов пакет описан чрез:
+\begin{equation*}
+	z(x, t) = A(x, t) \cos \theta(x, t)
+\end{equation*}
+Тук с $\theta (x, t)$ сме отбелязали локалната фаза, т.е. за фиксирани $k$ и $\omega$ - $\theta (x, t) = k x -  \omega t$.
+При бавно променящ се пакет може да дефинираме $k$ и $\omega$ като производни на фазата по пространство/време:
+\begin{equation*}
+	k(x, t) = \pdv{\theta(x, t)}{x}, \quad  \omega(x, t) = -\pdv{\theta(x, t)}{t}
+\end{equation*}
+Допускайки достатъчна гладкост на $\theta$, то веднага достигаме до 
+\begin{equation*}
+	\pdv{k}{t} + \pdv{\omega}{x} = 0
+\end{equation*}
+Нека сега имаме дисперсни вълни и $\omega = \omega (k)$. 
+Тогава използвайки диференциране на сложна функция: 
+\begin{equation}
+	\pdv{k}{t} + c_g\pdv{k}{x} = 0
+\end{equation}
+Това е като материална производна, но при предвижване със скорост $c_g$.
+Обаче решението на уравнението лесно се вижда, че е $f(x - c_g(k) t)$, като $f$ се определя по начални условия.
+Тогава $k = const \iff x - c_g t = const$ ($c_g$ в такъв случай също би било константа).
+Така всяка дължина на вълната е свързана с по една права (от деф. на $k$).
+Наблюдавайки точка, движеща се с групова скорост $c_g$, то ще се наблюдава вълна с еднаква дължина.
+Това е кинематичният смисъл на груповата скорост.
+
+\subsection{Поток на енергията}
+С вълновото движение се предава енергия от един обем на друг, т.е. енергията се изменя по пространството и по времето.
+Нека имаме вълна движеща се отляво надясно. Тя ще има потенциал от вида:
+\begin{align*}
+\numberthis
+	&\Phi(x, z, t) = \frac{a g}{\omega} e^{k z} \sin (kx - \omega t) \\
+	&u = \pdv{\Phi}{x} = \frac{a g k}{\omega} e^{k z} \cos (kx - \omega t) = a \omega e^{k z} \cos (kx - \omega t)
+\end{align*}
+Тук използвахме $\omega^2 = g k$.
+Така трябва да пресметнем енергийния поток през равнина перпендикулярна на x.
+Трабва да разгледаме само действието на $p$ за някакъв период $\tau$.
+Да вземем някаква малка ивица по $z$ - $\Delta z$ и такава с дължина 1 по $y$.
+Интересуваме се от работата, извършена от налягането върху частта от равнината, заключена между тях за време $\Delta t$.
+За достатъчно малки $\Delta z$, може да приближим стойността на $p$, с тази в някоя точка от правоъгълника, например центъра.
+За преместването използваме скоростта на вълната $u$, отново оценена там.
+Така получаваме формула за работата от вида:
+\begin{equation*}
+	1 \Delta z p(\xi, \zeta, t) u(\xi, \zeta, t) \Delta t
+\end{equation*}
+След граничен преход получаваме, че 
+\begin{equation}
+	A = \int_{-\infty}^0 \int_{0}^{\tau} p u \, \dd z \dd t
+\end{equation}
+Но $\frac{p - p_0}{\rho} = -\pdv{\Phi}{t} - g z = a g e^{k z} \cos (kx - \omega t) - g z$.
+Сега може да изразим:
+\begin{equation}
+	p u = a^2 g \omega \rho e^{2 k z} \cos^2 (kx - \omega t) + (p_0 - \rho g z) a \omega e^{k z} \cos (k x - \omega t)
+\end{equation}
+Ако перпендикулярната равнина, която разглеждаме е точно $Oyz$, то по нея $x = 0$. Използвайки четността на $\cos$, както и 
+$\int_0^\tau \cos^2 \omega t \, \dd t = \frac{\tau}{2}$ и $\int_0^\tau \cos \omega t \, \dd t = 0$, то:
+\begin{align*}
+\numberthis
+	&A = 
+	\int_{-\infty}^0 \int_{0}^{\tau} p u \, \dd z \dd t = 
+	\int_{-\infty}^0 \int_{0}^{\tau} a^2 g \omega \rho e^{2 k z} \cos^2 \omega t + (p_0 - \rho g z) a \omega e^{k z} \cos \omega t \, \dd z \dd t = \\
+	&\int_{-\infty}^0 \left( a^2 g \omega \rho e^{2 k z} \int_{0}^{\tau} \cos^2 \omega t \, \dd t + (p_0 - \rho g z) a \omega e^{k z} \int_{0}^{\tau} \cos \omega t \, \dd t \right) \, \dd z = \\
+	&\int_{-\infty}^0 a^2 g \omega \rho e^{2 k z} \frac{\tau}{2} \dd z = 
+	\frac{1}{2}\frac{\tau}{2} \int_{z=-\infty}^{z=0} \frac{a^2 g^2 \rho}{\omega} e^{2 k z} \dd (2 k z) = \frac{a^2 g^2 \rho \tau}{4 \omega}
+\end{align*}
+Работата за единица време е $A_1 = \frac{a^2 g^2 \rho}{4 \omega}$. Тя може да бъде разписана така:
+\begin{equation}
+	A_1 = \frac{\rho g a^2}{4}\frac{g}{\omega} = \frac{\rho g a^2}{4}\sqrt{\frac{g}{k}}=\frac{\rho g a^2}{2}\frac{c}{2} = E c_g
+\end{equation}
+Така пълната енертия на вълните се пренася със скорост, равна на груповата.
