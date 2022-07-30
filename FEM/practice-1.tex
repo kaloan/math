@@ -36,6 +36,9 @@
 
 \newcommand\numberthis{\addtocounter{equation}{1}\tag{\theequation}}
 
+% Space between lines in array for fractions
+\renewcommand{\arraystretch}{1.5}
+
 \title{Решения на задачи по МКЕ 1}
 
 \author{Калоян Стоилов}
@@ -43,7 +46,7 @@
 \begin{document}
 
 \maketitle
-\begin{Large}
+\begin{large}
 \begin{problem}
 Да се приложи МКЕ с мрежа с възли $\frac{k}{3}, k=\overline{0,3}$ 
 \begin{equation}
@@ -65,11 +68,11 @@
 
 За да приложим МКЕ, умножаваме двете страни по функция $v(x)$ и интегрираме:
 \begin{align*}
--\int_{0}^{1}u''(x)v(x)dx = \int_{0}^{1}v(x)dx \\
-\int_{0}^{1}u'(x)v'(x)dx - u'\left(1\right)v\left(1\right)+ u'\left(0\right)v\left(0\right) &= \int_{0}^{1}v(x)dx \\
-\int_{0}^{1}u'(x)v'(x)dx = \int_{0}^{1}v(x)dx \\
+-\int_{0}^{1}u''(x)v(x)\dd x = \int_{0}^{1}v(x)\dd x \\
+\int_{0}^{1}u'(x)v'(x)\dd x - u'\left(1\right)v\left(1\right)+ u'\left(0\right)v\left(0\right) &= \int_{0}^{1}v(x)\dd x \\
+\int_{0}^{1}u'(x)v'(x)\dd x = \int_{0}^{1}v(x)\dd x \\
 \end{align*}
-За да подсигурим последното, ще е необходимо $v\left(0\right)=0$, т.е. $v \in V = \{v \in H^1 \vert v\left(0\right)=0\}$. Билинейната форма за задачата ни е $a\left(f, g\right)=\int_{0}^{1}f'(x)g'(x)dx$, а $F\left(v\right)=\int_{0}^{1}v(x)dx$. След проектиране в пространството $V_h$, където за базис взимаме познатите ни функции колибки,  достигаме до системата: 
+За да подсигурим последното, ще е необходимо $v\left(0\right)=0$, т.е. $v \in V = \{v \in H^1 \vert v\left(0\right)=0\}$. Билинейната форма за задачата ни е $a\left(f, g\right)=\int_{0}^{1}f'(x)g'(x)\dd x$, а $F\left(v\right)=\int_{0}^{1}v(x)\dd x$. Тъй като трябва $v(0)=0$, то колибката $\varphi_0$ няма да участва в $V_h$, т.е. $V_h = span\{\varphi_1, \varphi_2, \varphi_3\}$,  След проектиране в пространството $V_h$, където за базис взимаме познатите ни функции колибки,  достигаме до системата: 
 \begin{equation}
 	\begin{pmatrix}
 	6 & -3 & 0 \\
@@ -110,11 +113,11 @@
 \begin{solution*}
 За да приложим МКЕ, умножаваме двете страни по функция $v(x)$ и интегрираме:
 \begin{align*}
--\int_{0}^{1}\dv{x}(c\left(x\right)\dv{u}{x}\left(x\right))v(x)dx = \int_{0}^{1}v(x)dx \\
-\int_{0}^{1}c\left(x\right)\dv{u}{x}\left(x\right)v'(x)dx - c\left(1\right)\dv{u}{x}\left(1\right)v\left(1\right) + c\left(0\right)\dv{u}{x}\left(0\right)v\left(0\right) &= \int_{0}^{1}v(x)dx \\
-\int_{0}^{1}c\left(x\right)u'(x)v'(x)dx = \int_{0}^{1}v(x)dx \\
+-\int_{0}^{1}\dv{x}(c\left(x\right)\dv{u}{x}\left(x\right))v(x)\dd x = \int_{0}^{1}v(x)\dd x \\
+\int_{0}^{1}c\left(x\right)\dv{u}{x}\left(x\right)v'(x)\dd x - c\left(1\right)\dv{u}{x}\left(1\right)v\left(1\right) + c\left(0\right)\dv{u}{x}\left(0\right)v\left(0\right) &= \int_{0}^{1}v(x)\dd x \\
+\int_{0}^{1}c\left(x\right)u'(x)v'(x)\dd x = \int_{0}^{1}v(x)\dd x \\
 \end{align*}
-За да подсигурим последното, ще е необходимо $v\left(0\right)=0$, т.е. $v \in V = \{v \in H^1 \vert v\left(0\right)=0\}$. Билинейната форма за задачата ни е $a\left(f, g\right)=\int_{0}^{1}c(x)f'(x)g'(x)dx$, а $F\left(v\right)=\int_{0}^{1}v(x)dx$. След проектиране в пространството $V_h$, където за базис взимаме познатите ни функции колибки,  достигаме до системата: 
+За да подсигурим последното, ще е необходимо $v\left(0\right)=0$, т.е. $v \in V = \{v \in H^1 \vert v\left(0\right)=0\}$, съответно и $V_h$ е като в предишната задача. Билинейната форма за задачата ни е $a\left(f, g\right)=\int_{0}^{1}c(x)f'(x)g'(x)\dd x$, а $F\left(v\right)=\int_{0}^{1}v(x)\dd x$. След проектиране в пространството $V_h$, където за базис взимаме познатите ни функции колибки,  достигаме до системата: 
 \begin{equation}
 	\begin{pmatrix}
 	18 & -12 & 0 \\
@@ -136,5 +139,5 @@
 Повечето коефициенти се извеждат от предишната задача, но се умножават по $4$, т.к. в съответните интервали $c(x)=4$. Коефициентът $a\left(\varphi_1, \varphi_1\right)$ се получава, като разбием интеграла на две части - отляво и отдясно на точката $\frac{1}{3}$, която е 
 Решението е $(q_1, q_2, q_3)^T = (\frac{1}{6}, \frac{5}{24}, \frac{5}{24})^T$.
 \end{solution*}
-\end{Large}
+\end{large}
 \end{document}
