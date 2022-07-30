@@ -1,0 +1,293 @@
+The same principle applies to voltage in cell biology. In electrically active tissue, the potential difference between any two points can be measured by inserting an electrode at each point, for example one inside and one outside the cell, and connecting both electrodes to the leads of what is in essence a specialized voltmeter. By convention, the zero potential value is assigned to the outside of the cell and the sign of the potential difference between the outside and the inside is determined by the potential of the inside relative to the outside zero.
+In mathematical terms, the definition of voltage begins with the concept of an electric field E, a vector field assigning a magnitude and direction to each point in space. In many situations, the electric field is a conservative field, which means that it can be expressed as the gradient of a scalar function V, that is, E = –∇V. This scalar field V is referred to as the voltage distribution. Note that the definition allows for an arbitrary constant of integration—this is why absolute values of voltage are not meaningful. In general, electric fields can be treated as conservative only if magnetic fields do not significantly influence them, but this condition usually applies well to biological tissue.
+	en.wikipedia.org/wiki/Membrane_potential
+	
+
+One of the most promising dividends of sequencing th e human genome has
+been the realization that one or a few genes, when altered (mutated), can
+explain at least some aspects of neurological and psychiatric diseases. Before
+gene sequencing became routine, there often was little sense of how or why the
+normal biology of the nervous system was compromised in brain pathologies.
+The identification of genes correlated with disorders such as Huntington's dis-
+ease, Parkinson's disease, Alzheimer's disease, clinical depression, and schizo-
+phrenia has provided a promising start to understanding these pathological
+processes in a much deeper way, and eventually devising rational th erapies
+	Neuroscience
+
+Cats were chosen for this research because
+they are highly "visual" animals, and therefore co uld be expected to have well-
+developed brain regions devoted to vision- regions similar to those found in
+primates, including humans. Much of what is currently known about human
+vision is based on studies carried out in cats. Studies on invertebrates such as
+the squid and th e sea snail Aplysia californica yielded similarly critical insights
+into basic cell biology of neurons, synap ti c transmission, and synaptic plasticity
+(the basis of learning and memory). 	
+Today biochemical, cellular, anatomical, physiological, and behavioral studies
+continue to be conducted on a wide range of animals. However, the complete
+sequencing of the genomes of a sma ll number of invertebrate, vertebrate, and
+mammalian species has led to the informal adoption of four "model" organisms
+by many neuroscientists. These are the nematode worm Caenorhabditis elegans;
+the fruit fly Drosophila melanogaster; the zebrafish Danio rerio; and the mouse
+Mus musculus. Despite certain limitations in each of these species, the relative
+ease of the ir genetic analysis and manipulation, as well as the availability of their
+complete genome sequences, facilitates research on a wide range of neuroscien-
+tific questions at the molecular, cellular, anatomical, and physiological levels.
+	Neuroscience
+
+The histological studies of Cajal, Golgi, and a ho st of successors led to the
+consensus that the cells of the nervous system can be divided into two broad cat-
+egories: nerve cells, or neurons, and supporting cells called neuroglia (or sim-
+ply glia). Nerve cells are specialized for electrical signaling over long distances.
+Understanding this process represents one of the more dramatic success stories
+in modem biology and is the subject of Unit I. Glial cells, in contrast to nerve
+cells, are not capable of significant electrical signaling; nevertheless, glia have
+several essential functions in the developing and adult brain. They are also
+essential contributors to repair of the damaged nervous system-in some cases
+promoting regrowth of damaged neurons, and in others preventing such regen-
+eration (see Unit IV).
+Although many of these proteins-isoforms of actin, tubulin, myosin, and several others-are found in other cells, 
+their distinctive organization in neurons is critical
+for the stability and function of neuronal processes and synaptic junctions. The
+various filaments, tubules, subcellular motors, and scaffolding proteins of the
+neuronal cytoskeleton orchestrate many functions, including the growth of
+axons and dendrites; the trafficking and appropriate positioning of membrane
+components, organelles, and vesicles; and the active processes of exocytosis
+and endocytosis underlying synaptic communication. Understanding the ways
+in which these molecular components are used to insure the proper development 
+and function of neurons and glia remains a primary focus of modern neurobiology
+	Neuroscience
+	
+Relatively short axons are a feature of local circuit neurons, or intemeu-
+rons, throughout the brain. The axons of projection neurons, however, extend
+to distant targets. For example, the axons that run from the human spinal cord
+to the foot are about a meter long. The event that carries signals over such dis-
+tances is a self-regenerating wave of electrical activity called an action poten-
+tial that propagates from its point of initiation at the ce ll body (the axon
+hillock) to the terminus of the axon, at which point synaptic contacts are made.
+The target cells of neurons-sites where axons termin ate and synapses are
+made-include other nerve cells in the brain, spinal cord, and autonomic gan -
+glia, as well as the cells of muscles and glands throughout the body.
+	Neuroscience
+	
+All nerve cells have a resting potential: the inside of the cell is negative with respect to the
+outside (extracellular) solution by a little less than a tenth of a volt. All electrical signals
+generated in nerve cells are superimposed on the resting potential. Some signals depolar-
+ize the cell membrane, making the inside less negative; others hyperpolarize it, making it
+more negative.
+Electrical signals of nerve cells fall into two main classes. The first consists of local
+graded potentials. These are generated by extrinsic physical stimuli, such as light falling
+on a photoreceptor in the eye, sound waves deforming a hair cell in the ear, or a pressure
+of an object against a sensory nerve ending in the skin, or by activity at synapses (i.e. the
+junctions between nerve cells and their targets). Synapses are discussed later in the chapter.
+Local potentials vary in amplitude, depending on the strength of the activating signal. They
+usually spread only a short distance from their site of origin, because they depend on the
+passive electrical properties of the nerve cells.
+Action potentials (also referred to as nerve impulses), constitute the second major category
+of electrical signals. Action potentials are initiated when localized graded potentials are suf-
+ficiently large to depolarize the cell membrane beyond a critical level (called the threshold).
+Once initiated, action potentials can propagate rapidly over long distances—for example,
+along the axons of ganglion cells in the optic nerve from the eye to the lateral geniculate
+nucleus on the way to the cortex, or from a motor cell in the spinal cord to a muscle in the
+leg. Unlike local graded potentials, action potentials are fixed in amplitude and duration,
+like the dots in a code. Signal transmission through the retina can be summarized by the
+following simplified scheme: 
+Light → local graded signal in photoreceptor → local graded signaling
+bipolar cell → local graded potential in ganglion cell → action potential
+in ganglion cell → conduction to higher centers
+	From Neuron to Brain
+	
+The transmitter, the amino acid glutamate in this case, diffuses across the cleft to interact with specific protein
+molecules, known as receptors, which are embedded in the membranes of the postsynaptic
+bipolar cells. (This terminology can—but should not—lead to confusion: The term recep-
+tor, as used here, means a chemoreceptor molecule and is not the same concept as that of
+a sensory receptor cell that responds to external physical stimuli, such as a photorecep-
+tor.) The transmitters in a neuron and the receptors on its surface can be identified and
+visualized by a variety of techniques, including antibody labeling and genetic transfection
+of so-called reporter constructs, which lead to the production of fluorescent proteins in
+cells expressing certain transcription factors.
+	From Neuron to Brain
+	
+For example, one class of glutamate receptors localized to certain bipolar cells reacts to glutamate to cause an excitatory
+signal (i.e., depolarization of the cell membrane). This signal spreads pas-
+sively to the bipolar cell terminals at the other end of the cell, where it causes
+liberation of transmitter. Other classes of bipolar cells contain different glu-
+tamate receptors that produce a signal of the opposite sign when activated
+by glutamate (i.e., hyperpolarization of the membrane). Again, the electrical
+signal spreads along the bipolar cell, but in this case, it suppresses the release
+of transmitter. Excitatory and inhibitory synaptic potentials in ganglion cells
+are shown in Figure 1.14.
+	From Neuron to Brain
+	
+Although synaptic transmission between most neurons involves the release of transmitter
+molecules, the membranes of many cells in the retina and in the rest of the nervous sys-
+tem are instead linked by specialized junctions. At such synapses electrical transmission
+occurs. The pre- and postsynaptic membranes are closely apposed and linked by channels
+that connect the intracellular fluids of the two cells. This close connection allows local
+electrical potentials and even action potentials to spread directly from cell to cell without
+a chemical transmitter and without delay. Metabolites and dyes can also spread from cell
+to cell. One important example in the retina is provided by the horizontal cells, which are
+electrically coupled in this way. By virtue of this property, graded depolarizing or hyperpo-
+larizing potentials can spread from one horizontal cell to the next, with marked effect on
+the processing of visual information in the retina. Electrical synapses are found throughout
+the CNS of vertebrates and invertebrates. They also connect non-neuronal cells of other
+tissues in the body.
+	From Neuron to Brain
+	
+• A signal in a photoreceptor indicates a change in light intensity in that area of the field
+of vision.
+• A signal in a ganglion cell indicates the presence of contrast.
+• A signal in a cortical neuron indicates the presence of an oriented bar or edge of light.
+Implicit in the discussion of information transfer in this chapter is the concept of linear
+progression from receptors to perception or from motor commands to movement. It will
+be shown however that extensive signaling also occurs in the opposite direction: from the
+brain towards sensory receptors as well as from each higher center back towards the lower
+centers from which it received its inputs. In a few cases, the significance of descending
+information is understood, but in general, the functional role remains to be discovered.
+	From Neuron to Brain
+
+A major specialization in the cell biology of neurons, compared to other types of cells,
+arises from the presence of the axon. Axons do not have adequate machinery for synthesiz-
+ing all the proteins they need. Hence, essential molecules are carried to the nerve terminals
+by a process known as axonal transport, often over long distances. Molecules required for
+maintenance of structure and function, as well as for the appropriate membrane channels,
+travel from the cell body in this way; similarly, molecules taken up at the ending are carried
+back to the cell body.
+Neurons are different from most other cells in that, with few exceptions, they cannot
+divide after differentiation. As a result, in an adult human being, neurons in the central
+nervous system that have been destroyed usually cannot be replaced.
+Not only does the nervous system wire itself when it is developing, but it can also restore
+certain connections after injury (again something your computer cannot do!). For ex-
+ample, axons in an arm can grow back after the nerve has been injured so that function
+can be restored; the hand can once again be moved, and sensation returns. Similarly, in a
+frog, fish, or an invertebrate like the leech, lesions in the central nervous system are fol-
+lowed by axon regeneration and functional recovery. After the optic nerve of a frog or a
+fish has been cut, fibers grow back to the brain and the animal can see again. However, in
+the adult mammalian CNS regeneration does not occur. The molecular signals that cause
+this failure are not yet known.
+	From Neuron to Brain
+
+In Chapter 1, we discussed how the transfer of information in the nervous system is medi-
+ated by two types of electrical signals in nerve cells: graded potentials, which are localized
+to specific regions of the nerve cell membrane, and action potentials, which are propagated
+along the entire length of a neuronal process. These signals are superimposed on a steady
+electrical potential across the cell membrane, called the resting membrane potential. De-
+pending upon cell type, nerve cells at rest have steady membrane potentials ranging from
+about –30 mV to almost –100 mV. The negative sign indicates that the inside of the mem-
+brane is negative with respect to the outside. Signaling in the nervous system is mediated
+by changes in the membrane potential. For example, in sensory receptors, an appropriate
+stimulus, such as touch, sound, or light, causes local depolarization (making the membrane
+potential less negative) or hyperpolarization (membrane potential more negative). Similarly,
+neurotransmitters at synapses act by depolarizing or hyperpolarizing the postsynaptic cell.
+Action potentials, which are large, brief pulses of depolarization, propagate along axons to
+carry information from one place to the next in the nervous system.
+All such changes in membrane potential are produced by the movement of ions across
+the nerve cell membrane. For example, inward movement of positively charged sodium
+ions reduces the net negative charge on the inner surface of the membrane or, in other
+words, causes depolarization. Conversely, outward movement of potassium ions results in
+an increase in net negative charge, causing hyperpolarization, as does inward movement
+of negatively charged chloride ions.
+How do ions move across the cell membrane, and how is their movement regulated?
+The pathway for rapid movement of ions into and out of the cell is through ion channels,
+which are protein molecules that span the membrane and form pores through which
+ions can pass. Ion currents are regulated by controlling the rate at which these channels
+open and close. Thus, a variety of channel types in the membrane enables neurons to
+receive signals from the external world, or from other neurons, to carry signals over long
+distances, to modulate the activity of other neurons and effector organs, and to alter their
+own signaling properties in response to internal metabolic changes. All of the complexities
+of perception and analysis of neural signals depend ultimately on ion channel activity, as
+does the generation of complex motor outputs from the nervous system.
+	From Neuron to Brain
+
+Calcium entry triggers the release of transmitters and can activate intracellular cascades of
+enzymes and regulate numerous other cellular processes.
+	From Neuron to Brain
+
+Glutamate is the most important and prevalent excitatory neurotransmitter in the central
+nervous system, activating three cation channel types (see Chapter 14).
+	From Neuron to Brain
+
+	
+Membrane Potentials in Squid Axons
+	From Neuron to Brain
+
+I = γ(V–V 0)
+Many readers will recognize this as an expression of Ohm’s law. V0 is the voltage across the
+membrane at which the current is zero, and (V–V 0) is the driving force for current through
+the channel. In this example V 0 = 0, but that is not always the case (see Figure 4.7). The
+constant of proportionality, γ, is called the channel conductance. It is a measure of the
+ability of the channel to pass current. For a particular applied voltage, a high conductance
+channel will carry a lot of current, while a low conductance channel will carry only a little.
+	From Neuron to Brain
+	
+Figure 4.7F illustrates that the potassium current through the channel depends on
+both the electrical potential across the membrane and on the potassium concentration
+gradient—that is, on the electrochemical gradient for potassium. Unlike the result when
+the potassium concentration was the same on both sides of the membrane (Figure 4.6),
+the channel current is zero when the potential applied to the pipette is about –85 mV. In
+this condition, the concentration gradient, which would otherwise produce an outward
+flux of potassium through the channel, is balanced exactly by the electrical potential
+gradient that tends to move potassium inward. The potential that just balances the potas-
+sium concentration gradient is called the potassium equilibrium potential, EK. When the
+membrane potential is at EK, the driving force for potassium current is zero; at any other
+potential (V) the driving force is (V–EK). The equilibrium potential depends only on the
+ion concentrations on either side of the membrane and not on the properties of the channel
+or the mechanism of ion permeation through the channel.
+	From Neuron to Brain
+	
+The Nernst Equation from Goldman equation
+	https://en.wikipedia.org/wiki/Goldman_equation
+	
+negative ions collected at the inner surface of the membrane, which
+is 1/100,000 the number in free solution
+	From Neuron to Brain
+
+Let us concentrate for the moment on sodium ions. At equilibrium the difference in
+concentration causes a Nernst potential ENa of about +50 mV. That is, at
+equilibrium the interior of the cell has a positive potential with respect to the
+surround. The interior of the cell and the surrounding liquid are in contact through
+ion channels where Na+ ions can pass from one side of the membrane to the other. If
+the voltage difference u is smaller than the value of the Nernst potential ENa,
+more Na+ ions flow into the cell so as to decrease the concentration difference. If
+the voltage is larger than the Nernst potential ions would flow out the cell. Thus the
+direction of the current is reversed when the voltage u passes ENa. For this
+reason, ENa is called the reversal potential.
+	Spiking neuron models single neurons, populations, plasticity
+
+The Constant Field Equation
+	From Neuron to Brain
+	
+The Resting Membrane Potential
+	From Neuron to Brain
+	
+GHK flux equation to Nernst equation when no flux is present
+	https://en.wikipedia.org/wiki/GHK_current_equation
+	
+An Electrical Model of the Membrane
+	From Neuron to Brain
+
+Hodgkin-Huxley Model
+At high values of u the sodium conductance is shut off due to the factor h. As indicated in Fig.
+2.3B, the `time constant' is always larger than . Thus the variable h which closes the
+channels reacts more slowly to the voltage increase than the variable m which opens the channel.
+On a similar slow time scale, the potassium (K+) current sets in. Since it is a current in outward
+direction, it lowers the potential. The overall effect of the sodium and potassium currents is a short
+action potential followed by a negative overshoot; cf. Fig. 2.4A. The amplitude of the spike is
+about 100 mV.
+	Spiking neuron models single neurons, populations, plasticity
+	
+If the transport process is stopped, the electrogenic contribution disappears
+immediately and the membrane potential then declines gradually as the cell gains sodium
+and loses potassium.
+	From Neuron to Brain
+	
+Threshold and Refractory Period
+	From Neuron to Brain
+	
+Figures 1.2, 1.3, 5.1, 6.1
+	Neuroscience
+
+Figures 1.4, 1.2, 1.3, 1.7, 1.9, 1.12, 1.15, 1.16, 5.10, 6.6
+	Neuron to Brain
+	
+Figures 2.6
+	Spiking neuron models single neurons, populations, plasticity
