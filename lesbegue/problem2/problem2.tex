@@ -1,0 +1,74 @@
+\documentclass[bulgarian, 12pt]{article}
+\usepackage[
+	a4paper,
+	includeheadfoot,
+	margin = 1.5 cm]
+{geometry}
+
+% Fonts
+\usepackage[T2A]{fontenc}
+% \usepackage{tempora}
+\usepackage[utf8]{inputenc}
+\usepackage{bm}
+
+% % Languages
+% \usepackage[base]{babel}
+% % Some languages define these commands, so you have to write this to protect yourself from namespace collision errors
+% \AfterBabelLanguage{bulgarian}{%
+%   \let\sh\relax\let\ch\relax\let\tg\relax
+%   \let\arctg\relax\let\arcctg\relax
+%   \expandafter\let\expandafter\th\csname ltx@th\endcsname
+%   \let\ctg\relax\let\cth\relax\let\cosec\relax
+% }
+\usepackage[bulgarian, english]{babel}
+\usepackage{hyphenat}
+
+% Indent first line in paragraph
+\usepackage{indentfirst}
+
+% Place tags on the left
+\usepackage[leqno]{amsmath}
+
+% Better math
+\usepackage{amsbsy}
+\usepackage{amssymb}
+\usepackage{mathtools}
+\usepackage{comment}
+\usepackage{mathptmx}
+\usepackage[makeroom]{cancel}
+
+% Better theorems
+\usepackage{amsthm}
+
+% SI units
+%\usepackage{siunitx}
+
+% Derivative notations
+\usepackage{physics}
+%\usepackage{derivative}
+
+\usepackage{blindtext}
+\usepackage{scrextend}
+
+\title{\textbf{Задача 2} относно неравенството на Чебишов}
+\author{Калоян Стоилов}
+
+\begin{document}
+\selectlanguage{bulgarian}
+\maketitle
+\begin{labeling}{задача}
+  \item [(а)] Нека $f \in M^+(X,\mu), \quad \lambda > 0, \quad S = \{x \in X | f(x) > \lambda\}$, тогава:
+  \[
+    \int_{X} f \dd \mu = \int_{S} f \dd \mu + \int_{X \setminus S} f \dd \mu \geq \int_{S} \lambda \dd \mu + \int_{X \setminus S} 0 \dd \mu \geq \lambda \int_{S} \dd \mu = \lambda \mu(S) = \lambda \{x \in X | f(x) > \lambda\}
+  \].
+
+  \item [(б)] Нека $f \in M^+(X,\mu), \int_{X} f \dd{\mu} = 0$, тогава е в сила, че $\mu(\{x \in X | f(x) > \frac{1}{n}\}) \leq n \int_{X} f \dd{\mu} = n 0 = 0$, откъдето:
+  \[
+    \mu(\{x \in X | f(x) > 0\}) = \mu(\bigcup_{n=1}^{\infty} \{x \in X | f(x) > \frac{1}{n}\}) \leq \sum_{n=1}^{\infty} \mu(\{x \in X | f(x) > \frac{1}{n}\}) = \sum_{n=1}^{\infty} 0 = 0
+  \]
+  От дефиницията на почти навсякъде имаме, че:
+  \[
+    f(x) = 0 \quad \text{п.н} \iff \mu(X \setminus \{x \in X | f(x) = 0\}) = \mu(\{x \in X | f(x) \neq 0\}) \overset{f \in M^+}{=} \mu(\{x \in X | f(x) > 0\}) = 0
+  \]
+\end{labeling}
+\end{document}
