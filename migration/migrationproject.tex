@@ -1,0 +1,118 @@
+\documentclass[
+  xcolor={svgnames},
+  hyperref={unicode=true,colorlinks,citecolor=DeepPink4,linkcolor=DarkRed,urlcolor=DarkBlue}
+  ]{beamer}
+\usepackage[utf8]{inputenc}
+\usepackage[bulgarian]{babel}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{lmodern}
+\usepackage{mathtools}
+\usepackage{yfonts}
+\usepackage{indentfirst}
+\usepackage{comment}
+\usepackage{eurosym}
+\usepackage{textcomp}
+\usepackage{subcaption}
+\usepackage{graphicx}
+\usepackage{tabto}
+\usepackage{datetime}
+
+\usetheme{Frankfurt}
+%\usetheme{Copenhagen}
+%\usetheme{Malmoe}
+\usecolortheme[named=black]{structure}
+\beamertemplatenavigationsymbolsempty
+
+\DeclareFontShape{OT1}{cmss}{b}{n}{<->ssub * cmss/bx/n}{}
+
+\begin{comment}
+\useoutertheme{}
+\setbeamertemplate{headline}
+{%
+  \leavevmode%
+  \begin{beamercolorbox}[wd=.5\paperwidth,ht=2.5ex,dp=1.125ex]{section in head/foot}%
+    \hbox to .5\paperwidth{\hfil\insertsectionhead\hfil}
+  \end{beamercolorbox}%
+  \begin{beamercolorbox}[wd=.5\paperwidth,ht=2.5ex,dp=1.125ex]{subsection in head/foot}%
+    \hbox to .5\paperwidth{\hfil\insertsubsectionhead\hfil}
+  \end{beamercolorbox}%
+}
+
+\setbeamertemplate{navigation symbols}{Frankfurt}
+
+
+\pagecolor[rgb]{0.19,0.19,0.19}
+\color[rgb]{0.77,0.77,0.77}
+\setbeamercolor{palette primary}{bg=white,fg=black}
+\setbeamercolor{palette secondary}{bg=white,fg=black}
+\setbeamercolor{palette tertiary}{bg=white,fg=black}
+\setbeamercolor{palette quaternary}{bg=white,fg=black}
+\setbeamercolor{structure}{fg=black} % itemize, enumerate, etc
+\setbeamercolor{section in toc}{fg=black} % TOC sections
+
+\end{comment}
+
+
+
+
+\title{Модел на сезонна миграция}
+\subtitle{Проект по "Въведение в изчислителната биология"}
+\author{изготвил: Калоян Стоилов \\ ръководител: Петър Рашков}
+\date{\formatdate{8}{2}{2021}}
+
+\begin{comment}
+\institute{Софийски университет "Св. Климент Охридски" \\ Факултет по математика и информатика}
+\end{comment}
+
+\institute{\textbf{\textit{СОФИЙСКИ УНИВЕРСИТЕТ \\ "СВ. КЛИМЕНТ ОХРИДСКИ"}}
+\begin{center}
+\includegraphics[width=1.2cm,height=1.5cm]{logo_su_s_nadpis_imagelarge}
+\end{center}
+ФАКУЛТЕТ ПО МАТЕМАТИКА И ИНФОРМАТИКА
+}
+
+
+\begin{document}
+
+{
+\setbeamertemplate{headline}[default]
+
+\begin{frame}
+\titlepage
+\end{frame}
+
+}
+
+\input{introduction}
+
+\input{task1}
+
+\input{parameters}
+
+\input{task3}
+
+\input{stability}
+
+\input{task2}
+
+\input{bounded}
+
+\input{task4}
+
+\input{numericalSimulations}
+
+\input{conclusion}
+
+{
+\setbeamertemplate{headline}[default]
+\begin{frame}
+
+\begin{center}
+\textbf{Благодаря за вниманието}
+\end{center}
+
+\end{frame}
+}
+\end{document}
