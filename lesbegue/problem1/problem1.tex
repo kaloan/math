@@ -1,0 +1,93 @@
+\documentclass[bulgarian, 12pt]{article}
+\usepackage[
+	a4paper,
+	includeheadfoot,
+	margin = 1.5 cm]
+{geometry}
+
+% Fonts
+\usepackage[T2A]{fontenc}
+% \usepackage{tempora}
+\usepackage[utf8]{inputenc}
+\usepackage{bm}
+
+% % Languages
+% \usepackage[base]{babel}
+% % Some languages define these commands, so you have to write this to protect yourself from namespace collision errors
+% \AfterBabelLanguage{bulgarian}{%
+%   \let\sh\relax\let\ch\relax\let\tg\relax
+%   \let\arctg\relax\let\arcctg\relax
+%   \expandafter\let\expandafter\th\csname ltx@th\endcsname
+%   \let\ctg\relax\let\cth\relax\let\cosec\relax
+% }
+\usepackage[bulgarian, english]{babel}
+\usepackage{hyphenat}
+
+% Indent first line in paragraph
+\usepackage{indentfirst}
+
+% Place tags on the left
+\usepackage[leqno]{amsmath}
+
+% Better math
+\usepackage{amsbsy}
+\usepackage{amssymb}
+\usepackage{mathtools}
+\usepackage{comment}
+\usepackage{mathptmx}
+\usepackage[makeroom]{cancel}
+
+% Better theorems
+\usepackage{amsthm}
+
+% SI units
+%\usepackage{siunitx}
+
+% Derivative notations
+\usepackage{physics}
+%\usepackage{derivative}
+
+\usepackage{blindtext}
+\usepackage{scrextend}
+
+\title{\textbf{Задача 1} относно обобщението на мярка на Лебег за $\mathbb{R}$}
+\author{Калоян Стоилов}
+
+\begin{document}
+\selectlanguage{bulgarian}
+\maketitle
+\begin{labeling}{задача}
+  \item [(а)] Нека $\{I_k\}$ и $\{J_k\}$
+  са две разбивания. Трябва да проверим, че:
+  \[
+    m_I(S) = \sum_{k=1}^{\infty} m(S \cap I_k) = \sum_{l=1}^{\infty} m(S \cap J_l) = m_J(S)
+  \]
+  % От дефинициите на съответените мерки, може да пресметнем:
+  % \begin{eqnarray*}
+  %   m_I(J_l) = \sum_{k=1}^{\infty} m(J_l \cap I_k)  \\
+  %   m_J(I_k) = \sum_{l=1}^{\infty} m(I_k \cap J_l)
+  % \end{eqnarray*}
+  Понеже $S \subseteq \mathbb{R}$, то $S = S \cap \mathbb{R}$ и от $\mathbb{R} = \bigcup\limits_{k=1}^{\infty} I_k = \bigcup\limits_{l=1}^{\infty} J_l$ следва:
+  \begin{eqnarray*}
+   S = S \cap \bigcup\limits_{k=1}^{\infty} I_k = \bigcup\limits_{k=1}^{\infty} S \cap I_k \\
+   S = S \cap \bigcup\limits_{l=1}^{\infty} J_l = \bigcup\limits_{l=1}^{\infty} S \cap J_l
+  \end{eqnarray*}
+  Използвайки горните представяния на S, както и пълната адитивност на m за интервали и че интервалите от разбиванията имат само общи краища:
+  \begin{eqnarray*}
+    m_I(S) = \sum_{k=1}^{\infty} m(S \cap I_k) = \sum_{k=1}^{\infty} m((\bigcup\limits_{l=1}^{\infty} S \cap J_l) \cap I_k) = \sum_{k=1}^{\infty} m(\bigcup\limits_{l=1}^{\infty} S \cap J_l \cap I_k) = \sum_{k=1}^{\infty} \sum_{l=1}^{\infty} m(S \cap J_l \cap I_k) = \\
+    \sum_{l=1}^{\infty} \sum_{k=1}^{\infty} m(S \cap J_l \cap I_k) = \sum_{l=1}^{\infty} m(\bigcup\limits_{k=1}^{\infty} S \cap I_k \cap J_l) = \sum_{l=1}^{\infty} m((\bigcup\limits_{k=1}^{\infty} S \cap I_k) \cap J_l) = \sum_{l=1}^{\infty} m(S \cap J_l) = m_J(S)
+  \end{eqnarray*}
+  \item [(б)] Трябва да проверим трите точки от дефиницията на $\sigma$-алгебра:
+  \begin{itemize}
+    % \item $m(\emptyset) = \sum_{k=1}^{\infty} m(\emptyset \cap I_k) = \sum_{k=1}^{\infty} m(\emptyset) = \sum_{k=1}^{\infty} 0 = 0$
+    \item $\emptyset$ е измеримо, понеже всичките $\{\emptyset \cap I_k\}$ са измерими
+    \item $S_1,S_2... \subseteq \mathbb{R}, \quad S_1,S_2... \text{- измерими} \implies {S_l \cap I_k} \text{- измерими} \implies {\bigcup\limits_{l=1}^{\infty}(S_l \cap I_k)} \text{- измерими} \implies {(\bigcup\limits_{l=1}^{\infty}S_l) \cap I_k} \text{- измерими} \implies \bigcup_{l=1}^{\infty}S_l \text{- измеримо}$
+    \item $S \subseteq \mathbb{R}, \quad S \text{ - измеримо} \implies \mathbb{R} \setminus S \subseteq \mathbb{R}, \{S \cap I_k\} \text{ - измерими} \implies \{I_k \setminus (S \cap I_k)\} \text{ - измерими} \implies \{I_k \cap (\mathbb{R} \setminus S)\} \text{ - измерими} \implies \mathbb{R} \setminus S \text{ - измеримo}$
+  \end{itemize}
+  \item [(в)] Ако имаме непресичащи се $\{S_l\}$ то:
+  \[
+    m(\bigcup_{l=1}^{\infty} S_l) = \sum_{k=1}^{\infty} m((\bigcup_{l=1}^{\infty} S_l) \cap I_k) = \sum_{k=1}^{\infty} m(\bigcup_{l=1}^{\infty} (S_l \cap I_k)) \overset{\text{адит. m}}{=} \sum_{k=1}^{\infty} \sum_{l=1}^{\infty} m(S_l \cap I_k) = \sum_{l=1}^{\infty} \sum_{k=1}^{\infty} m(S_l \cap I_k) = \sum_{l=1}^{\infty} m(S_l)
+  \]
+\end{labeling}
+Безкрайните суми разменяхме от неотрицателността на мярката $m$ и в този случай сходимост е еквивалента на абсолютна сходимост.
+\end{document}
