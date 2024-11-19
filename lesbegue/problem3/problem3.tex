@@ -1,0 +1,80 @@
+\documentclass[bulgarian, 12pt]{article}
+\usepackage[
+	a4paper,
+	includeheadfoot,
+	margin = 1.5 cm]
+{geometry}
+
+% Fonts
+\usepackage[T2A]{fontenc}
+% \usepackage{tempora}
+\usepackage[utf8]{inputenc}
+\usepackage{bm}
+
+% % Languages
+% \usepackage[base]{babel}
+% % Some languages define these commands, so you have to write this to protect yourself from namespace collision errors
+% \AfterBabelLanguage{bulgarian}{%
+%   \let\sh\relax\let\ch\relax\let\tg\relax
+%   \let\arctg\relax\let\arcctg\relax
+%   \expandafter\let\expandafter\th\csname ltx@th\endcsname
+%   \let\ctg\relax\let\cth\relax\let\cosec\relax
+% }
+\usepackage[bulgarian, english]{babel}
+\usepackage{hyphenat}
+
+% Indent first line in paragraph
+\usepackage{indentfirst}
+
+% Place tags on the left
+\usepackage[leqno]{amsmath}
+
+% Better math
+\usepackage{amsbsy}
+\usepackage{amssymb}
+\usepackage{mathtools}
+\usepackage{comment}
+\usepackage{mathptmx}
+\usepackage[makeroom]{cancel}
+
+% Better theorems
+\usepackage{amsthm}
+
+% SI units
+%\usepackage{siunitx}
+
+% Derivative notations
+\usepackage{physics}
+%\usepackage{derivative}
+
+\usepackage{blindtext}
+\usepackage{scrextend}
+
+\title{\textbf{Задача 3} относно представянето на интеграла в $M^+$}
+\author{Калоян Стоилов}
+
+\begin{document}
+\selectlanguage{bulgarian}
+\maketitle
+Надолу $(X, \mathcal{A}, \mu)$ е пространство с мярка. \\
+Нека разгледаме простата функция $\varphi \in SF^+(X, \mathcal{A})$ в каноничен вид $\varphi(x) = \sum\limits_{i=1}^{m} d_j \chi_{T_j}(x)$. Б.О.О считаме че $d_1 < d_2 < \cdots < d_n$. В $SF^+$, интегралът на $\varphi$ е:
+\begin{eqnarray*}
+  \int_{X} \varphi \dd \mu = \sum_{j=1}^{m} d_j \mu(T_j) = d_1 \sum_{j=1}^{m} \mu(T_j) + (d_2 - d_1) \sum_{j=2}^{m} \mu(T_j) + \cdots + (d_m - d_{m-1}) \mu(T_m)
+\end{eqnarray*}
+Понеже множествата ${T_j}$ са непресичащи се, може да използваме пълната адитивност на мярката $\mu$, т.е. за $k=\overline{2,m}$:
+\begin{eqnarray*}
+  \sum_{j=k}^{m} \mu(T_j) = \mu(\bigcup_{j=k}^{m} T_j) = \mu(\{x \in X | \varphi(x) \geq d_k\}) = \mu (\{x \in X | \varphi(x) > d_{k-1}\}) = \mu (S_\varphi(d_{k-1})) = \Psi_\varphi(d_{k-1})
+\end{eqnarray*}
+Отчитаме, в интервала $[d_{k-1}, d_k)$, $\Psi_\varphi$ е константа, тъй като и $\varphi$ е константа. Също така може да забележим, че $\Psi_\varphi(t) = 0, t \geq d_k$.
+Може да смятаме, че $d_1=0$. Ако присъства към каноничния вид, не добавя нищо към сумата, а ако не присъства може фиктивно да го добавим със съответното $T_1=\emptyset$, като отново не добавя нищо. Така достигаме до:
+\begin{align*}
+  & \int_{X} \varphi \dd \mu = (d_2-d_1)\Psi_\varphi(d_{1}) + \cdots + (d_m-d_{m-1})\Psi_\varphi(d_{m-1}) = \Psi_\varphi(d_{1}) \int_{d_1}^{d_2} \dd t + \cdots + \Psi_\varphi(d_{m-1}) \int_{d_{m-1}}^{d_m} \dd t = \\
+  & \int_{d_1}^{d_2} \Psi_\varphi(t) \dd t + \cdots + \int_{d_{m-1}}^{d_m} \Psi_\varphi(t) \dd t = \int_{d_1}^{d_m} \Psi_\varphi(t) \dd t = \int_{d_1}^{d_m} \Psi_\varphi(t) \dd t + \int_{d_m}^{\infty} \Psi_\varphi(t) \dd t = \int_{0}^{\infty} \Psi_\varphi(t) \dd t
+\end{align*}
+Така доказахме представянето за прости функции и интеграла в $SF^+(X, \mathcal{A})$, като за тях той съвпада с дефиницията на интеграла на $M+(X, \mathcal{A})$, а и $SF+(X, \mathcal{A}) \subset M+(X, \mathcal{A})$. От основната лема за $M+(X, \mathcal{A})$, за всяка $f \in M+(X, \mathcal{A})$, съществува монотонно растяща редица от прости фунцкии $\{\varphi_n\}, \subseteq SF^+(X, \mathcal{A})$, такава че $\varphi_n \xrightarrow[n \to \infty]{} f$. От $\varphi_{n+1}(t) \geq \varphi_n(t)$ може да видим, че $S_{\varphi_n}(t) \subseteq S_{\varphi_{n+1}}(t)$. С други думи $S_{\varphi_n}(t) \xrightarrow[n \to \infty]{} \bigcup\limits_{n=1}^{\infty} S_{\varphi_n}(t) = S_f(t)$. Наистина, едната страна на съдържането е очевидна от $S_{\varphi_n}(t) \subseteq S_f(t)$, понеже $f(t) \geq \varphi_n(t)$. В обратната посока, ако допуснем, че има някой елемент $f(x) \geq \varphi_n(x) + \varepsilon, \varepsilon > 0$, то след граничен преход $0 \geq \varepsilon$, противоречие (с други думи граничният преход пред множеството може да влезе като граничен преход в условието за отделяне). Тогава използвайки теоремата на Бепо Леви за монотонния граничен преход:
+\begin{align*}
+  & \int_{X} f \dd \mu = \int_{X} \lim_{n \to \infty} \varphi_n \dd \mu \overset{(\text{Б. Л.})}{=} \lim_{n \to \infty} \int_{X} \varphi_n \dd \mu = \lim_{n \to \infty} \int_{0}^{\infty} \Psi_{\varphi_n}(t) \dd t = \int_{0}^{\infty} \lim_{n \to \infty} \Psi_{\varphi_n}(t) \dd t  =\\
+  & \int_{0}^{\infty} \lim_{n \to \infty} \mu(S_{\varphi_n}(t)) \dd t \overset{(\text{гр. пр. на $\mu$})}{=} \int_{0}^{\infty} \mu(\bigcup_{n=1}^{\infty} S_{\varphi_n}(t)) \dd t = \int_{0}^{\infty} \mu(S_f(t)) \dd t = \int_{0}^{\infty} \Psi_f(t) \dd t
+\end{align*}
+
+\end{document}
