@@ -1,0 +1,125 @@
+\documentclass[bulgarian, 12pt]{article}
+\usepackage[
+	a4paper,
+	includeheadfoot,
+	margin = 1.5 cm]
+{geometry}
+
+% Fonts
+\usepackage[T2A]{fontenc}
+% \usepackage{tempora}
+\usepackage[utf8]{inputenc}
+\usepackage{bm}
+
+% % Languages
+% \usepackage[base]{babel}
+% % Some languages define these commands, so you have to write this to protect yourself from namespace collision errors
+% \AfterBabelLanguage{bulgarian}{%
+%   \let\sh\relax\let\ch\relax\let\tg\relax
+%   \let\arctg\relax\let\arcctg\relax
+%   \expandafter\let\expandafter\th\csname ltx@th\endcsname
+%   \let\ctg\relax\let\cth\relax\let\cosec\relax
+% }
+\usepackage[bulgarian, english]{babel}
+\usepackage{hyphenat}
+
+% Indent first line in paragraph
+\usepackage{indentfirst}
+
+% Place tags on the left
+\usepackage[leqno]{amsmath}
+
+% Better math
+\usepackage{amsbsy}
+\usepackage{amssymb}
+\usepackage{mathtools}
+\usepackage{comment}
+\usepackage{mathptmx}
+\usepackage[makeroom]{cancel}
+\usepackage{mathrsfs}
+
+% Better theorems
+\usepackage{amsthm}
+
+% SI units
+%\usepackage{siunitx}
+
+% Derivative notations
+\usepackage{physics}
+%\usepackage{derivative}
+
+\usepackage{blindtext}
+\usepackage{scrextend}
+
+\title{\textbf{Задача 4} относно функциите с ограничена вариация и крайните борелови знакопроменливи мерки}
+\author{Калоян Стоилов}
+
+\begin{document}
+\selectlanguage{bulgarian}
+\maketitle
+% Нека $\mathcal{B}$ е $\sigma$-алгебрата, породена от фамилията борелови множества над $[a, b]$, която ще бележим с $\beta[a, b]$.
+Нека фиксираме $a,b \in \mathscr{R}$. С $\mathcal{B}[a, b]$ бележим $\sigma$-алгебрата от борелови подмножества на интервала $[a,b]$.
+Бореловите (знакопроменливи) мерки върху $[a,b]$ са (знакопременливите) мерки върху $\mathcal{B}[a, b]$. \\
+От лекцията за мярка и интеграл на Лебег-Стилтес, може за дадена монотонно-растяща функция $r:[a,b] \to \mathbb{R}$ да дефинираме предмярка $\rho_0(r):\mathscr[a, b]\to[0,\infty)$.
+Чрез $\rho_0(r)$ дефинираме $\rho^*(r)$, откъдето и мярката на Лебег-Стилтес $\rho(r)$.
+Тя е крайна, понеже $\rho(r)([a,b])=r(b)-r(a)$. \\
+Чрез нея дефинираме интеграла на Лебег-Стилтес $\int_a^b f \dd \rho(r) = \int_a^b f(x) \dd r(x)$.
+Нека $g \in BV[a,b]$, която може да представим по теоремата на Жордан като $g=\varphi-\psi$, с $\varphi, \psi$ монотонно растящи. Оттук дефинираме интеграл на Лебег-Стилтес за $g$ като $\int_a^b f \dd g(x) = \int_a^b f(x) \dd phi(x) - \int_a^b f(x) \dd psi(x)$. Фиксираме тези означения надолу.
+Нека дефинираме $\rho(g) = \rho(\varphi) - \rho(\psi)$. $\rho(g)$ е крайна знакопроменлива мярка върху $\mathcal{B}[a, b]$, защото:
+\begin{itemize}
+  \item $\rho(g)(\emptyset) =  \rho(\varphi)(\emptyset) - \rho(\psi)(\emptyset) = 0 - 0 = 0$
+  \item $S_1,S_2... \in \mathcal{B}[a, b], \quad S_i \cap S_j =
+  \emptyset, i \neq j \implies \rho(g)(\bigcup\limits_{n=1}^\infty S_n) =
+  \rho(\varphi)(\bigcup\limits_{n=1}^\infty S_n) - \rho(\psi)(\bigcup\limits_{n=1}^\infty S_n) = \\
+  \sum\limits_{n=1}^\infty \rho(\varphi)(S_n) - \sum\limits_{n=1}^\infty \rho(\psi)(S_n) =
+  \sum\limits_{n=1}^\infty \rho(\varphi)(S_n) - \rho(\psi)(S_n) =
+  \sum\limits_{n=1}^\infty \rho(g)(S_n)$
+  \item $\rho([a, b]) = \rho(\varphi)([a, b]) - \rho(\psi)([a, b]) < \infty$
+\end{itemize}
+Така получихме, че:
+\begin{align*}\label{eqn:1}
+  \tag{1}
+  &\int_a^b f \dd \rho(g) =
+  \int_a^b f \dd (\rho(\varphi) - \rho(\psi)) =
+  \int_a^b f \dd \rho(\varphi) - \int_a^b f \dd \rho(\psi) = \\
+  & \int_a^b f(x) \dd \varphi(x) - \int_a^b f(x) \dd \psi(x) = \int_a^b f \dd g(x)
+\end{align*}
+Така показахме, че от фунцкия с ограничена вариация, може да дефинираме крайна борелова знакопроменлива мярка и интегралът за нея да съвпада с интеграла на Лебег-Стилтес за функцията. \par
+Нека сега разгледаме разсъжденията в обратната посока и да е дадена някаква крайна борелова знакопроменлива мярка $\nu$ върху $\mathcal{B}[a, b]$. Тогава от теоремата на Жордан съществуват $\nu^+, \nu^-$, които са $[a,b]$-положителни. Дефинираме функции $\varphi, \psi : [a, b] \to \mathbb{R}$, $\varphi(x) = \nu^+([a,x]), \psi(x) = \nu^-([a,x])$. Така от свойствата на мярката, веднага се вижда, че функциите са монотонно растящи. Ако дефинираме $g = \varphi - \psi$, получаваме че $g \in BV[a,b]$. За да получим \eqref{eqn:1} в обратната посока, ще трябва да покажем, че за интервали $I$ от четирите вида $\rho_0(\varphi)(I) = \nu^+(I)$ и $\rho_0(\psi)(I) = \nu^-(I)$, понеже $\rho_0$ поражда $\rho$, a $\mu^+, \mu^-$ са породени от себе си. Доказателството и за двете е аналогично, така че нека покажем за $\varphi$:
+\begin{itemize}
+  \item $\rho_0(\varphi)([\alpha, \beta]) =
+  \varphi_+(\beta) - \varphi_-(\alpha) =
+  \lim\limits_{x \to \beta+}\varphi(x) - \lim\limits_{x \to \alpha-}\varphi(x) = \\
+  \lim\limits_{x \to \beta+}\nu^+([a,x]) - \lim\limits_{x \to \alpha-}\nu^+([a,x]) =
+  \nu^+([a, \beta]) - \nu^+([a, \alpha)) =
+  \nu^+([\alpha, \beta])$
+  \item $\rho_0(\varphi)((\alpha, \beta]) =
+  \varphi_+(\beta) - \varphi_+(\alpha) =
+  \lim\limits_{x \to \beta+}\varphi(x) - \lim\limits_{x \to \alpha+}\varphi(x) = \\
+  \lim\limits_{x \to \beta+}\nu^+([a,x]) - \lim\limits_{x \to \alpha+}\nu^+([a,x]) =
+  \nu^+([a, \beta]) - \nu^+([a, \alpha]) =
+  \nu^+((\alpha, \beta])$
+  \item $\rho_0(\varphi)([\alpha, \beta)) =
+  \varphi_-(\beta) - \varphi_-(\alpha) =
+  \lim\limits_{x \to \beta-}\varphi(x) - \lim\limits_{x \to \alpha-}\varphi(x) = \\
+  \lim\limits_{x \to \beta-}\nu^+([a,x]) - \lim\limits_{x \to \alpha-}\nu^+([a,x]) =
+  \nu^+([a, \beta)) - \nu^+([a, \alpha)) =
+  \nu^+([\alpha, \beta))$
+  \item $\rho_0(\varphi)((\alpha, \beta)) =
+  \varphi_-(\beta) - \varphi_+(\alpha) =
+  \lim\limits_{x \to \beta-}\varphi(x) - \lim\limits_{x \to \alpha+}\varphi(x) = \\
+  \lim\limits_{x \to \beta-}\nu^+([a,x]) - \lim\limits_{x \to \alpha+}\nu^+([a,x]) =
+  \nu^+([a, \beta)) - \nu^+([a, \alpha]) =
+  \nu^+((\alpha, \beta))$
+\end{itemize}
+Границите могат да се преформулират като изборимо обединение на $[a, \gamma-\frac{1}{n}] $ или изброимо сечение на $[a, \gamma+\frac{1}{n}]$, и от свойствата на мярката получаваме равносилните представяния. \\ След аналогичните разсъждения за $\psi$ получаваме, че:
+\begin{align*}\label{eqn:2}
+  \tag{2}
+  &\int_a^b f \dd g(x) =
+  \int_a^b f(x) \dd \varphi(x) - \int_a^b f(x) \dd \psi(x) =
+  \int_a^b f \dd \rho(\varphi) - \int_a^b f \dd \rho(\psi) =
+  \int_a^b f \dd \nu^+ - \int_a^b f \dd \nu^- \\
+  & \int_a^b f \dd (\nu^+ - \nu^-) = \int_a^b f \dd \nu
+\end{align*}
+С други думи, от крайна борелова знакопроменлива мярка дефинирахме функция с органичена вариация и интегралът на Лебег-Стилтес за нея съвпада с интеграла за мярката.
+\end{document}
