@@ -1,0 +1,319 @@
+\documentclass[12pt]{article}
+\usepackage[a4paper, includeheadfoot, margin = 1.5cm]{geometry}
+\usepackage[unicode=true, colorlinks=true, linkcolor=black, urlcolor=black]{hyperref}
+\usepackage[T2A]{fontenc}
+\usepackage[utf8x]{inputenc}
+\usepackage[bulgarian]{babel}
+\usepackage{csquotes}
+\usepackage{indentfirst}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amssymb}
+\usepackage{mathtools}
+\usepackage{comment}
+\usepackage{mathptmx}
+\usepackage{tikz}
+% \usepackage{slashbox}
+\usepackage{diagbox}
+\usepackage{datetime}
+
+\title{Числа на Лах}
+\author{Калоян Стоилов}
+\date{\formatdate{29}{4}{2021}}
+
+
+\renewcommand{\sfdefault}{cmss}
+\renewcommand{\rmdefault}{cmr}
+\renewcommand{\ttdefault}{cmt}
+
+
+\newcommand{\fallingfactorial}[1]{%
+  ^{\underline{#1}}%
+}
+\newcommand{\risingfactorial}[1]{%
+  ^{\overline{#1}}%
+}
+\newcommand{\genstirlingI}[3]{%
+  \genfrac{[}{]}{0pt}{#1}{#2}{#3}%
+}
+\newcommand{\genstirlingII}[3]{%
+  \genfrac{\{}{\}}{0pt}{#1}{#2}{#3}%
+}
+
+\newcommand{\stirlingI}[2]{\genstirlingI{}{#1}{#2}}
+\newcommand{\dstirlingI}[2]{\genstirlingI{0}{#1}{#2}}
+\newcommand{\tstirlingI}[2]{\genstirlingI{1}{#1}{#2}}
+\newcommand{\stirlingII}[2]{\genstirlingII{}{#1}{#2}}
+\newcommand{\dstirlingII}[2]{\genstirlingII{0}{#1}{#2}}
+\newcommand{\tstirlingII}[2]{\genstirlingII{1}{#1}{#2}}
+
+
+\newcommand{\genlah}[3]{%
+  \genfrac{\lfloor}{\rfloor}{0pt}{#1}{#2}{#3}%
+}
+
+\begin{comment}
+\newcommand{\genlah}[3]{%
+  \genfrac{\rotatebox[origin=c]{180}{\rceil}}{\rotatebox[origin=c]{180}{\lceil}}{0pt}{#1}{#2}{#3}%
+}
+\end{comment}
+
+
+\newcommand{\genover}[3]{%
+  \genfrac{}{}{0pt}{#1}{#2}{#3}%
+}
+\newcommand{\myover}[2]{\genover{}{#1}{#2}}
+\newcommand{\dover}[2]{\genover{0}{#1}{#2}}
+\newcommand{\tover}[2]{\genover{1}{#1}{#2}}
+
+\newcommand{\lah}[2]{\genstirlingI{}{#1}{#2}}
+\newcommand{\dlah}[2]{\genstirlingI{0}{#1}{#2}}
+\newcommand{\tlah}[2]{\genstirlingI{1}{#1}{#2}}
+%\fontsize{16pt}{20pt}\selectfont
+
+\newcommand{\lahfinal}[2]{\left\lfloor \myover{#1}{#2} \right\rfloor}
+
+
+
+
+\newtheorem{theorem}{Твърдение}
+\newtheorem{lemma}[theorem]{Lemma}
+
+
+
+\begin{document}
+
+% \begin{comment}
+% \begin{titlepage}
+
+% \begin{center}
+% \begin{LARGE}
+
+% \textbf{Числа на Лах} \\
+
+% \end{LARGE}
+
+% \begin{Large}
+
+% \textbf{Калоян Стоилов}
+
+% \end{Large}
+% \end{center}
+% \end{titlepage}
+
+% \end{comment}
+
+
+
+
+
+
+% \begin{center}
+% \begin{Huge}
+
+
+% \textbf{Числа на Лах} \\
+
+% \end{Huge}
+
+% \begin{Large}
+% \bfseries \textit{ \slshape Калоян Стоилов}
+% \end{Large}
+% \end{center}
+
+\maketitle
+\begin{large}
+Числата на Лах за първи път се появяват 1954г. в труд на Иво Лах(Ivo Lah), словенски математик, живял 05.09.1896-23.03.1979. Имат връзка с числата на Стирлинг. \\
+
+Подобно на числата на Стирлинг от първи род има числа на Лах със и без знак. Числата на Лах без знак обикновено се бележат:
+\[\lahfinal{n}{k}, \quad L(n,k), \quad \mathcal{L}_{n,k}.\]
+
+Това са броят начини $n$-елементно множество да се разбие на $k$ на брой непразни линейни наредби. Това е все едно броят начини от азбука с $n$ букви да образуваме $k$ думи без да повтаряме букви, общо използващи целия набор от букви. \\
+
+За начални условия взимаме:
+\begin{equation*}
+\begin{aligned}
+	&\lahfinal{0}{0}=1 \quad \text{(условно приемане)} \\
+    &\lahfinal{n}{0}=0, \enspace n>0 \quad \text{(не се получава разбиване)}, \\
+    &\lahfinal{n}{n}=1 \quad \text{(всяка буква е дума)}, \\
+    &\lahfinal{n}{k}=0, \enspace n<k \quad \text{(не достигат букви)}.
+\end{aligned}
+\end{equation*}
+
+\begin{comment}
+\[
+\lahfinal{n}{0}=0 \text{(не зачитаме празната дума)}, \quad \lahfinal{n}{n}=1 \text{(всяка буква е дума)}, \quad \lahfinal{n}{k}=0, \enspace n<k \text{(не достигат букви)}.
+\]
+\end{comment}
+
+\begin{theorem}
+Рекурентната формула, задаваща числата на Лах е:
+\[
+\lahfinal{n+1}{k}=\left(n+k\right)\lahfinal{n}{k} + \lahfinal{n}{k-1}.
+\]
+\end{theorem}
+
+\begin{proof}[Док.]
+$n+1$-вият елемент или участва в някоя "предишна"\ дума (първото събираемо), или е сам (второто събираемо).
+\begin{enumerate}
+\item Нека имаме разбиване по линейни наредби, чиито дължини са съответно $i_{1}, ..., i_{k}$. Тогава може да поставим $n+1$-вият елемент или след някоя от тях или най-напред. Но това са съответно $i_{1}+1, ..., i_{k}+1$ начина. Тогава има $\sum_{j=0}^{k} (i_{j}+1)=n+k$.
+\item Трябва да получим $k-1$ линейни наредби от останалите $(n+1)-1=n$ елемента.
+\end{enumerate}
+\end{proof}
+
+
+\begin{theorem}
+Може да се даде явна формула за числата на Лах. По-точно:
+\[
+\lahfinal{n}{k}=\frac{n!}{k!} \binom{n-1}{k-1}.
+\]
+\end{theorem}
+
+\begin{proof}[Док.]
+Има $n!$ пермутации на $n$ елемента. Думи може да получим, като на всяка пермутация между елементи сложим "разграничител", така че да получим общо $k$ думи, но местата между $n$-те елемента са $n-1$, а за да получим $k$ думи ти трябват $k-1$ разграничителя, откъдето получаваме члена $\binom{n-1}{k-1}$. Така обаче достигнахме брой начини за наредена последователност от $k$ думи, а се интересуваме само от това какви са те. Но за всяко множество от $k$ думи има $k!$ техни пермутации, получени по посочения по-горе начин.
+\end{proof}
+
+
+Нека с $L(n,k)$ бележим коефициента пред $k$-тия намаляващ факториел в "развитието" на $n$-тия растящ факториел, тоест:
+\[
+x\risingfactorial{n}=\sum_{k=0}^{n} L(n,k) x\fallingfactorial{k}
+\]
+
+Ще отбележим, че това е възможно, тъй като отляво и отдясно се получават полиноми от $n$-та степен, а ${x\fallingfactorial{0},..x\fallingfactorial{n}}$ образуват базис за полиномите от $n$-та степен (или приемете това твърдение на доверие, или разгледайте връзката между числата на Стирлинг от втори род и падащите факториели).
+
+\begin{theorem}
+В сила е следното тъждество, даващо връзка между числата на Стирлинг от първи и втори род и $L(n,k)$:
+\[
+L(n,k)=\sum_{j=0}^{n} \stirlingI{n}{j} \stirlingII{j}{k}.
+\]
+\end{theorem}
+
+\begin{proof}[Док.]
+Щом $s\left(n,k\right)$ е коефициента пред $x^{k}$ в $x\fallingfactorial{n}$, то $\stirlingI{n}{k}$ е коефициента пред $x^{k}$ в $x\risingfactorial{k}$ (напр. разглеждане на $(-x)\fallingfactorial{n}$).
+Също така $x^n=\sum_{k=0}^{n} \stirlingII{n}{k} x\fallingfactorial{k}$. Използвайки и двете се получава:
+\begin{equation*}
+\begin{aligned}
+    x\risingfactorial{n} &=
+\sum_{k=0}^{n} \stirlingI{n}{k} x^{k} =
+\sum_{k=0}^{n} \stirlingI{n}{k} \sum_{i=0}^{k} \stirlingII{k}{i} x\fallingfactorial{i} \\
+&=
+\sum_{k=0}^{n} \left(\sum_{j=k}^{n} \stirlingI{n}{j} \stirlingII{j}{k} \right) x\fallingfactorial{k} =
+\sum_{k=0}^{n} \left(\sum_{j=0}^{n} \stirlingI{n}{j} \stirlingII{j}{k} \right) x\fallingfactorial{k}
+\end{aligned}
+\end{equation*}
+
+\begin{comment}
+\[
+x\risingfactorial{n} =
+\sum_{k=0}^{n} \stirlingI{n}{k} x^{k} =
+\sum_{k=0}^{n} \stirlingI{n}{k} \sum_{i=0}^{k} \stirlingII{k}{i} x\fallingfactorial{i} =
+\sum_{k=0}^{n} \left(\sum_{j=k}^{n} \stirlingI{n}{j} \stirlingII{j}{k} \right) x\fallingfactorial{k} =
+\sum_{k=0}^{n} \left(\sum_{j=0}^{n} \stirlingI{n}{j} \stirlingII{j}{k} \right) x\fallingfactorial{k}
+\]
+\end{comment}
+За последното равенство използваме, че $\stirlingII{n}{k}=0$ при $n<k$.
+\end{proof}
+
+Остава ни последното твърдение, а то е:
+
+\begin{theorem}
+\[
+\lahfinal{n}{k}=L(n,k).
+\]
+\end{theorem}
+
+\begin{proof}[Док.]
+За да докажем, че двете "таблици" \ от числа са равносилно е достатъчно да проверим еднаквостта на началните условия и рекурентните уравнения. \\
+Имаме, че:
+\begin{equation*}
+\begin{aligned}
+	&L(0,0)=1 \quad \text{($x\risingfactorial{0}=1=x\fallingfactorial{0}, \enspace 1=1.x^{0}$)}, \\
+    &L(n,0)=0, \enspace n>0 \quad \text{(полиномът $x\risingfactorial{n}$ е без свободен член, а $x\fallingfactorial{0}=1.x^{0}$)}, \\
+    &L(n,n)=1 \quad \text{(от сумата остава $\stirlingI{n}{n}\stirlingII{n}{n}=1.1=1$)}, \\
+    &L(n,k)=0, \enspace n<k  \quad \text{(полиномът $x\fallingfactorial{k}$ е с ненулев член пред $x^{k}$)}.
+\end{aligned}
+\end{equation*}
+
+Така началните условия съвпадат. За проверка на рекурентната зависимост използваме равенството от по-рано:
+
+\begin{equation*}
+\begin{aligned}
+    &L(n+1,k) \\ &= \sum_{j=0}^{n+1} \stirlingI{n+1}{j} \stirlingII{j}{k} \quad \text{(прилагаме Тв. 3)} \\
+    &= \sum_{j=0}^{n+1} \left(n \stirlingI{n}{j} + \stirlingI{n}{j-1} \right) \stirlingII{j}{k} \quad \text{(от рекурентната зависимост на $\stirlingI{n}{k}$)} \\
+    &= n \sum_{j=0}^{n+1} \stirlingI{n}{j} \stirlingII{j}{k} + \sum_{j=0}^{n+1} \stirlingI{n}{j-1} \stirlingII{j}{k}  \\
+    &= n \stirlingI{n}{n+1} \stirlingII{n+1}{k} + n \sum_{j=0}^{n} \stirlingI{n}{j} \stirlingII{j}{k} + \stirlingI{n}{-1} \stirlingII{0}{k} + \sum_{j=1}^{n+1} \stirlingI{n}{j-1} \stirlingII{j}{k} \\
+	&= n \sum_{j=0}^{n} \stirlingI{n}{j} \stirlingII{j}{k} + \sum_{j=0}^{n} \stirlingI{n}{j} \stirlingII{j+1}{k} \quad \text{(от условията над числата на Стирлинг)} \\
+    &= n \sum_{j=0}^{n} \stirlingI{n}{j} \stirlingII{j}{k} + \sum_{j=0}^{n} \stirlingI{n}{j} \left( k \stirlingII{j}{k} + \stirlingII{j}{k-1} \right) \quad \text{(от рекурентната зависимост на $\stirlingII{n}{k}$)} \\
+    &= (n+k) \sum_{j=0}^{n} \stirlingI{n}{j} \stirlingII{j}{k} + \sum_{j=0}^{n} \stirlingI{n}{j}  \stirlingII{j}{k-1} \\
+    &= (n+k) L(n,k) + L(n,k-1)
+\end{aligned}
+\end{equation*}
+ Сега отчитаме Тв. 1 и явно рекурентата зависимост е същата. И тъй двете "таблици" \ съвпадат.
+\end{proof}
+
+Ето и началната част от таблицата на числата на Лах без знак:
+
+
+\[
+\left|
+\begin{array}{c|c|c|c|c|c|c|c|c|c|c}
+\hline
+$\backslashbox{n}{k}$ &
+0 & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 \\
+\hline
+ 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\ \hline
+ 1 & 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\ \hline
+ 2 & 0 & 2 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\ \hline
+ 3 & 0 & 6 & 6 & 1 & 0 & 0 & 0 & 0 & 0 & 0 \\ \hline
+ 4 & 0 & 24 & 36 & 12 & 1 & 0 & 0 & 0 & 0 & 0 \\ \hline
+ 5 & 0 & 120 & 240 & 120 & 20 & 1 & 0 & 0 & 0 & 0 \\ \hline
+ 6 & 0 & 720 & 1800 & 1200 & 300 & 30 & 1 & 0 & 0 & 0 \\ \hline
+ 7 & 0 & 5040 & 15120 & 12600 & 4200 & 630 & 42 & 1 & 0 & 0 \\ \hline
+ 8 & 0 & 40320 & 141120 & 141120 & 58800 & 11760 & 1176 & 56 & 1 & 0 \\ \hline
+ 9 & 0 & 362880 & 1451520 & 1693440 & 846720 & 211680 & 28224 & 2016 & 72 & 1 \\ \hline
+\end{array}
+\right|
+\]
+
+Някои интересни наблюдения:
+\begin{comment}
+\[
+\lahfinal{n}{1} = n! \text{очевидно}, \quad \lahfinal{n}{n-1} = \sum_{i=0}^{n} 2i \text{проста индукция с рекурентата зависимост}, \quad  \lahfinal{n}{k} \left| \lahfinal{n+1}{k+1} \right. ,  \quad \lahfinal{n}{\lfloor \sqrt{n} \rfloor} = \max_{k} \lahfinal{n}{k}
+\]
+\end{comment}
+
+\begin{equation*}
+\begin{aligned}
+&\lahfinal{n}{1} = n! \quad \text{(очевидно)}, \\
+&\lahfinal{n}{n-1} = \sum_{i=0}^{n-1} 2i = n(n-1) \quad \text{(проста индукция с рекурентата зависимост)}, \\
+&\lahfinal{n}{\lfloor \sqrt{n} \rfloor} = \max_{k} \lahfinal{n}{k} \quad \text{(предположение, проверено до n=3000)}, \\
+&\lahfinal{n^2-1}{\lfloor \sqrt{n^2-1} \rfloor}=\lahfinal{n^2-1}{\lfloor \sqrt{n^2-1} \rfloor + 1}, \enspace n>1 \quad \text{(доказано долу)}
+\end{aligned}
+\end{equation*}
+
+\begin{theorem}
+\[
+\lahfinal{n^2-1}{\lfloor \sqrt{n^2-1} \rfloor}=\lahfinal{n^2-1}{\lfloor \sqrt{n^2-1} \rfloor + 1}, \enspace n>1
+\]
+
+\end{theorem}
+\begin{proof}[Док.]
+Знаем, че $n^2$ е точен квадрат, чийто корен е цялото число $n$. Но тогава $n^2-1$ ще бъде с корен между тeзи на $(n-1)^2$=$n^2-2n+1$ и $n^2$ (понеже $2n-1>1$), но тогава цялата му част ще е $n-1$. Получаваме:
+
+\begin{equation*}
+\begin{aligned}
+&\lahfinal{n^2-1}{\lfloor \sqrt{n^2-1} \rfloor} = \lahfinal{n^2-1}{n-1} = \frac{(n^2-1)!(n^2-2)!}{(n-1)!(n-2)!(n^2-n)!} \quad \text{(отляво)} \\
+&\lahfinal{n^2-1}{\lfloor \sqrt{n^2-1} \rfloor + 1} = \lahfinal{n^2-1}{n} = \frac{(n^2-1)!(n^2-2)!}{n!(n-1)!(n^2-n-1)!} \quad \text{(отдясно)}
+\end{aligned}
+\end{equation*}
+
+Тяхното отношение е:
+\[
+\frac{\frac{(n^2-1)!(n^2-2)!}{(n-1)!(n-2)!(n^2-n)!}}{\frac{(n^2-1)!(n^2-2)!}{n!(n-1)!(n^2-n-1)!}} = \frac{n!(n-1)!(n^2-n-1)!}{(n-1)!(n-2)!(n^2-n)!} = \frac{n(n-1)}{n^2-n}=1 \quad \text{(и тъй те са равни)}
+\]
+\end{proof}
+
+Числата на Лах със знак нямат стандартно означение. Дефинират се като $(-1)^n \lahfinal{n}{k}$. Оказва се, че те се явяват като коефициенти пред $x^{-n-k}$ при $n$-тата производна на $e^{\frac{1}{x}}$, разделена на $e^{\frac{1}{x}}$.[\href{http://math.pugetsound.edu/~mspivey/Exp.pdf}{Вижте тук}]
+
+\end{large}
+\end{document}
