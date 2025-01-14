@@ -9,7 +9,7 @@ as_matrix <- function(x){
 
 modeFunction <- function(x) {
   tt <- table(x)
-  return(as.double(names(tt)[tt == max(tt)]))    
+  return(as.double(names(tt)[tt == max(tt)]))
 }
 
 csex <- function(x) {
@@ -109,7 +109,7 @@ hister<-function(info,mname,xname,yname,hcol,xl,yl,xm,ym,xint,yint)
 {
   hist(info,main=mname,xlab=xname,ylab=yname,col=hcol,
        breaks=seq(xl,xm,xint),xlim=c(xl,xm),ylim=c(yl,ym))
-  
+
   axis(side=1,at=seq(xl,xm,xint))
   axis(side=2,at=seq(yl,ym,yint))
 }
@@ -118,7 +118,7 @@ histerw<-function(info,mname,xname,yname,hcol,xl,yl,xm,ym,xint,yint)
 {
   hist(info,main=mname,xlab=xname,ylab=yname,col=hcol,
        breaks = seq(xl,xm,xint),xlim=c(xl,xm),ylim=c(yl,ym))
-  
+
   axis(side=1, at=seq(xl,xm,2*xint))
   axis(side=2,at=seq(yl,ym,yint))
 }
@@ -290,11 +290,11 @@ scatterer<-function(info1,info2,mname,xname,yname,scol,
        xlim=c(xl,xm),ylim=c(yl,ym))
   axis(side=1,at=seq(xl,xm,2*xint))
   axis(side=2,at=seq(yl,ym,2*yint))
-  
+
   regression=lm(info2~info1)
   regsum=summary.lm(regression)
   pvalue=regsum$coefficients[2,4]
-  
+
   if(pvalue<=alpha) abline(regression,col=scol)
   else print("Linear regression is not significant")
 }

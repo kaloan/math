@@ -1,8 +1,8 @@
 \documentclass[bulgarian, 12pt]{article}
 \usepackage[
-	a4paper,
-	includeheadfoot,
-	margin = 1.5 cm]
+  a4paper,
+  includeheadfoot,
+  margin = 1.5 cm]
 {geometry}
 
 % Fonts
@@ -63,7 +63,7 @@
   %   \{t \in \mathbb{R} | \cap(f)_x(t) > c \} = \{t \in \mathbb{R} | f(x-t) > c \} =
   % \end{eqnarray*}
 
-  \item [(a), (б), (в)] Доказвайки (в), получаваме като следствие (б), понеже $h \in L(\mathbb(R), m) \iff |h| \in L(\mathbb{R}, m) \iff \norm{h}_L < \infty$. Забелязваме, че:
+\item [(a), (б), (в)] Доказвайки (в), получаваме като следствие (б), понеже $h \in L(\mathbb(R), m) \iff |h| \in L(\mathbb{R}, m) \iff \norm{h}_L < \infty$. Забелязваме, че:
   \begin{align*}
     & \norm{h}_L = \int_{\mathbb{R}} |h(x)| \dd m(t) = \int_{\mathbb{R}} \int_{\mathbb{R}} |f(x-t)g(t)| \dd m(t) \dd m(x) \leq \int_{\mathbb{R}} \int_{\mathbb{R}} |f(x-t)||g(t)| \dd m(t) \dd m(x) \overset{\text{Тонели}}{=} \\
     & \int_{\mathbb{R}} \int_{\mathbb{R}} |f(x-t)| \dd m(x) |g(t)| \dd m(t) \overset{\text{упътване}}{=}
@@ -75,7 +75,7 @@
     &\int_{\mathbb{R} \cross \mathbb{R}} |f(x-t)g(t)| \dd m(x) \cross m(t) \overset{\text{Тонели}}{=} \int_{\mathbb{R}} \int_{\mathbb{R}} |f(x-t)| |g(t)| \dd m(x) m(t) = \\
     & \int_{\mathbb{R}} \int_{\mathbb{R}} |f(x-t)| \dd m(x) |g(t)| \dd m(t) \overset{\text{вж. горе}}{<} \infty
   \end{align*}
-    Така имаме, че $|f(x-t)g(t)|$ е интегруема върху $\mathbb{R} \cross \mathbb{R}$, откъдето проекцията ѝ $h(x)$ е интегруема върху $\mathbb{R}$ за почти всяко $x$, т.е. имаме и (a).
+  Така имаме, че $|f(x-t)g(t)|$ е интегруема върху $\mathbb{R} \cross \mathbb{R}$, откъдето проекцията ѝ $h(x)$ е интегруема върху $\mathbb{R}$ за почти всяко $x$, т.е. имаме и (a).
   % За да може да приложим Тонели, ни трябва измеримостта на |f(x-t)g(t)|, но тя следва от тази на f(x-t)g(t).
 \end{labeling}
 \end{document}

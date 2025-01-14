@@ -69,21 +69,21 @@
 \usecolortheme[named=black]{structure}
 \beamertemplatenavigationsymbolsempty
 
-\DeclareFontShape{OT1}{cmss}{b}{n}{<->ssub * cmss/bx/n}{} 
+
 
 \title{Моделиране на нервни импулси}
 \subtitle{Проект по "Семинар по математическо моделиране"}
 \author{изготвил: Калоян Стоилов}
 \institute{Софийски университет "Св. Климент Охридски" \\ Факултет по математика и информатика}
 \institute{\textbf{\textit{СОФИЙСКИ УНИВЕРСИТЕТ \\ "СВ. КЛИМЕНТ ОХРИДСКИ"}}
-\begin{center}
-\includegraphics[width=1.2cm,height=1.5cm]{img/logo_su}
-\end{center}
-ФАКУЛТЕТ ПО МАТЕМАТИКА И ИНФОРМАТИКА
+  \begin{center}
+    \includegraphics[width=1.2cm,height=1.5cm]{img/logo_su}
+  \end{center}
+  ФАКУЛТЕТ ПО МАТЕМАТИКА И ИНФОРМАТИКА
 }
 
 % Roman numerals for sections
-\renewcommand{\thesection}{\Roman{section}} 
+\renewcommand{\thesection}{\Roman{section}}
 
 % Numbering of equations
 \newcommand\numberthis{\addtocounter{equation}{1}\tag{\theequation}}
@@ -94,9 +94,8 @@
 
 % Some stupid thing due to adding more than one language in babel and having to specify main
 \ifx\bulgarianhyphenmins\undefined
-	\def\bulgarianhyphenmins{2 2}
+\def\bulgarianhyphenmins{2 2}
 \fi
-
 
 % Bibliography resourse
 % \setbeamertemplate{bibliography entry title}{}
@@ -126,36 +125,36 @@
 \nocite{*}
 {
 
-\begin{frame}[noframenumbering, plain]
-\titlepage
-\end{frame}
+  \begin{frame}[noframenumbering, plain]
+    \titlepage
+  \end{frame}
 
 }
 
-\input{Histology}
-\input{Morphology}
-\input{Physiology}
-\input{Nernst}
-\input{Ghk}
-\input{Hodgkin-huxley}
-\input{Fitzhugh-nagumo}
-\input{Hindmarsh–rose}
+\input{histology}
+\input{morphology}
+\input{physiology}
+\input{nernst}
+\input{ghk}
+\input{hodgkin-huxley}
+\input{fitzhugh-nagumo}
+\input{hindmarsh–rose}
 
 {
-\begin{frame}[t]{Източници}
- \scriptsize{\bibliographystyle{plainnat}}
- \bibliography{neurons}
- %\bibliographystyle{amsalpha}
- %\printbibliography
- %\bibliography{neurons.bib}
- %\printbibliography  
-\end{frame}
+  \begin{frame}[t]{Източници}
+    \scriptsize{\bibliographystyle{plainnat}}
+    \bibliography{neurons}
+    %\bibliographystyle{amsalpha}
+    %\printbibliography
+    %\bibliography{neurons.bib}
+    %\printbibliography
+  \end{frame}
 
-\begin{frame}
-\begin{center}
-\textbf{Благодаря за вниманието}
-\end{center}
-\end{frame}
+  \begin{frame}
+    \begin{center}
+      \textbf{Благодаря за вниманието}
+    \end{center}
+  \end{frame}
 }
 
 \end{document}

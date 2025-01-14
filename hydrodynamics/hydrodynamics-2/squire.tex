@@ -2,27 +2,27 @@
 \section{Хидродинамична неустойчивост}
 Общата идея на понятието устойчивост е при малки смущения на някакво първоначално/равновесно състояние, с времето да не настъпят големи изменения спрямо него.
 В хидродинамиката неустойчивостта се наблюдава под формата на хаотични, привидно произволни изменения в потока, наречени турбуленция.
-Идеята на изследването на неустойчивостта е да се предвиди настъпването на промяна от ламинарен към турбулентен поток. 
+Идеята на изследването на неустойчивостта е да се предвиди настъпването на промяна от ламинарен към турбулентен поток.
 
 
 \subsection{Метод на нормалните моди}
 Линейният анализ на устойчивостта допуска съществуването на синусоидални смущения на някакво базово/първоначално/равновесно състояние.
 Например поток, успореден на $x$, но менящ се с $z$. Към този поток прилагаме смущение от вида:
 \begin{equation}
-	u(x, y, z, t) = \hat{u}(z) e^{ikx + imy + \sigma t} = \hat{u}(z) e^{i \norm{mathbf{K}}(\mathbf{e}_K \cdot \mathbf{x} - ct)}
+  u(x, y, z, t) = \hat{u}(z) e^{ikx + imy + \sigma t} = \hat{u}(z) e^{i \norm{mathbf{K}}(\mathbf{e}_K \cdot \mathbf{x} - ct)}
 \end{equation}
 Физически величини се получават от реалната част.
 $\hat{u}(z)$ е комплексна амплитуда, $\mathbf{K} = (k, m, 0)$ е вълновото число на смущението, $\mathbf{e}_K=\frac{\mathbf{K}}{\norm{\mathbf{K}}}$.
 $\mathbf{x} = (x, y, z)$, $c$ - комплексна фазова скорост, $\sigma$ - времеви темп на растежа.
-В случая в експонентата участват $x, y, t$, защото коефициентите в диференциалните уравнения, определящи смущенията са не зависят от тях. 
-Ако допуснем, че потокът е неограничен по $x$ и $y$, то $k$ и $m$ ще трябва да са реални. 
+В случая в експонентата участват $x, y, t$, защото коефициентите в диференциалните уравнения, определящи смущенията са не зависят от тях.
+Ако допуснем, че потокът е неограничен по $x$ и $y$, то $k$ и $m$ ще трябва да са реални.
 Така ще трябва $\sigma, c$ да са комплексни, за да са изпълнени гранични условия за $x, y$ в безкрайност.
 
 Ако $Re(\sigma)$ или $Im(c)$ са положителни за някоя стойност на вълновото число, то системата е неустойчива към неини смущения.
 \begin{itemize}
-	\item $Re(\sigma) < 0$ или $Im(c) < 0$ влекат устойчив поток.
-	\item $Re(\sigma) = 0$ или $Im(c) = 0$ влекат неутрално устойчив поток.
-	\item $Re(\sigma) > 0$ или $Im(c) > 0$ влекат неустойчив поток.
+  \item $Re(\sigma) < 0$ или $Im(c) < 0$ влекат устойчив поток.
+\t\t\item $Re(\sigma) = 0$ или $Im(c) = 0$ влекат неутрално устойчив поток.
+\t\t\item $Re(\sigma) > 0$ или $Im(c) > 0$ влекат неустойчив поток.
 \end{itemize}
 При метода на нормалните моди, всяка мода е независима и се разглежда отделно.
 Гранично състояние - когато сме на прага на устойчивост/неустойчивост, т.е. $Re(\sigma) = Im(c) = 0$.
@@ -35,98 +35,98 @@ $\mathbf{x} = (x, y, z)$, $c$ - комплексна фазова скорост
 Нека имаме основен поток насочен по $x$, като се изменя по $y$, тъй че $\mathbf{V}=(U(y), 0, 0)$.
 Разбиваме общия поток на сума от поток и пертурбация.
 \begin{equation*}
-	\tilde{\mathbf{u}} = (U + u, v, w), \quad \tilde{p} = P + p
+  
 \end{equation*}
 Тогава от уравненията на Навие-Стокс
 \begin{align*}
-	&\pdv{u}{t} + (U + u) \pdv{U + u}{x} + v \pdv{U + u}{y} + w \pdv{U + u}{z} = - \pdv{P + p}{x} + \nu \laplace (U + u) \\
-	&-\pdv{P}{x} + \nu \laplace U = 0
+  &\pdv{u}{t} + (U + u) \pdv{U + u}{x} + v \pdv{U + u}{y} + w \pdv{U + u}{z} = - \pdv{P + p}{x} + \nu \laplace (U + u) \\
+\t\t&-\pdv{P}{x} + \nu \laplace U = 0
 \end{align*}
 След изваждане на второто от първото и пренебрегване на нелинейни спрямо $U$ членове
 \begin{align*}
-	&\pdv{u}{t} + U \pdv{u}{x} + v \pdv{U}{y} = - \pdv{p}{x} + \nu \laplace (u) \\
+  &\pdv{u}{t} + U \pdv{u}{x} + v \pdv{U}{y} = - \pdv{p}{x} + \nu \laplace (u) \\
 \end{align*}
 Аналогично може да изведем за другите две компоненти:
 \begin{align*}
-	&\pdv{v}{t} + U \pdv{v}{x} = - \pdv{p}{y} + \nu \laplace (v) \\
-	&\pdv{w}{t} + U \pdv{w}{x} = - \pdv{p}{z} + \nu \laplace (w) \\
-	&\pdv{u}{x} + \pdv{v}{y} + \pdv{w}{z} = 0
+  &\pdv{v}{t} + U \pdv{v}{x} = - \pdv{p}{y} + \nu \laplace (v) \\
+\t\t&\pdv{w}{t} + U \pdv{w}{x} = - \pdv{p}{z} + \nu \laplace (w) \\
+\t\t&\pdv{u}{x} + \pdv{v}{y} + \pdv{w}{z} = 0
 \end{align*}
 Уравненията са линейни и коефициентите им зависят само от $y$, откъдето решенията ще са от вида:
 \begin{align*}
-	&\mathbf{u} = \hat{\mathbf{u}(y)} e^{i (k x + m z - k c t)} \\
-	&p = \hat{p}(y) e^{i (k x + m z - k c t)}
+  &\mathbf{u} = \hat{\mathbf{u}(y)} e^{i (k x + m z - k c t)} \\
+\t\t&p = \hat{p}(y) e^{i (k x + m z - k c t)}
 \end{align*}
 Компонентите на вълновото число $k$ и $m$ трябва да са реални, докато фазовата скорост $c = c_r + i c_i$.
 Това води до аналогичния запис:
 \begin{align*}
-\numberthis
-	&\mathbf{u} = \hat{\mathbf{u}}(y) e^{k c_i t} e^{i (k x + m z - k c_r t)} \\
-	&p = \hat{p}(y) e^{k c_i t} e^{i (k x + m z - k c_r t)}
+  \numberthis
+\t\t&\mathbf{u} = \hat{\mathbf{u}}(y) e^{k c_i t} e^{i (k x + m z - k c_r t)} \\
+\t\t&p = \hat{p}(y) e^{k c_i t} e^{i (k x + m z - k c_r t)}
 \end{align*}
 
 Ако фиксираме $x, z$, то пертурбацията извършва осцилации с честота $k c_r$, като имаме устойчивост за $c_i < 0$ и неустойчивост за $c_i > 0$.
-Сега остава да заместим в уравненията. 
+Сега остава да заместим в уравненията.
 Да припомним, че $\mathrm{Re}$ е числото на Рейнолдс и се дефинира като $\mathrm{Re} = \frac{U_0 L}{\nu}$ за някакви характеристични скорост $U_0$ и дължина $L$.
 Достигаме до:
 \begin{align*}
-\numberthis
-	&i k (U - c)\hat{u} + \hat{v}\dv{U}{y} = -i k p + \frac{U_0 L}{\mathrm{Re}}\left[\dv[2]{\hat{u}}{y} - (k^2 + m^2)\hat{u}\right] \\
-	&i k (U - c)\hat{v} = -\dv{\hat{p}}{y} + \frac{U_0 L}{\mathrm{Re}}\left[\dv[2]{\hat{v}}{y} - (k^2 + m^2)\hat{v}\right] \\
-	&i k (U - c)\hat{w} = -i m p + \frac{U_0 L}{\mathrm{Re}}\left[\dv[2]{\hat{w}}{y} - (k^2 + m^2)\hat{w}\right] \\
-	&i k \hat{u} + \dv{\hat{v}}{y} + i m \hat{w} = 0
+  \numberthis
+\t\t&i k (U - c)\hat{u} + \hat{v}\dv{U}{y} = -i k p + \frac{U_0 L}{\mathrm{Re}}\left[\dv[2]{\hat{u}}{y} - (k^2 + m^2)\hat{u}\right] \\
+\t\t&i k (U - c)\hat{v} = -\dv{\hat{p}}{y} + \frac{U_0 L}{\mathrm{Re}}\left[\dv[2]{\hat{v}}{y} - (k^2 + m^2)\hat{v}\right] \\
+\t\t&i k (U - c)\hat{w} = -i m p + \frac{U_0 L}{\mathrm{Re}}\left[\dv[2]{\hat{w}}{y} - (k^2 + m^2)\hat{w}\right] \\
+\t\t&i k \hat{u} + \dv{\hat{v}}{y} + i m \hat{w} = 0
 \end{align*}
 
 \begin{theorem}[Теорема на Скуайър]
-	За всяко тримерно неустойчиво смущение съществува по-неустойчиво двумерно смущение.
+  За всяко тримерно неустойчиво смущение съществува по-неустойчиво двумерно смущение.
 \end{theorem}
 
 \begin{proof}
-	Прилагаме тъй наречената трансформация на Скуайър:
-	\begin{align*}
-		&\bar{k} = \sqrt{k^2 + m^2}, \quad \bar{k}\bar{u} = k \hat{u} + m \hat{w} \\ 
-		&\frac{\bar{p}}{\bar{k}}=\frac{\hat{p}}{k}, \quad \bar{k}\bar{\mathrm{Re}} = k \mathrm{Re} \\
-		&\bar{c} = c, \quad \bar{v} = \hat{v}
-	\end{align*}
-	Когато $m \neq 0$, то $\bar{\mathrm{Re}} < \mathrm{Re}$. Събираме първото и третото от по-рано получените уравнения:
-	\begin{align*}
-	\numberthis
-		&i \bar{k} (U - c) \bar{u} + \bar{v}\dv{U}{y} = -i \bar{k} \bar{p} + \frac{U_0 L}{\bar{\mathrm{Re}}}\left[\dv[2]{\bar{u}}{y} - \bar{k}^2\bar{u}\right] \\
-		&i \bar{k} (U - c) \bar{v} = -\dv{\hat{p}}{y} + \frac{U_0 L}{\bar{\mathrm{Re}}}\left[\dv[2]{\bar{v}}{y} - \bar{k}\bar{v}\right] \\
-		&i \bar{k} \bar{u} + \dv{\bar{v}}{y} = 0
-	\end{align*}
-	Тъй като $\bar{\mathrm{Re}} < \mathrm{Re}$, то за този двумерен поток критичното число на Рейнолдс, където започва неустойчивостта, ще бъде достигнато преди това за тримерния.
+  Прилагаме тъй наречената трансформация на Скуайър:
+\t\t\begin{align*}
+\t\t  &\bar{k} = \sqrt{k^2 + m^2}, \quad \bar{k}\bar{u} = k \hat{u} + m \hat{w} \\
+\t\t  &\frac{\bar{p}}{\bar{k}}=\frac{\hat{p}}{k}, \quad \bar{k}\bar{\mathrm{Re}} = k \mathrm{Re} \\
+\t\t  &\bar{c} = c, \quad \bar{v} = \hat{v}
+\t\t\end{align*}
+\t\tКогато $m \neq 0$, то $\bar{\mathrm{Re}} < \mathrm{Re}$. Събираме първото и третото от по-рано получените уравнения:
+\t\t\begin{align*}
+\t\t  \numberthis
+\t\t  &i \bar{k} (U - c) \bar{u} + \bar{v}\dv{U}{y} = -i \bar{k} \bar{p} + \frac{U_0 L}{\bar{\mathrm{Re}}}\left[\dv[2]{\bar{u}}{y} - \bar{k}^2\bar{u}\right] \\
+\t\t  &i \bar{k} (U - c) \bar{v} = -\dv{\hat{p}}{y} + \frac{U_0 L}{\bar{\mathrm{Re}}}\left[\dv[2]{\bar{v}}{y} - \bar{k}\bar{v}\right] \\
+\t\t  &i \bar{k} \bar{u} + \dv{\bar{v}}{y} = 0
+\t\t\end{align*}
+\t\tТъй като $\bar{\mathrm{Re}} < \mathrm{Re}$, то за този двумерен поток критичното число на Рейнолдс, където започва неустойчивостта, ще бъде достигнато преди това за тримерния.
 \end{proof}
 
 Интерпретацията е следната. Тримерното смущение е вълна, разпространяваща се косо на равновесния поток.
 При правилна промяна на координатната система ($x$ да сочи в тази посока), то само по новата ос $x$ равновесния поток въздейства на смущението.
 Така е достатъчно да разглеждаме $m = \hat{\omega} = 0$.
 
-В новия двумерен поток е вече може да дефинираме фунцкия на тока $\psi(x,y,t)$. 
+В новия двумерен поток е вече може да дефинираме фунцкия на тока $\psi(x,y,t)$.
 След прилагане на метода на нормалните моди:
 \begin{align*}
-\numberthis
-	&u = \hat{u}(y) e^{i k (x - c t)} \\
-	&v = \hat{v}(y) e^{i k (x - c t)} \\
-	&\psi = \hat{\psi}(y) e^{i k (x - c t)} \\
+  \numberthis
+\t\t&u = \hat{u}(y) e^{i k (x - c t)} \\
+\t\t&v = \hat{v}(y) e^{i k (x - c t)} \\
+\t\t&\psi = \hat{\psi}(y) e^{i k (x - c t)} \\
 \end{align*}
 
 Лесно може да видим, че $\hat{u} = \pdv{\hat{\psi}}{y}$ и $\hat{v} = - i k \hat{\psi}$.
 Сега от първото уравнение за двумерния поток може да изразим $p$ и да заместим във второто.
 Използваме и тези формули и достигаме до ОДУ от четвърти ред спрямо $\hat{\psi}$, което е известно като уравнение на Ор-Зомерфелд:
 \begin{equation}
-	(U - c) (\dv[2]{\hat{\psi}}{y} - k^2 \hat{\psi}) - \dv[2]{U}{y}\hat{\psi} = \frac{\nu}{i k} (\dv[4]{\hat{\psi}}{y} - 2 k^2 \dv[2]{\hat{\psi}}{y} + k^4 \hat{\psi})
+  (U - c) (\dv[2]{\hat{\psi}}{y} - k^2 \hat{\psi}) - \dv[2]{U}{y}\hat{\psi} = \frac{\nu}{i k} (\dv[4]{\hat{\psi}}{y} - 2 k^2 \dv[2]{\hat{\psi}}{y} + k^4 \hat{\psi})
 \end{equation}
 За гранични условия имаме 2 варианта:
 \begin{itemize}
-	\item Ограничени между някакви $y_1$ и $y_2$ несмутени потоци: 
-		\begin{equation*}
-			\hat{\psi}\vert_{y=y_1} = \hat{\psi}\vert_{y=y_2} = \dv{\hat{\psi}}{y}\vert_{y=y_1} = \dv{\hat{\psi}}{y}\vert_{y=y_2} = 0
-		\end{equation*}
-	\item Неограничени несмутени потоци. За тях трябва приложените смущения да изчезват, отдалечавайки се от началото на координатната система: 
-		\begin{equation*}
-			\hat{\psi}\vert_{y=\infty} = \dv{\hat{\psi}}{y}\vert_{y=\infty} = 0
-		\end{equation*}
+  \item Ограничени между някакви $y_1$ и $y_2$ несмутени потоци:
+\t\t\begin{equation*}
+\t\t  \hat{\psi}\vert_{y=y_1} = \hat{\psi}\vert_{y=y_2} = \dv{\hat{\psi}}{y}\vert_{y=y_1} = \dv{\hat{\psi}}{y}\vert_{y=y_2} = 0
+\t\t\end{equation*}
+\t\t\item Неограничени несмутени потоци. За тях трябва приложените смущения да изчезват, отдалечавайки се от началото на координатната система:
+\t\t\begin{equation*}
+\t\t  \hat{\psi}\vert_{y=\infty} = \dv{\hat{\psi}}{y}\vert_{y=\infty} = 0
+\t\t\end{equation*}
 \end{itemize}
-Аналитични решения или тяхни свойства са намерени само за много прости потоци. 
+Аналитични решения или тяхни свойства са намерени само за много прости потоци.
 Това практически е уравнение за вихъра.

@@ -1,90 +1,93 @@
 %\section{Асимптотична устойчивост на $\mathbf{0}$}
 
 \begin{frame}[t]{Асимптотична устойчивост на $\mathbf{0}$}
-Ще разглеждаме вектор $\mathbf{x}(n)=(x_{1}(n),x_{2}(n))$. Нека означим динамиката, чрез избораженията $\mathbf{f}_{e}$ и $\mathbf{f}_{o}$, тъй че:
-\[\mathbf{x}(n+1) = \begin{dcases}
-        \mathbf{f}_{e}(\mathbf{x}(n)) & x \equiv 0 (mod \enspace 2) \\
-        \mathbf{f}_{o}(\mathbf{x}(n)) & x \equiv 1 (mod \enspace 2) \\
-    \end{dcases}\]
-Тогава ако n е четно, то $\mathbf{x}(n+2)=\mathbf{f}_{o}(\mathbf{x}(n+1))=\mathbf{f}_{o}(\mathbf{f}_{e}(\mathbf{x}(n))$. Тогава може да дефинираме нови динамики: \[\mathbf{y}(n+1)=\mathbf{f}_{y}(\mathbf{y}(n)), \quad \mathbf{f}_{y} = \mathbf{f}_{o} \circ \mathbf{f}_{e} \]
-\[\mathbf{z}(n+1)=\mathbf{f}_{z}(\mathbf{z}(n)), \quad \mathbf{f}_{z} = \mathbf{f}_{e} \circ \mathbf{f}_{o} \]
-След опростяване получаваме:
-$y_{1}(n+1)=\frac{\alpha_{1} a_{1} (1-d_{1}) y_{1}(n)}{(a_{1} \beta_{1} + b_{1}) y_{1}(n) + 1} + \frac{\alpha_{2} a_{2} d_{2} y_{2}(n)}{(a_{2} \beta_{2} + b_{2}) y_{2}(n) + 1}$ \\
-$y_{2}(n+1)=\frac{\alpha_{1} a_{1} d_{1} y_{1}(n)}{(a_{1} \beta_{1} + b_{1}) y_{1}(n) +1 } +
-\frac{\alpha_{2} a_{2} (1-d_{2}) y_{2}(n)}{(a_{2} \beta_{2} + b_{2}) y_{2}(n) + 1}$.
-\end{frame}
+  Ще разглеждаме вектор $\mathbf{x}(n)=(x_{1}(n),x_{2}(n))$. Нека означим динамиката, чрез избораженията $\mathbf{f}_{e}$ и $\mathbf{f}_{o}$, тъй че:
+  \[\mathbf{x}(n+1) =
+    \begin{dcases}
+      \mathbf{f}_{e}(\mathbf{x}(n)) & x \equiv 0 (mod \enspace 2) \\
+      \mathbf{f}_{o}(\mathbf{x}(n)) & x \equiv 1 (mod \enspace 2) \\
+  \end{dcases}\]
+  Тогава ако n е четно, то $\mathbf{x}(n+2)=\mathbf{f}_{o}(\mathbf{x}(n+1))=\mathbf{f}_{o}(\mathbf{f}_{e}(\mathbf{x}(n))$. Тогава може да дефинираме нови динамики: \[\mathbf{y}(n+1)=\mathbf{f}_{y}(\mathbf{y}(n)), \quad \mathbf{f}_{y} = \mathbf{f}_{o} \circ \mathbf{f}_{e} \]
+    \[\mathbf{z}(n+1)=\mathbf{f}_{z}(\mathbf{z}(n)), \quad \mathbf{f}_{z} = \mathbf{f}_{e} \circ \mathbf{f}_{o} \]
+    След опростяване получаваме:
+    $y_{1}(n+1)=\frac{\alpha_{1} a_{1} (1-d_{1}) y_{1}(n)}{(a_{1} \beta_{1} + b_{1}) y_{1}(n) + 1} + \frac{\alpha_{2} a_{2} d_{2} y_{2}(n)}{(a_{2} \beta_{2} + b_{2}) y_{2}(n) + 1}$ \\
+    $y_{2}(n+1)=\frac{\alpha_{1} a_{1} d_{1} y_{1}(n)}{(a_{1} \beta_{1} + b_{1}) y_{1}(n) +1 } +
+    \frac{\alpha_{2} a_{2} (1-d_{2}) y_{2}(n)}{(a_{2} \beta_{2} + b_{2}) y_{2}(n) + 1}$.
+  \end{frame}
 
-\begin{frame}[t]{Асимптотична устойчивост на $\mathbf{0}$}
+  \begin{frame}[t]{Асимптотична устойчивост на $\mathbf{0}$}
 
-За тази динамика получаваме Якобиан:
-\[J_{y}(\mathbf{y})=\left(
-\begin{array}{cc}
- \frac{\alpha_{1} a_{1} (1-d_{1})}{((a_{1} \beta_{1} + b_{1}) y_{1} + 1)^2} & \frac{\alpha_{2} a_{2} d_{2}}{((a_{2} \beta_{2} + b_{2}) y_{2} + 1)^2}
- \\
- \frac{\alpha_{1} a_{1} d_{1}}{((a_{1} \beta_{1} + b_{1}) y_{1} + 1)^2} & \frac{\alpha_{2} a_{2} (1-d_{2})}{((a_{2} \beta_{2} + b_{2}) y_{2} + 1)^2}
- \\
-\end{array}
-\right)\]
+    За тази динамика получаваме Якобиан:
+    \[J_{y}(\mathbf{y})=\left(
+        \begin{array}{cc}
+          \frac{\alpha_{1} a_{1} (1-d_{1})}{((a_{1} \beta_{1} + b_{1}) y_{1} + 1)^2} & \frac{\alpha_{2} a_{2} d_{2}}{((a_{2} \beta_{2} + b_{2}) y_{2} + 1)^2}
+          \\
+          \frac{\alpha_{1} a_{1} d_{1}}{((a_{1} \beta_{1} + b_{1}) y_{1} + 1)^2} & \frac{\alpha_{2} a_{2} (1-d_{2})}{((a_{2} \beta_{2} + b_{2}) y_{2} + 1)^2}
+          \\
+        \end{array}
+    \right)\]
 
-Неговите следа и детерминанта са съответно:
-\[\begin{array}{c}
-tr \, J_{y}(\mathbf{y}) = \frac{\alpha_{1} a_{1} (1-d_{1})}{((a_{1} \beta_{1} + b_{1}) y_{1} + 1)^2} +  \frac{\alpha_{2} a_{2} (1-d_{2})}{((a_{2} \beta_{2} + b_{2}) y_{2} + 1)^2} \\
-det \, J_{y}(\mathbf{y}) = \frac{\alpha_{1} \alpha_{2} a_{1} a_{2} (1 - d_{1} - d_{2})}
-{((a_{1} \beta_{1} + b_{1}) y_{1} + 1)^2 ((a_{2} \beta_{2} + b_{2}) y_{2} + 1)^2}
-\end{array}\]
+    Неговите следа и детерминанта са съответно:
+    \[
+      \begin{array}{c}
+        tr \, J_{y}(\mathbf{y}) = \frac{\alpha_{1} a_{1} (1-d_{1})}{((a_{1} \beta_{1} + b_{1}) y_{1} + 1)^2} +  \frac{\alpha_{2} a_{2} (1-d_{2})}{((a_{2} \beta_{2} + b_{2}) y_{2} + 1)^2} \\
+        det \, J_{y}(\mathbf{y}) = \frac{\alpha_{1} \alpha_{2} a_{1} a_{2} (1 - d_{1} - d_{2})}
+        {((a_{1} \beta_{1} + b_{1}) y_{1} + 1)^2 ((a_{2} \beta_{2} + b_{2}) y_{2} + 1)^2}
+    \end{array}\]
 
-Забелязваме, че:
-\[\begin{array}{c}
-tr \, J_{y}(\mathbf{0}) = \alpha_{1} a_{1} (1-d_{1}) + \alpha_{2} a_{2} (1-d_{2}) = \eta_{1} \\
-det \, J_{y}(\mathbf{0}) = \alpha_{1} \alpha_{2} a_{1} a_{2} (1 - d_{1} - d_{2}) =\eta_{2} - 1
-\end{array}\]
-При $\eta_{1} < \eta_{2} < 2$, то след отчитане на ограниченията над параметрите $\eta_{1} > 0  \Rightarrow \eta_{1} = \lvert \eta_{1} \rvert$.
+    Забелязваме, че:
+    \[
+      \begin{array}{c}
+        tr \, J_{y}(\mathbf{0}) = \alpha_{1} a_{1} (1-d_{1}) + \alpha_{2} a_{2} (1-d_{2}) = \eta_{1} \\
+        det \, J_{y}(\mathbf{0}) = \alpha_{1} \alpha_{2} a_{1} a_{2} (1 - d_{1} - d_{2}) =\eta_{2} - 1
+    \end{array}\]
+    При $\eta_{1} < \eta_{2} < 2$, то след отчитане на ограниченията над параметрите $\eta_{1} > 0  \Rightarrow \eta_{1} = \lvert \eta_{1} \rvert$.
 
-\end{frame}
+  \end{frame}
 
-\begin{frame}[t]{Асимптотична устойчивост на $\mathbf{0}$}
+  \begin{frame}[t]{Асимптотична устойчивост на $\mathbf{0}$}
 
-Но от изучаваното тогава имаме $\lvert tr \, J_{y}(\mathbf{0}) \rvert < 1 + det \, J_{y}(\mathbf{0}) < 2$ - достатъчно условие за \underline{локална} асимптотична устойчивост на $\mathbf{0}$. Така показахме, че $\lim\limits_{n \to \infty} \mathbf{y}(n) = \mathbf{0}$. Тогава за подредицата от стойности на първоначалната редица $\{\mathbf{x}(n)\}_{n=0}^{\infty}$, образувана от четните n  - $\{\mathbf{x}'(n)\}_{n=0}^{\infty}$ имаме, че членовете ѝ клонят към $\mathbf{0}$.
-Същото е вярно и за подредицата от нечетни n - $\{\mathbf{x}''(n)\}_{n=0}^{\infty}$.
+    Но от изучаваното тогава имаме $\lvert tr \, J_{y}(\mathbf{0}) \rvert < 1 + det \, J_{y}(\mathbf{0}) < 2$ - достатъчно условие за \underline{локална} асимптотична устойчивост на $\mathbf{0}$. Така показахме, че $\lim\limits_{n \to \infty} \mathbf{y}(n) = \mathbf{0}$. Тогава за подредицата от стойности на първоначалната редица $\{\mathbf{x}(n)\}_{n=0}^{\infty}$, образувана от четните n  - $\{\mathbf{x}'(n)\}_{n=0}^{\infty}$ имаме, че членовете ѝ клонят към $\mathbf{0}$.
+    Същото е вярно и за подредицата от нечетни n - $\{\mathbf{x}''(n)\}_{n=0}^{\infty}$.
 
-Първи начин да се покаже е чрез аналогични разсъждения за динамиката на $\mathbf{z}$. По-лесно обаче е, като се отчете $\mathbf{x}''(n)=\mathbf{f}_{e}(\mathbf{x}'(n))$. Тогава:
-\[x''_{1}(n)=x'_{1}(n)\frac{a_{1}}{1+b_{1} x'_{1}(n)}\]
-\[x''_{2}(n)=x'_{2}(n)\frac{a_{2}}{1+b_{2} x'_{2}(n)}\]
-Откъдето виждаме, че и $\lim\limits_{n \to \infty}\mathbf{x''}(n) = \mathbf{0}$, $\lim\limits_{n \to \infty}\mathbf{x}(n) = \mathbf{0}$.
+    Първи начин да се покаже е чрез аналогични разсъждения за динамиката на $\mathbf{z}$. По-лесно обаче е, като се отчете $\mathbf{x}''(n)=\mathbf{f}_{e}(\mathbf{x}'(n))$. Тогава:
+    \[x''_{1}(n)=x'_{1}(n)\frac{a_{1}}{1+b_{1} x'_{1}(n)}\]
+    \[x''_{2}(n)=x'_{2}(n)\frac{a_{2}}{1+b_{2} x'_{2}(n)}\]
+    Откъдето виждаме, че и $\lim\limits_{n \to \infty}\mathbf{x''}(n) = \mathbf{0}$, $\lim\limits_{n \to \infty}\mathbf{x}(n) = \mathbf{0}$.
 
-\end{frame}
+  \end{frame}
 
-\begin{frame}[t]{Асимптотична устойчивост на $\mathbf{0}$}
-Тези разсъждения бяха валидни в околност на стационарното решение $\mathbf{0}$, а ние търсим дали са в сила за произволни правдоподобни начални стойности на гъстотите. \\
-За да обобщим ще покажем с оценка на решенията на $\mathbf{y}$. \\
-Тъй като $y_{i}(n) \geq 0, a_{i} > 0, \beta_{i} > 0, b_{i}>0$, то:
-\[\frac{\alpha_{i} a_{i} c_{i} y_{i}(n)}{(a_{i} \beta_{i} + b_{i}) y_{i}(n) + 1} \leq
-\alpha_{i} a_{i} c_{i} y_{i}(n),\enspace c_{i}=d_{i},1-d_{i}, \enspace i=1,2\]
-Тогава $\forall{n} \; y_{i}(n) \leq Y_{i}(n)$, където:
+  \begin{frame}[t]{Асимптотична устойчивост на $\mathbf{0}$}
+    Тези разсъждения бяха валидни в околност на стационарното решение $\mathbf{0}$, а ние търсим дали са в сила за произволни правдоподобни начални стойности на гъстотите. \\
+    За да обобщим ще покажем с оценка на решенията на $\mathbf{y}$. \\
+    Тъй като $y_{i}(n) \geq 0, a_{i} > 0, \beta_{i} > 0, b_{i}>0$, то:
+    \[\frac{\alpha_{i} a_{i} c_{i} y_{i}(n)}{(a_{i} \beta_{i} + b_{i}) y_{i}(n) + 1} \leq
+    \alpha_{i} a_{i} c_{i} y_{i}(n),\enspace c_{i}=d_{i},1-d_{i}, \enspace i=1,2\]
+    Тогава $\forall{n} \; y_{i}(n) \leq Y_{i}(n)$, където:
 
-$Y_{1}(n+1)=\alpha_{1} a_{1} (1-d_{1}) Y_{1}(n) + \alpha_{2} a_{2} d_{2} Y_{2}(n), \enspace Y_{1}(0)=y_{1}(0)$ \\
-$Y_{2}(n+1)=\alpha_{1} a_{1} d_{1} Y_{1}(n) +
-\alpha_{2} a_{2} (1-d_{2}) Y_{2}(n), \enspace Y_{2}(0)=y_{2}(0)$
+    $Y_{1}(n+1)=\alpha_{1} a_{1} (1-d_{1}) Y_{1}(n) + \alpha_{2} a_{2} d_{2} Y_{2}(n), \enspace Y_{1}(0)=y_{1}(0)$ \\
+    $Y_{2}(n+1)=\alpha_{1} a_{1} d_{1} Y_{1}(n) +
+    \alpha_{2} a_{2} (1-d_{2}) Y_{2}(n), \enspace Y_{2}(0)=y_{2}(0)$
 
-\[J_{Y}(\mathbf{Y})=\left(
-\begin{array}{cc}
- \alpha_{1} a_{1} (1-d_{1}) & \alpha_{2} a_{2} d_{2}
- \\
- \alpha_{1} a_{1} d_{1} & \alpha_{2} a_{2} (1-d_{2})
- \\
-\end{array}
-\right)\]
+    \[J_{Y}(\mathbf{Y})=\left(
+        \begin{array}{cc}
+          \alpha_{1} a_{1} (1-d_{1}) & \alpha_{2} a_{2} d_{2}
+          \\
+          \alpha_{1} a_{1} d_{1} & \alpha_{2} a_{2} (1-d_{2})
+          \\
+        \end{array}
+    \right)\]
 
+    \[
+      \begin{array}{c}
+        tr \, J_{Y}(\mathbf{Y}) = \alpha_{1} a_{1} (1-d_{1}) + \alpha_{2} a_{2} (1-d_{2}) = \eta_{1}  \\
+        det \, J_{Y}(\mathbf{Y}) = \alpha_{1} \alpha_{2} a_{1} a_{2} (1 - d_{1} - d_{2}) = \eta_{2} - 1
+    \end{array}\]
 
-\[\begin{array}{c}
-tr \, J_{Y}(\mathbf{Y}) = \alpha_{1} a_{1} (1-d_{1}) + \alpha_{2} a_{2} (1-d_{2}) = \eta_{1}  \\
-det \, J_{Y}(\mathbf{Y}) = \alpha_{1} \alpha_{2} a_{1} a_{2} (1 - d_{1} - d_{2}) = \eta_{2} - 1
-\end{array}\]
+  \end{frame}
 
-\end{frame}
+  \begin{frame}[t]{Асимптотична устойчивост на $\mathbf{0}$}
+    $\lvert tr \, J_{Y}(\mathbf{0}) \rvert < 1 + det \, J_{Y}(\mathbf{0}) < 2$ - достатъчно условие за асимптотична устойчивост на $\mathbf{0}$ при тази динамика. Тъй като този модел е линеен, то устойчивостта е \underline{глобална}! \\
+    Но тогава $0 \leq y_{i}(n) \leq Y_{i}(n)$, което след граничен преход дава $0 \leq \lim\limits_{n \to \infty}y_{i}(n) \leq \lim\limits_{n \to \infty}Y_{i}(n)=0$, т.е. $\lim\limits_{n \to \infty}y_{i}(n)=0$. Оттук и $\lim\limits_{n \to \infty}x_{i}(n)=0$, след повтаряне на предишните разсъждения.
 
-\begin{frame}[t]{Асимптотична устойчивост на $\mathbf{0}$}
-$\lvert tr \, J_{Y}(\mathbf{0}) \rvert < 1 + det \, J_{Y}(\mathbf{0}) < 2$ - достатъчно условие за асимптотична устойчивост на $\mathbf{0}$ при тази динамика. Тъй като този модел е линеен, то устойчивостта е \underline{глобална}! \\
-Но тогава $0 \leq y_{i}(n) \leq Y_{i}(n)$, което след граничен преход дава $0 \leq \lim\limits_{n \to \infty}y_{i}(n) \leq \lim\limits_{n \to \infty}Y_{i}(n)=0$, т.е. $\lim\limits_{n \to \infty}y_{i}(n)=0$. Оттук и $\lim\limits_{n \to \infty}x_{i}(n)=0$, след повтаряне на предишните разсъждения.
-
-\end{frame}
+  \end{frame}
