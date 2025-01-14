@@ -1,7 +1,7 @@
 The same principle applies to voltage in cell biology. In electrically active tissue, the potential difference between any two points can be measured by inserting an electrode at each point, for example one inside and one outside the cell, and connecting both electrodes to the leads of what is in essence a specialized voltmeter. By convention, the zero potential value is assigned to the outside of the cell and the sign of the potential difference between the outside and the inside is determined by the potential of the inside relative to the outside zero.
 In mathematical terms, the definition of voltage begins with the concept of an electric field E, a vector field assigning a magnitude and direction to each point in space. In many situations, the electric field is a conservative field, which means that it can be expressed as the gradient of a scalar function V, that is, E = –∇V. This scalar field V is referred to as the voltage distribution. Note that the definition allows for an arbitrary constant of integration—this is why absolute values of voltage are not meaningful. In general, electric fields can be treated as conservative only if magnetic fields do not significantly influence them, but this condition usually applies well to biological tissue.
 	en.wikipedia.org/wiki/Membrane_potential
-	
+
 
 One of the most promising dividends of sequencing th e human genome has
 been the realization that one or a few genes, when altered (mutated), can
@@ -21,7 +21,7 @@ primates, including humans. Much of what is currently known about human
 vision is based on studies carried out in cats. Studies on invertebrates such as
 the squid and th e sea snail Aplysia californica yielded similarly critical insights
 into basic cell biology of neurons, synap ti c transmission, and synaptic plasticity
-(the basis of learning and memory). 	
+(the basis of learning and memory).
 Today biochemical, cellular, anatomical, physiological, and behavioral studies
 continue to be conducted on a wide range of animals. However, the complete
 sequencing of the genomes of a sma ll number of invertebrate, vertebrate, and
@@ -45,7 +45,7 @@ several essential functions in the developing and adult brain. They are also
 essential contributors to repair of the damaged nervous system-in some cases
 promoting regrowth of damaged neurons, and in others preventing such regen-
 eration (see Unit IV).
-Although many of these proteins-isoforms of actin, tubulin, myosin, and several others-are found in other cells, 
+Although many of these proteins-isoforms of actin, tubulin, myosin, and several others-are found in other cells,
 their distinctive organization in neurons is critical
 for the stability and function of neuronal processes and synaptic junctions. The
 various filaments, tubules, subcellular motors, and scaffolding proteins of the
@@ -53,10 +53,10 @@ neuronal cytoskeleton orchestrate many functions, including the growth of
 axons and dendrites; the trafficking and appropriate positioning of membrane
 components, organelles, and vesicles; and the active processes of exocytosis
 and endocytosis underlying synaptic communication. Understanding the ways
-in which these molecular components are used to insure the proper development 
+in which these molecular components are used to insure the proper development
 and function of neurons and glia remains a primary focus of modern neurobiology
 	Neuroscience
-	
+
 Relatively short axons are a feature of local circuit neurons, or intemeu-
 rons, throughout the brain. The axons of projection neurons, however, extend
 to distant targets. For example, the axons that run from the human spinal cord
@@ -68,7 +68,7 @@ The target cells of neurons-sites where axons termin ate and synapses are
 made-include other nerve cells in the brain, spinal cord, and autonomic gan -
 glia, as well as the cells of muscles and glands throughout the body.
 	Neuroscience
-	
+
 All nerve cells have a resting potential: the inside of the cell is negative with respect to the
 outside (extracellular) solution by a little less than a tenth of a volt. All electrical signals
 generated in nerve cells are superimposed on the resting potential. Some signals depolar-
@@ -90,12 +90,12 @@ along the axons of ganglion cells in the optic nerve from the eye to the lateral
 nucleus on the way to the cortex, or from a motor cell in the spinal cord to a muscle in the
 leg. Unlike local graded potentials, action potentials are fixed in amplitude and duration,
 like the dots in a code. Signal transmission through the retina can be summarized by the
-following simplified scheme: 
+following simplified scheme:
 Light → local graded signal in photoreceptor → local graded signaling
 bipolar cell → local graded potential in ganglion cell → action potential
 in ganglion cell → conduction to higher centers
 	From Neuron to Brain
-	
+
 The transmitter, the amino acid glutamate in this case, diffuses across the cleft to interact with specific protein
 molecules, known as receptors, which are embedded in the membranes of the postsynaptic
 bipolar cells. (This terminology can—but should not—lead to confusion: The term recep-
@@ -106,7 +106,7 @@ visualized by a variety of techniques, including antibody labeling and genetic t
 of so-called reporter constructs, which lead to the production of fluorescent proteins in
 cells expressing certain transcription factors.
 	From Neuron to Brain
-	
+
 For example, one class of glutamate receptors localized to certain bipolar cells reacts to glutamate to cause an excitatory
 signal (i.e., depolarization of the cell membrane). This signal spreads pas-
 sively to the bipolar cell terminals at the other end of the cell, where it causes
@@ -117,7 +117,7 @@ signal spreads along the bipolar cell, but in this case, it suppresses the relea
 of transmitter. Excitatory and inhibitory synaptic potentials in ganglion cells
 are shown in Figure 1.14.
 	From Neuron to Brain
-	
+
 Although synaptic transmission between most neurons involves the release of transmitter
 molecules, the membranes of many cells in the retina and in the rest of the nervous sys-
 tem are instead linked by specialized junctions. At such synapses electrical transmission
@@ -132,7 +132,7 @@ the processing of visual information in the retina. Electrical synapses are foun
 the CNS of vertebrates and invertebrates. They also connect non-neuronal cells of other
 tissues in the body.
 	From Neuron to Brain
-	
+
 • A signal in a photoreceptor indicates a change in light intensity in that area of the field
 of vision.
 • A signal in a ganglion cell indicates the presence of contrast.
@@ -206,7 +206,7 @@ Glutamate is the most important and prevalent excitatory neurotransmitter in the
 nervous system, activating three cation channel types (see Chapter 14).
 	From Neuron to Brain
 
-	
+
 Membrane Potentials in Squid Axons
 	From Neuron to Brain
 
@@ -218,7 +218,7 @@ constant of proportionality, γ, is called the channel conductance. It is a meas
 ability of the channel to pass current. For a particular applied voltage, a high conductance
 channel will carry a lot of current, while a low conductance channel will carry only a little.
 	From Neuron to Brain
-	
+
 Figure 4.7F illustrates that the potassium current through the channel depends on
 both the electrical potential across the membrane and on the potassium concentration
 gradient—that is, on the electrochemical gradient for potassium. Unlike the result when
@@ -233,10 +233,10 @@ potential (V) the driving force is (V–EK). The equilibrium potential depends o
 ion concentrations on either side of the membrane and not on the properties of the channel
 or the mechanism of ion permeation through the channel.
 	From Neuron to Brain
-	
+
 The Nernst Equation from Goldman equation
 	https://en.wikipedia.org/wiki/Goldman_equation
-	
+
 negative ions collected at the inner surface of the membrane, which
 is 1/100,000 the number in free solution
 	From Neuron to Brain
@@ -255,13 +255,13 @@ reason, ENa is called the reversal potential.
 
 The Constant Field Equation
 	From Neuron to Brain
-	
+
 The Resting Membrane Potential
 	From Neuron to Brain
-	
+
 GHK flux equation to Nernst equation when no flux is present
 	https://en.wikipedia.org/wiki/GHK_current_equation
-	
+
 An Electrical Model of the Membrane
 	From Neuron to Brain
 
@@ -274,20 +274,20 @@ direction, it lowers the potential. The overall effect of the sodium and potassi
 action potential followed by a negative overshoot; cf. Fig. 2.4A. The amplitude of the spike is
 about 100 mV.
 	Spiking neuron models single neurons, populations, plasticity
-	
+
 If the transport process is stopped, the electrogenic contribution disappears
 immediately and the membrane potential then declines gradually as the cell gains sodium
 and loses potassium.
 	From Neuron to Brain
-	
+
 Threshold and Refractory Period
 	From Neuron to Brain
-	
+
 Figures 1.2, 1.3, 5.1, 6.1
 	Neuroscience
 
 Figures 1.4, 1.2, 1.3, 1.7, 1.9, 1.12, 1.15, 1.16, 5.10, 6.6
 	Neuron to Brain
-	
+
 Figures 2.6
 	Spiking neuron models single neurons, populations, plasticity
