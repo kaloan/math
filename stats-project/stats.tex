@@ -40,6 +40,9 @@
 \usepackage{minted} % REQUIRES PYGMENTS: pip install Pygments
 \usepackage{listings}
 
+% Fix original date
+\usepackage{datetime}
+
 \lstset{frameround=fttt,language=R,numbers=left,breaklines=true}
 
 \selectlanguage{bulgarian}
@@ -64,50 +67,39 @@
   \hrule width \textwidth height 1pt % of the sum of this 1
 \kern 2pt}                         % and this 2
 
-\title{Статистически анализ на данни от кръвта на атлети}
-\author{Калоян Стоилов}
+\title{
+  \Huge \textbf{Статистически анализ на данни от кръвта на атлети} \\
+  \vspace{0.5cm}
+  \Large проект по \\ "Вероятности и статистика"
+}
+\author{Калоян Стоилов, ф.н. 81609, спец. КН, курс 3, група 5}
+\date{\formatdate{11}{5}{2020}}
 
 \begin{document}
 
+\makeatletter
 \begin{titlepage}
-
   \begin{center}
-    \begin{Huge}
-      \textbf{Статистически анализ на данни от кръвта на атлети}
-      \\
-    \end{Huge}
-    \vspace{0.5cm}
-    \begin{Large}
-      проект по \\ Вероятности и статистика
-    \end{Large}
-  \end{center}
-  \vspace{5cm}
-
-  \begin{flushleft}
-    \begin{Huge}
-      \textbf{Изготвил: Калоян Стоилов, ф.н. 81609, спец. КН, курс 3, група 5}
-    \end{Huge}
-  \end{flushleft}
-  \begin{Large}
+    {\bfseries  \@title}\\[4ex]
+    {\LARGE \@author}\\[50ex]
+    {\large \@date}\\[4ex]
+    \textbf{\textit{СОФИЙСКИ УНИВЕРСИТЕТ \\ "СВ. КЛИМЕНТ ОХРИДСКИ"}}
     \begin{center}
-      \vfill
-      \textbf{\textit{СОФИЙСКИ УНИВЕРСИТЕТ \\ "СВ. КЛИМЕНТ ОХРИДСКИ"}}
-  
-
-
-\includegraphics[width=3.5cm,height=4.5cm]{logo_su_s_nadpis_imagelarge}
-\\
-{\Large \textbf{ФАКУЛТЕТ ПО МАТЕМАТИКА И ИНФОРМАТИКА}}
-\\
-
-\end{center}
-\end{Large}
-
+      \includegraphics[width=1.2cm,height=1.5cm]{logo_su_s_nadpis_imagelarge}
+    \end{center}
+        ФАКУЛТЕТ ПО МАТЕМАТИКА И ИНФОРМАТИКА
+        \end{center}
 \end{titlepage}
+\makeatother
+\thispagestyle{empty}
+\newpage
 
 \begin{large}
 
-  \tableofcontents{}
+  \tableofcontents
+  \thispagestyle{empty}
+  \newpage
+  \setcounter{page}{1}
 
   \section{Информация за данните}
   Данните са взети от Rdatasets, Package DAAG, Item ais \footnote{Може да ги свалите от този URL: \url{https://vincentarelbundock.github.io/Rdatasets/csv/DAAG/ais.csv}}. Данните са относно австралийски атлети от различни дисциплини и са направени измервания на различни характеристики(концентрация червени/бели кръвни телца, маса, пол, спорт и т.н.). За целите на поставената задача се ограничаваме до изследване на номиналната категорийната променлива пол(\textit{sex}) с възможни стойности \textbf{мъж}(m) и \textbf{жена}(f), както и на двете непрекъснати числови променливи: маса без масата на мастната тъкан(още известна като LBM) в \textbf{кг}(\textit{lbm}); концентрация на бели кръвни телца в \textbf{$10^9$ за литър}(\textit{wcc}). \par
