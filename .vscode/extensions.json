@@ -1,0 +1,11 @@
+{
+    "recommendations": [
+        "James-Yu.latex-workshop",
+        "tecosaur.latex-utilities",
+        "christian-kohler.path-intellisense",
+        "solomonkinard.git-blame",
+        "eamodio.gitlens",
+        "donjayamanne.githistory",
+        "mechatroner.rainbow-csv"
+    ]
+}
